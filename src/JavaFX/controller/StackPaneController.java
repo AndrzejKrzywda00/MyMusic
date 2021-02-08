@@ -3,6 +3,7 @@ package JavaFX.controller;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
+import javafx.scene.control.CheckBox;
 import javafx.scene.input.MouseEvent;
 
 public class StackPaneController {
@@ -22,14 +23,19 @@ public class StackPaneController {
         // All starting configuration
     }
 
+    /*
     @FXML   // WARNING -- remember about importing right package!
     public void mouseEntered(MouseEvent e) {
         // Args let us take more data from running app
         System.out.println("najechano na przycisk -- " + e.toString() );
     }
+     */
 
     @FXML
     public void buttonClicked(ActionEvent e) {
         System.out.println("Naciśnięto przycisk -- " + e.getSource());
+        if (e.getSource() instanceof CheckBox) {
+            // we can check the actual source of overriden function in fxml editor
+        }
     }
 }
