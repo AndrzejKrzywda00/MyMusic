@@ -27,7 +27,7 @@ public class MyMusicGUI extends Application {
         // File is in 'FXML files' package
         // TODO -- add proper handling of IOException -- checking if fxml exists and is proper type
         // probably use 'try' on all code
-        loader.setLocation(this.getClass().getResource("/FXMLfiles/mainWindowSource.fxml"));
+        loader.setLocation(this.getClass().getResource("/FXMLfiles/loginWindowSource.fxml"));
 
         StackPane stackPane = loader.load();
 
@@ -43,7 +43,7 @@ public class MyMusicGUI extends Application {
          */
         primaryStage.getIcons().add( new Image("file:../res/logoMyMusic.ico"));     // it doesn't work for now
         primaryStage.setTitle("MyMusic");
-        primaryStage.setMaximized(true);
+        //primaryStage.setMaximized(true);
         primaryStage.show();
     }
 }
