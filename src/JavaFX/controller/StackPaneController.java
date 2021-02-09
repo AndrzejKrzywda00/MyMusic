@@ -55,9 +55,7 @@ public class StackPaneController {
         * it will finally have to be a callable window
         * by logout or as said
         * */
-        Stage loginWindow = new Stage();
-        loginWindow.setScene(new Scene(new Label("login")));
-        loginWindow.show();
+
     }
 
     /*
