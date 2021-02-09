@@ -5,9 +5,12 @@ import javafx.event.Event;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.CheckBox;
+import javafx.scene.control.Label;
 import javafx.scene.input.MouseEvent;
+import javafx.stage.Stage;
 
 import javax.swing.*;
 
@@ -45,10 +48,13 @@ public class StackPaneController {
 
         // 3rd option is to use direct method on button
         button.setOnAction( e -> {
-            // content of the handler
+            // handler content
         });
 
-
+        /* starting login widnow at the beggining of the lifetime of an application */
+        Stage loginWindow = new Stage();
+        loginWindow.setScene(new Scene(new Label("login")));
+        loginWindow.show();
     }
 
     /*

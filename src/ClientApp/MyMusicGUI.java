@@ -5,6 +5,7 @@ import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.image.Image;
 import javafx.scene.layout.StackPane;
 import javafx.stage.Stage;
 
@@ -34,7 +35,15 @@ public class MyMusicGUI extends Application {
         Scene scene = new Scene(stackPane);
 
         primaryStage.setScene(scene);
+
+        // global config of the app
+        /* this is primary stage of the application and here
+        will be held the main functionality
+        It will start some child windows
+         */
+        primaryStage.getIcons().add( new Image("file:../res/logoMyMusic.ico"));     // it doesn't work for now
         primaryStage.setTitle("MyMusic");
+        primaryStage.setMaximized(true);
         primaryStage.show();
     }
 }
