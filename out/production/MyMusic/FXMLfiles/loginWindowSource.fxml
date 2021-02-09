@@ -113,7 +113,7 @@
                   </Pane>
                </children>
             </GridPane>
-            <Rectangle arcHeight="50.0" arcWidth="50.0" fill="#199f10" height="70.0" layoutX="107.0" layoutY="347.0" stroke="TRANSPARENT" strokeType="INSIDE" width="241.0" />
+            <Rectangle fx:id="loginButton" arcHeight="50.0" arcWidth="50.0" fill="#199f10" height="70.0" layoutX="107.0" layoutY="347.0" stroke="TRANSPARENT" strokeType="INSIDE" width="241.0" />
             <Label layoutX="156.0" layoutY="360.0" prefHeight="44.0" prefWidth="158.0" text="ZALOGUJ" textFill="WHITE">
                <font>
                   <Font name="Arial Bold" size="29.0" />

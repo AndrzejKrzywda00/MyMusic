@@ -16,7 +16,7 @@
 <?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 
-<StackPane xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<StackPane xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="JavaFX.controller.LoginWindowController">
 <AnchorPane id="mainAnchorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="676.0" prefWidth="603.0" style="-fx-background-color: #d7ded9;" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1">
    <children>
       <Pane layoutX="67.0" layoutY="28.0" prefHeight="200.0" prefWidth="469.0" AnchorPane.leftAnchor="67.0" AnchorPane.rightAnchor="67.0">
@@ -113,7 +113,7 @@
                   </Pane>
                </children>
             </GridPane>
-            <Rectangle arcHeight="50.0" arcWidth="50.0" fill="#199f10" height="70.0" layoutX="107.0" layoutY="347.0" stroke="TRANSPARENT" strokeType="INSIDE" width="241.0" />
+            <Rectangle fx:id="loginButton" arcHeight="50.0" arcWidth="50.0" fill="#199f10" height="70.0" layoutX="107.0" layoutY="347.0" stroke="TRANSPARENT" strokeType="INSIDE" width="241.0" />
             <Label layoutX="156.0" layoutY="360.0" prefHeight="44.0" prefWidth="158.0" text="ZALOGUJ" textFill="WHITE">
                <font>
                   <Font name="Arial Bold" size="29.0" />

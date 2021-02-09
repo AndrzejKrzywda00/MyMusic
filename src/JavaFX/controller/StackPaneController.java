@@ -1,9 +1,10 @@
 package JavaFX.controller;
 
+import enums.Phase;
 import javafx.event.ActionEvent;
 import javafx.event.Event;
 import javafx.event.EventHandler;
-import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
@@ -18,5 +19,17 @@ public class StackPaneController {
 
     // This class is the controller of the main widow of the application
 
+    // properties
+
+    /* When user is not logged we can see only logging window, the main one is not visible
+    When user is logged - logging one is invisible
+     */
+    private Phase phase;    // has two states - user is logged or user is not logged
+
+    private Stage loginWindow;  // this is logging window and is owned via association by mainWindow
+
+    StackPaneController() {
+
+    }
 
 }
