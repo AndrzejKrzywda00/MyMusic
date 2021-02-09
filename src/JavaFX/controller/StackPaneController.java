@@ -1,10 +1,15 @@
 package JavaFX.controller;
 
 import javafx.event.ActionEvent;
+import javafx.event.Event;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.CheckBox;
 import javafx.scene.input.MouseEvent;
+
+import javax.swing.*;
 
 public class StackPaneController {
 
@@ -20,7 +25,30 @@ public class StackPaneController {
 
     @FXML
     void initialize() {
-        // All starting configuration
+
+        /* implementing 3 options to write event handlers to use in right context */
+
+        // 1 one is big but also quite clear and I can manipulate more with it
+        EventHandler<ActionEvent> handler = new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent actionEvent) {
+                // content of the handler
+            }
+        };
+        button.addEventHandler(ActionEvent.ACTION, handler);
+
+        // 2 option is by lambda
+        EventHandler<ActionEvent> lambdaHandler = e -> {
+          // content of the handler
+        };
+        button.addEventHandler(ActionEvent.ACTION, lambdaHandler);
+
+        // 3rd option is to use direct method on button
+        button.setOnAction( e -> {
+            // content of the handler
+        });
+
+
     }
 
     /*
@@ -31,11 +59,5 @@ public class StackPaneController {
     }
      */
 
-    @FXML
-    public void buttonClicked(ActionEvent e) {
-        System.out.println("Naciśnięto przycisk -- " + e.getSource());
-        if (e.getSource() instanceof CheckBox) {
-            // we can check the actual source of overriden function in fxml editor
-        }
-    }
+
 }
