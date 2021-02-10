@@ -15,11 +15,10 @@ import java.io.IOException;
 public class MyMusicGUI extends Application {
 
     // properties
-    private Phase phase;    // here we know in which phase app is
+    PhaseSynchronizer phaseSynch = PhaseSynchronizer.getInstance();    // an instance of PhaseSynchronizer is created to cope with phases
 
     // contructor
     public MyMusicGUI() {
-        phase = Phase.NotLogged;    // we start with not logged status
     }
 
     public static void main(String[] args) {
@@ -70,13 +69,6 @@ public class MyMusicGUI extends Application {
 
         // one window can be visible at a time
         // TODO - make this an extensible element -- possibly with some listeners
-        if ( this.phase == Phase.NotLogged ) {
-            loggingStage.show();
-        }
-        if ( this.phase == Phase.Logged ) {
-            loggingStage.close();
-            primaryStage.show();
-        }
 
 
     }

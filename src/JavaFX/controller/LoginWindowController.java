@@ -46,10 +46,10 @@ public class LoginWindowController {
         /* Parse data and check if it is correct */
         if ( password.equals(passwordTextField.getText()) && login.equals(loginTextField.getText())) {
             System.out.println("Udało się zalogować do systemu!");
-            
+
         }
         else {
-            System.out.println("Odmowa dostępu!");
+            // type informationa ab. wrong pasword or worng email using new fxml file
         }
     }
 
@@ -79,7 +79,8 @@ public class LoginWindowController {
         /* Direct user to registration form */
     }
 
-    // TODO -- connetct my two windows with some logic
+    // TODO -- make an option to show password & make an emeregncy window to show up when login failed
+    // also add links and labels to registration and main logo
 
     public LoginWindowController() {
 
