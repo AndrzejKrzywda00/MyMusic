@@ -7,14 +7,17 @@ import javafx.event.Event;
 import javafx.event.EventHandler;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.CheckBox;
 import javafx.scene.control.Label;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.StackPane;
 import javafx.stage.Stage;
 
 import javax.swing.*;
+import java.io.IOException;
 
 public class MainWindowController {
 
@@ -35,6 +38,20 @@ public class MainWindowController {
 
     void initialize() {
 
+    }
+
+    // adding method for setting other fxmls into main one
+    public void setCenter(String fxmlPath) {
+        FXMLLoader loader = new FXMLLoader(this.getClass().getResource(fxmlPath));
+        // accessing and bundling the resources
+        Parent parent = null;
+        try {
+            parent = loader.load();
+        } catch (IOException error) {
+            error.printStackTrace();
+        }
+        // here add this to main pane via
+        // ...Pane.setCenter(parent);
     }
 
 }

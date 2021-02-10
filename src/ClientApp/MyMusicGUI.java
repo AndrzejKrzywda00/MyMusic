@@ -45,7 +45,13 @@ public class MyMusicGUI extends Application {
         // probably use 'try' on all code
         loader.setLocation(this.getClass().getResource(MAIN_WINDOW_FXML_PATH));
 
-        StackPane stackPane = loader.load();
+        StackPane stackPane = null;
+        
+        try {
+            stackPane = loader.load();  // this throws IOException if there is problem in fxml file
+        } catch (IOException error) {
+            error.printStackTrace();
+        }
 
         MainWindowController controller = loader.getController();
         Scene scene = new Scene(stackPane);
