@@ -4,6 +4,7 @@ package JavaFX.controller;
 import Colors.LoginButtonColors;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
+import javafx.scene.image.ImageView;
 import javafx.scene.layout.Pane;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
@@ -12,12 +13,14 @@ import javafx.scene.control.Button;
 
 public class LoginWindowController {
 
+    // TODO -- fill string magic values with proper resource bundles in two languages
+
     private Color defaultLogin;
     private Color defaultRegistration;
 
     private String password = "jebacpis";
     private String login = "Andrzej";
-    private String emptyString = "";
+    private static final String EMPTY_STRING = "";
 
     private LoginButtonColors probe = new LoginButtonColors();
 
@@ -49,7 +52,19 @@ public class LoginWindowController {
     @FXML
     Rectangle passwordTextRectangle;
 
+    @FXML
+    ImageView tickRememberMe;   // image of the tick
+
+    @FXML
+    Button rememberMeButton;    // button covering 'remember me' text and box
+
+    @FXML
     void initialize() {
+
+        rememberMeButton.setOnAction( e -> {
+            int newOpacity = tickRememberMe.getOpacity() == 0 ? 1 : 0;
+            tickRememberMe.setOpacity(newOpacity);
+        });
     }
 
     @FXML
@@ -67,8 +82,8 @@ public class LoginWindowController {
             passwordTextRectangle.setStroke(Color.RED);
             passwordTextRectangle.setStrokeWidth(2);
         }
-        passwordTextField.setText(emptyString);
-        loginTextField.setText(emptyString);
+        passwordTextField.setText(EMPTY_STRING);
+        loginTextField.setText(EMPTY_STRING);
     }
 
     @FXML
