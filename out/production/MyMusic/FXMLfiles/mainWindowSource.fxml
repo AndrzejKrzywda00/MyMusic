@@ -7,42 +7,71 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.shape.Line?>
 <?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 
-<StackPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1080.0" prefWidth="1920.0" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="JavaFX.controller.StackPaneController">
-   <children>
-      <SplitPane dividerPositions="0.8103214124038026" prefHeight="160.0" prefWidth="200.0">
-        <items>
-          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="565.0" prefWidth="571.0">
-               <children>
-                  <ImageView fitHeight="1088.0" fitWidth="1560.0" layoutX="-6.0" layoutY="-4.0" pickOnBounds="true">
-                     <image>
-                        <Image url="@../../res/img/mainThemeBackground.jpg" />
-                     </image>
-                  </ImageView>
-                  <Pane layoutX="276.0" layoutY="79.0" prefHeight="309.0" prefWidth="859.0" AnchorPane.leftAnchor="346.0" AnchorPane.rightAnchor="346.0">
-                     <children>
-                        <Label layoutX="74.0" layoutY="-17.0" prefHeight="225.0" prefWidth="757.0" text="Witaj w aplikacji" textAlignment="CENTER">
-                           <font>
-                              <Font name="Arial Bold" size="96.0" />
-                           </font>
-                        </Label>
-                        <Label layoutX="240.0" layoutY="160.0" style="-fx-background-color: ;" text="MyMusic">
-                           <font>
-                              <Font name="Gabriola" size="150.0" />
-                           </font>
-                        </Label>
-                     </children>
-                  </Pane>
-                  <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#eff5c4" height="408.0" layoutX="137.0" layoutY="448.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="2.0" width="291.0" />
-                  <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#eff5c4" height="408.0" layoutX="491.0" layoutY="445.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="2.0" width="291.0" />
-                  <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#eff5c4" height="408.0" layoutX="827.0" layoutY="445.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="2.0" width="291.0" />
-                  <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#eff5c4" height="408.0" layoutX="1171.0" layoutY="442.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="2.0" width="291.0" />
-               </children>
-            </AnchorPane>
-          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0" />
-        </items>
-      </SplitPane>
-   </children>
+<StackPane maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="1080.0" prefWidth="1920.0" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="JavaFX.controller.StackPaneController">
+    <SplitPane dividerPositions="0.8103214124038026" prefHeight="160.0" prefWidth="200.0">
+        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="565.0" prefWidth="571.0">
+            <ImageView fitHeight="1076.0" fitWidth="1558.0" pickOnBounds="true">
+                <Image url="@../../res/img/mainThemeBackgorund.jpg" />
+            </ImageView>
+            <Pane id="mainMenuTitle" layoutX="133.0" layoutY="65.0" prefHeight="403.0" prefWidth="1130.0" AnchorPane.leftAnchor="133.0" AnchorPane.rightAnchor="288.0">
+               <ImageView fitHeight="240.0" fitWidth="224.0" layoutX="833.0" layoutY="43.0" pickOnBounds="true" preserveRatio="true">
+                   <Image url="@../../res/img/logoMyMusic.png" />
+               </ImageView>
+                <Label layoutX="74.0" layoutY="-17.0" prefHeight="225.0" prefWidth="757.0" text="Witaj w aplikacji" textAlignment="CENTER">
+                    <font>
+                        <Font name="Arial Bold" size="82.0" />
+                    </font>
+                </Label>
+                <Label layoutX="220.0" layoutY="143.0" text="MyMusic">
+                    <font>
+                        <Font name="Gabriola" size="120.0" />
+                    </font>
+                </Label>
+            <Label layoutX="120.0" layoutY="325.0" prefHeight="63.0" prefWidth="884.0" text="Zacznij odkrywać możliwości aplikacji!">
+               <font>
+                  <Font name="Arial Bold" size="46.0" />
+               </font>
+            </Label>
+            <Line endX="-27.79998779296875" endY="-209.40000915527344" layoutX="793.0" layoutY="219.0" startX="-27.79998779296875" startY="78.60003662109375" strokeWidth="3.0" />
+            </Pane>
+         <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="416.0" layoutX="161.0" layoutY="540.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="2.0" width="258.0" />
+         <ImageView fitHeight="202.0" fitWidth="192.0" layoutX="194.0" layoutY="582.0" pickOnBounds="true" preserveRatio="true">
+            <image>
+               <Image url="@../../res/img/plusSign.png" />
+            </image>
+         </ImageView>
+         <Label layoutX="194.0" layoutY="730.0" prefHeight="198.0" prefWidth="206.0" text="Dodaj nowy&#10;utwór" textAlignment="CENTER">
+            <font>
+               <Font name="Arial Bold" size="35.0" />
+            </font>
+         </Label>
+         <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="416.0" layoutX="497.0" layoutY="540.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="2.0" width="258.0" />
+         <ImageView fitHeight="179.0" fitWidth="240.0" layoutX="537.0" layoutY="589.0" pickOnBounds="true" preserveRatio="true">
+            <image>
+               <Image url="@../../res/img/minusSign.png" />
+            </image>
+         </ImageView>
+         <Label layoutX="577.0" layoutY="766.0" text="Usuń&#10;utwór&#10;z listy" textAlignment="CENTER">
+            <font>
+               <Font name="Arial Bold" size="35.0" />
+            </font>
+         </Label>
+         <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="416.0" layoutX="833.0" layoutY="540.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="2.0" width="258.0" />
+         <ImageView fitHeight="198.0" fitWidth="216.0" layoutX="885.0" layoutY="568.0" pickOnBounds="true" preserveRatio="true">
+            <image>
+               <Image url="@../../res/img/playListSymbol.png" />
+            </image>
+         </ImageView>
+         <Label layoutX="887.0" layoutY="749.0" prefHeight="158.0" prefWidth="150.0" text="Stwórz&#10;nową&#10;playlistę" textAlignment="CENTER">
+            <font>
+               <Font name="Arial Bold" size="35.0" />
+            </font>
+         </Label>
+        </AnchorPane>
+        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="1078.0" prefWidth="478.0" />
+    </SplitPane>
 </StackPane>

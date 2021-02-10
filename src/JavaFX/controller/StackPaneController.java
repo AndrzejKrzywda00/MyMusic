@@ -28,7 +28,11 @@ public class StackPaneController {
 
     private Stage loginWindow;  // this is logging window and is owned via association by mainWindow
 
-    StackPaneController() {
+    public StackPaneController() {
+        // warning - constructor must be public
+    }
+
+    void initialize() {
 
     }
 

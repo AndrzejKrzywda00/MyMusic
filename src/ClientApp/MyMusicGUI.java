@@ -32,7 +32,7 @@ public class MyMusicGUI extends Application {
         StackPane stackPane = loader.load();
 
         StackPaneController controller = loader.getController();
-        Scene scene = new Scene(stackPane);
+        Scene scene = new Scene(stackPane,1920,1080);
 
         primaryStage.setScene(scene);
 
@@ -42,9 +42,12 @@ public class MyMusicGUI extends Application {
         It will start some child windows
          */
         Image icon = new Image("logoMyMusicSmall.png"); //resource must be 32x32 or smaller but 64x64 is too big
+        primaryStage.sizeToScene();
         primaryStage.getIcons().add(icon);
         primaryStage.setTitle("MyMusic");
         primaryStage.setMaximized(true);
         primaryStage.show();
+
+        
     }
 }
