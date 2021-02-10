@@ -21,6 +21,9 @@ public class MyMusicGUI extends Application {
 
     // properties
     PhaseSynchronizer phaseSynch = PhaseSynchronizer.getInstance();    // an instance of PhaseSynchronizer is created to cope with phases
+    // constant data for this class
+    public static final String MAIN_WINDOW_FXML_PATH = "/FXMLfiles/mainWindowSource.fxml";
+    public static final String LOGIN_WINDOW_FXML_PATH = "/FXMLfiles/loginWindowSource.fxml";
 
     // contructor
     public MyMusicGUI() {
@@ -40,7 +43,7 @@ public class MyMusicGUI extends Application {
         // File is in 'FXML files' package
         // TODO -- add proper handling of IOException -- checking if fxml exists and is proper type
         // probably use 'try' on all code
-        loader.setLocation(this.getClass().getResource("/FXMLfiles/mainWindowSource.fxml"));
+        loader.setLocation(this.getClass().getResource(MAIN_WINDOW_FXML_PATH));
 
         StackPane stackPane = loader.load();
 
@@ -54,7 +57,7 @@ public class MyMusicGUI extends Application {
         will be held the main functionality
         It will start some child windows
          */
-        Image icon = new Image("logoMyMusicSmall.png"); //resource must be 32x32 or smaller but 64x64 is too big
+        Image icon = new Image("logoMyMusicSmall.png");     //resource must be 32x32 or smaller but 64x64 is too big
         primaryStage.sizeToScene();
         primaryStage.getIcons().add(icon);
         primaryStage.setTitle("MyMusic");
@@ -63,7 +66,7 @@ public class MyMusicGUI extends Application {
 
         // generating logging window
         Stage loggingStage = new Stage();
-        FXMLLoader loginLoader = new FXMLLoader(getClass().getResource("/FXMLfiles/loginWindowSource.fxml"));
+        FXMLLoader loginLoader = new FXMLLoader(getClass().getResource(LOGIN_WINDOW_FXML_PATH));
         StackPane loginPane = loginLoader.load();
         Scene logingScene = new Scene(loginPane);
         loggingStage.setScene(logingScene);
