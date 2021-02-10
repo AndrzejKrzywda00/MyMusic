@@ -62,12 +62,12 @@
                         <Font name="Arial Bold" size="29.0" />
                      </font>
                   </Label>
+                  <Rectangle arcHeight="100.0" arcWidth="65.0" fill="#bfc9ca" height="60.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="379.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
                   <Rectangle arcHeight="100.0" arcWidth="65.0" fill="#bfc9ca" height="60.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="379.0" GridPane.columnIndex="1">
                      <GridPane.margin>
                         <Insets />
                      </GridPane.margin>
                   </Rectangle>
-                  <Rectangle arcHeight="100.0" arcWidth="65.0" fill="#bfc9ca" height="60.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="379.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
                   <ImageView fitHeight="38.0" fitWidth="38.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="1">
                      <image>
                         <Image url="@../../res/img/loginIcon.png" />

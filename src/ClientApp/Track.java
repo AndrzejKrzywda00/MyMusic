@@ -2,6 +2,7 @@ package ClientApp;
 
 import java.util.Date;
 import enums.*;
+import javafx.scene.image.Image;
 
 public class Track {
 
@@ -16,8 +17,9 @@ public class Track {
     private String description;     // description of the track added by user
     private Origin origin;          // auto property added by program to know type of archivisation
     private Source source;          // source tells where to look for the actual track
+    private Image img;              // just the thumbnail
 
-    /*private Image img;*/          // just the thumbnail
+
 
 }
 

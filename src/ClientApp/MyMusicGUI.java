@@ -65,11 +65,13 @@ public class MyMusicGUI extends Application {
         loggingStage.sizeToScene();
         loggingStage.getIcons().add(icon);
         loggingStage.setTitle("Zaloguj do MyMusic");
-        //loggingStage.show();
+        loggingStage.show();
 
         // one window can be visible at a time
         // TODO - make this an extensible element -- possibly with some listeners
 
+        phaseSynch.setPrmiaryStage(primaryStage);
+        phaseSynch.setLoggingStage(loggingStage);
 
     }
 }

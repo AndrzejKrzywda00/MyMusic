@@ -1,6 +1,7 @@
 package ClientApp;
 
 import enums.Phase;
+import javafx.stage.Stage;
 
 public final class PhaseSynchronizer {
 
@@ -14,6 +15,8 @@ public final class PhaseSynchronizer {
 
     // properties
     private Phase phase;
+    private Stage loggingStage;
+    private Stage primaryStage;
 
     private PhaseSynchronizer() {
         this.phase = Phase.NotLogged;   // be default user is not logged
@@ -36,5 +39,14 @@ public final class PhaseSynchronizer {
     public void setNotLoggedPhase() {
         this.phase = Phase.NotLogged;
     }
+
+    public void setPrmiaryStage(Stage primaryStage) {
+        this.primaryStage = primaryStage;
+    }
+
+    public void setLoggingStage(Stage loggingStage) {
+        this.loggingStage = loggingStage;
+    }
+
 
 }
