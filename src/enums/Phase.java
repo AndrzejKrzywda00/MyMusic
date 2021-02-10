@@ -10,10 +10,15 @@ public enum Phase {
 
     // properties
     public final int index;
-    public final String phase;
 
-    Phase(int index, String phase) {
+    public String getPhaseName() {
+        return phaseName;
+    }
+
+    public final String phaseName;
+
+    Phase(int index, String phaseName) {
         this.index = index;
-        this.phase = phase;
+        this.phaseName = phaseName;
     }
 }

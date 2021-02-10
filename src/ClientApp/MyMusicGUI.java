@@ -1,6 +1,7 @@
 package ClientApp;
 
 import JavaFX.controller.StackPaneController;
+import enums.Phase;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
@@ -12,6 +13,14 @@ import javafx.stage.Stage;
 import java.io.IOException;
 
 public class MyMusicGUI extends Application {
+
+    // properties
+    private Phase phase;    // here we know in which phase app is
+
+    // contructor
+    public MyMusicGUI() {
+        phase = Phase.NotLogged;    // we start with not logged status
+    }
 
     public static void main(String[] args) {
         launch(args);
@@ -32,7 +41,7 @@ public class MyMusicGUI extends Application {
         StackPane stackPane = loader.load();
 
         StackPaneController controller = loader.getController();
-        Scene scene = new Scene(stackPane,1920,1080);
+        Scene scene = new Scene(stackPane);
 
         primaryStage.setScene(scene);
 
@@ -46,7 +55,28 @@ public class MyMusicGUI extends Application {
         primaryStage.getIcons().add(icon);
         primaryStage.setTitle("MyMusic");
         primaryStage.setMaximized(true);
-        primaryStage.show();
+        //primaryStage.show();
+
+        // generating logging window
+        Stage loggingStage = new Stage();
+        FXMLLoader loginLoader = new FXMLLoader(getClass().getResource("/FXMLfiles/loginWindowSource.fxml"));
+        StackPane loginPane = loginLoader.load();
+        Scene logingScene = new Scene(loginPane);
+        loggingStage.setScene(logingScene);
+        loggingStage.sizeToScene();
+        loggingStage.getIcons().add(icon);
+        loggingStage.setTitle("Zaloguj do MyMusic");
+        //loggingStage.show();
+
+        // one window can be visible at a time
+        // TODO - make this an extensible element -- possibly with some listeners
+        if ( this.phase == Phase.NotLogged ) {
+            loggingStage.show();
+        }
+        if ( this.phase == Phase.Logged ) {
+            loggingStage.close();
+            primaryStage.show();
+        }
 
 
     }
