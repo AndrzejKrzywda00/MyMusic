@@ -48,6 +48,6 @@ public class MyMusicGUI extends Application {
         primaryStage.setMaximized(true);
         primaryStage.show();
 
-        
+
     }
 }

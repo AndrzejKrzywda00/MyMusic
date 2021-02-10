@@ -9,7 +9,15 @@ public class User {
 
     private String name;
     private String login;
-    private String password;    // not sure if this is necessary
     private Image avatar;
+
+    public String getName() {
+        return this.name;
+    }
+
+    public String getLogin() {
+        return this.login;
+    }
+
 
 }

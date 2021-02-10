@@ -38,7 +38,7 @@
             </Label>
             <Line endX="-27.79998779296875" endY="-209.40000915527344" layoutX="793.0" layoutY="219.0" startX="-27.79998779296875" startY="78.60003662109375" strokeWidth="3.0" />
             </Pane>
-         <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="416.0" layoutX="161.0" layoutY="540.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="2.0" width="258.0" />
+         <Rectangle arcHeight="50.0" arcWidth="50.0" fill="WHITE" height="416.0" layoutX="161.0" layoutY="540.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="2.0" width="258.0" />
          <ImageView fitHeight="202.0" fitWidth="192.0" layoutX="194.0" layoutY="582.0" pickOnBounds="true" preserveRatio="true">
             <image>
                <Image url="@../../res/img/plusSign.png" />
@@ -49,7 +49,7 @@
                <Font name="Arial Bold" size="35.0" />
             </font>
          </Label>
-         <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="416.0" layoutX="497.0" layoutY="540.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="2.0" width="258.0" />
+         <Rectangle arcHeight="50.0" arcWidth="50.0" fill="WHITE" height="416.0" layoutX="497.0" layoutY="540.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="2.0" width="258.0" />
          <ImageView fitHeight="179.0" fitWidth="240.0" layoutX="537.0" layoutY="589.0" pickOnBounds="true" preserveRatio="true">
             <image>
                <Image url="@../../res/img/minusSign.png" />
@@ -60,7 +60,7 @@
                <Font name="Arial Bold" size="35.0" />
             </font>
          </Label>
-         <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="416.0" layoutX="833.0" layoutY="540.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="2.0" width="258.0" />
+         <Rectangle arcHeight="50.0" arcWidth="50.0" fill="WHITE" height="416.0" layoutX="833.0" layoutY="540.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="2.0" width="258.0" />
          <ImageView fitHeight="198.0" fitWidth="216.0" layoutX="885.0" layoutY="568.0" pickOnBounds="true" preserveRatio="true">
             <image>
                <Image url="@../../res/img/playListSymbol.png" />
