@@ -1,11 +1,16 @@
+/*
+Application My Music
+Developed by Andrzej Krzywda
+Date : February 2021
+Release : 1.0.0
+ */
+
 package ClientApp;
 
-import JavaFX.controller.StackPaneController;
-import enums.Phase;
+import JavaFX.controller.MainWindowController;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
 import javafx.scene.image.Image;
 import javafx.scene.layout.StackPane;
 import javafx.stage.Stage;
@@ -39,7 +44,7 @@ public class MyMusicGUI extends Application {
 
         StackPane stackPane = loader.load();
 
-        StackPaneController controller = loader.getController();
+        MainWindowController controller = loader.getController();
         Scene scene = new Scene(stackPane);
 
         primaryStage.setScene(scene);

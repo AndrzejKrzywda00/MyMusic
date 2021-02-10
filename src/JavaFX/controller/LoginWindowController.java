@@ -4,6 +4,7 @@ package JavaFX.controller;
 import Colors.LoginButtonColors;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
+import javafx.scene.layout.Pane;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
 import javafx.fxml.FXML;
@@ -16,6 +17,7 @@ public class LoginWindowController {
 
     private String password = "jebacpis";
     private String login = "Andrzej";
+    private String emptyString = "";
 
     private LoginButtonColors probe = new LoginButtonColors();
 
@@ -38,6 +40,15 @@ public class LoginWindowController {
     @FXML
     TextField loginTextField;
 
+    @FXML
+    Pane loginFailedPane;
+
+    @FXML
+    Rectangle loginTextRectangle;
+
+    @FXML
+    Rectangle passwordTextRectangle;
+
     void initialize() {
     }
 
@@ -50,7 +61,14 @@ public class LoginWindowController {
         }
         else {
             // type informationa ab. wrong pasword or worng email using new fxml file
+            loginFailedPane.setOpacity(1.0);    // now fully visible
+            loginTextRectangle.setStroke(Color.RED);
+            loginTextRectangle.setStrokeWidth(2);
+            passwordTextRectangle.setStroke(Color.RED);
+            passwordTextRectangle.setStrokeWidth(2);
         }
+        passwordTextField.setText(emptyString);
+        loginTextField.setText(emptyString);
     }
 
     @FXML

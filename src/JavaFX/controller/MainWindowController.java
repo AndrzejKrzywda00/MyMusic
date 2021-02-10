@@ -16,7 +16,7 @@ import javafx.stage.Stage;
 
 import javax.swing.*;
 
-public class StackPaneController {
+public class MainWindowController {
 
     // This class is the controller of the main widow of the application
 
@@ -29,7 +29,7 @@ public class StackPaneController {
     private Stage loginWindow;  // this is logging window and is owned via association by mainWindow
     private User user;          // this is user set to this instance of application
 
-    public StackPaneController() {
+    public MainWindowController() {
         // warning - constructor must be public
     }
 

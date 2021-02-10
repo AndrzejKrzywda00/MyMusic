@@ -11,7 +11,7 @@
 <?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 
-<StackPane maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="1080.0" prefWidth="1920.0" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="JavaFX.controller.StackPaneController">
+<StackPane maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="1080.0" prefWidth="1920.0" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="JavaFX.controller.MainWindowController">
     <SplitPane dividerPositions="0.8103214124038026" prefHeight="160.0" prefWidth="200.0">
         <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="565.0" prefWidth="571.0">
             <ImageView fitHeight="1076.0" fitWidth="1558.0" pickOnBounds="true">

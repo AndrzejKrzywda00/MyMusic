@@ -62,8 +62,8 @@
                         <Font name="Arial Bold" size="29.0" />
                      </font>
                   </Label>
-                  <Rectangle arcHeight="100.0" arcWidth="65.0" fill="#bfc9ca" height="60.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="379.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-                  <Rectangle arcHeight="100.0" arcWidth="65.0" fill="#bfc9ca" height="60.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="379.0" GridPane.columnIndex="1">
+                  <Rectangle fx:id="passwordTextRectangle" arcHeight="100.0" arcWidth="65.0" fill="#bfc9ca" height="60.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="379.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                  <Rectangle fx:id="loginTextRectangle" arcHeight="100.0" arcWidth="65.0" fill="#bfc9ca" height="60.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="379.0" GridPane.columnIndex="1">
                      <GridPane.margin>
                         <Insets />
                      </GridPane.margin>
@@ -126,9 +126,9 @@
                      <Font name="Arial Bold" size="24.0" />
                   </font>
                </Label>
-               <Button fx:id="loginButton" layoutX="249.0" layoutY="341.0" mnemonicParsing="false" onAction="#loginButtonClicked" onMouseEntered="#loginButtonEntered" onMouseExited="#loginButtonExited" opacity="0.0" prefHeight="80.0" prefWidth="241.0" text="Button" />
+               <Button fx:id="loginButton" defaultButton="true" layoutX="249.0" layoutY="341.0" mnemonicParsing="false" onAction="#loginButtonClicked" onMouseEntered="#loginButtonEntered" onMouseExited="#loginButtonExited" opacity="0.0" prefHeight="80.0" prefWidth="241.0" text="Button" />
                <Button fx:id="registerButton" layoutX="-42.0" layoutY="340.0" mnemonicParsing="false" onAction="#registerButtonClicked" onMouseEntered="#registerButtonEntered" onMouseExited="#registerButtonExited" opacity="0.0" prefHeight="80.0" prefWidth="248.0" text="Button" />
-               <Pane layoutX="12.0" layoutY="268.0" prefHeight="44.0" prefWidth="436.0">
+               <Pane fx:id="loginFailedPane" layoutX="12.0" layoutY="268.0" opacity="0.0" prefHeight="44.0" prefWidth="436.0">
                   <children>
                      <ImageView fitHeight="26.0" fitWidth="31.0" layoutX="135.0" layoutY="8.0" pickOnBounds="true" preserveRatio="true">
                         <image>
