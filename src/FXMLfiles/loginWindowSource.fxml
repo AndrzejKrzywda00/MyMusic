@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.geometry.Insets?>
+<?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.PasswordField?>
@@ -35,7 +36,7 @@
             </ImageView>
          </children>
       </Pane>
-      <Pane layoutX="78.0" layoutY="199.0" prefHeight="396.0" prefWidth="446.0">
+      <Pane layoutX="78.0" layoutY="199.0" prefHeight="438.0" prefWidth="446.0">
          <children>
             <Label layoutX="106.0" layoutY="30.0" prefHeight="57.0" prefWidth="235.0" text="Zaloguj się">
                <font>
@@ -126,8 +127,14 @@
                      <Font name="Arial Bold" size="24.0" />
                   </font>
                </Label>
-               <Button fx:id="loginButton" defaultButton="true" layoutX="249.0" layoutY="341.0" mnemonicParsing="false" onAction="#loginButtonClicked" onMouseEntered="#loginButtonEntered" onMouseExited="#loginButtonExited" opacity="0.0" prefHeight="80.0" prefWidth="241.0" text="Button" />
-               <Button fx:id="registerButton" layoutX="-42.0" layoutY="340.0" mnemonicParsing="false" onAction="#registerButtonClicked" onMouseEntered="#registerButtonEntered" onMouseExited="#registerButtonExited" opacity="0.0" prefHeight="80.0" prefWidth="248.0" text="Button" />
+               <Button fx:id="loginButton" defaultButton="true" layoutX="249.0" layoutY="341.0" mnemonicParsing="false" onAction="#loginButtonClicked" onMouseEntered="#loginButtonEntered" onMouseExited="#loginButtonExited" opacity="0.0" prefHeight="80.0" prefWidth="241.0" text="Button">
+                  <cursor>
+                     <Cursor fx:constant="HAND" />
+                  </cursor></Button>
+               <Button fx:id="registerButton" layoutX="-42.0" layoutY="340.0" mnemonicParsing="false" onAction="#registerButtonClicked" onMouseEntered="#registerButtonEntered" onMouseExited="#registerButtonExited" opacity="0.0" prefHeight="80.0" prefWidth="248.0" text="Button">
+                  <cursor>
+                     <Cursor fx:constant="HAND" />
+                  </cursor></Button>
                <Pane layoutX="14.0" layoutY="276.0">
                   <Label layoutX="45.0" layoutY="11.0" text="Zapamiętaj mnie">
                      <font>
@@ -144,7 +151,10 @@
                         <Image url="@../../res/img/tickLogo.png" />
                      </image>
                   </ImageView>
-                  <Button fx:id="rememberMeButton" layoutX="-2.0" layoutY="5.0" mnemonicParsing="false" opacity="0.0" prefHeight="34.0" prefWidth="165.0" text="Button" />
+                  <Button fx:id="rememberMeButton" layoutX="-2.0" layoutY="5.0" mnemonicParsing="false" opacity="0.0" prefHeight="34.0" prefWidth="165.0" text="Button">
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor></Button>
                </Pane>
                <Pane fx:id="loginFailedPane" layoutX="238.0" layoutY="274.0" opacity="0.0" prefHeight="44.0" prefWidth="219.0">
                   <children>
