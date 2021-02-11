@@ -2,10 +2,10 @@ package JavaFX.controller;
 
 //import com.sun.javafx.geom.Rectangle;
 import ClientApp.LoginContent;
-import LoginWindowConstants.LoginButtonColors;
+import CustomControls.TextFieldLimited;
+import LoginWindowConstants.LoginElementsColors;
 import LoginWindowConstants.LoginStrings;
 import javafx.scene.control.PasswordField;
-import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.Pane;
 import javafx.scene.paint.Color;
@@ -17,6 +17,7 @@ public class LoginWindowController {
 
     // TODO -- fill string magic values with proper resource bundles in two languages
     // partially done
+    private static final int TEXT_FIELDS_CAPACITY = 20;
 
     // to be removed
     private Boolean authorized = true;
@@ -24,7 +25,7 @@ public class LoginWindowController {
     // contenet classes
     // TODO -- possiblly add decorators to them
     private LoginStrings stringContens = new LoginStrings();
-    private LoginButtonColors colorProbe = new LoginButtonColors();
+    private LoginElementsColors colorProbe = new LoginElementsColors();
 
     // important functional classes
     LoginContent loginContent = new LoginContent();
@@ -49,7 +50,7 @@ public class LoginWindowController {
     PasswordField passwordTextField;
 
     @FXML
-    TextField loginTextField;
+    TextFieldLimited loginTextField;
 
     @FXML
     Pane loginFailedPane;
@@ -68,6 +69,12 @@ public class LoginWindowController {
 
     @FXML
     void initialize() {
+
+        // constructing the limited custom text field
+        loginTextField = new TextFieldLimited(/*TEXT_FIELDS_CAPACITY*/3);
+
+        // constructing the limited custom password field
+
 
         rememberMeButton.setOnAction( e -> {
 
@@ -101,6 +108,8 @@ public class LoginWindowController {
         // clearing the text fields (all cases)
         passwordTextField.setText(stringContens.EMPTY_STRING);
         loginTextField.setText(stringContens.EMPTY_STRING);
+
+        System.out.println(loginContent.serialize());
     }
 
     @FXML

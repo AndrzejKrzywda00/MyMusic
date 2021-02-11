@@ -17,6 +17,7 @@
 <?import javafx.scene.shape.Line?>
 <?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
+<?import CustomControls.*?>
 
 <StackPane xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="JavaFX.controller.LoginWindowController">
 <AnchorPane id="mainAnchorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="676.0" prefWidth="603.0" style="-fx-background-color: #d7ded9;" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1">
@@ -106,11 +107,12 @@
                   </Pane>
                   <Pane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1">
                      <children>
-                        <TextField fx:id="loginTextField" layoutX="49.0" layoutY="16.0" prefHeight="51.0" prefWidth="302.0" style="-fx-background-color: none;">
+                        <TextFieldLimited fx:id="loginTextField" layoutX="49.0" layoutY="16.0" prefHeight="51.0" prefWidth="302.0"
+                                    style="-fx-background-color: none;">
                            <font>
                               <Font size="24.0" />
                            </font>
-                        </TextField>
+                        </TextFieldLimited>
                      </children>
                   </Pane>
                </children>

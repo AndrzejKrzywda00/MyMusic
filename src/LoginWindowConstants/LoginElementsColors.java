@@ -2,7 +2,7 @@ package LoginWindowConstants;
 
 import javafx.scene.paint.Color;
 
-public class LoginButtonColors {
+public class LoginElementsColors {
 
     // colors
 
