@@ -21,6 +21,6 @@ public class LoginButtonColors {
     public static final int FULLY_VISIBLE = 1;
 
     // width
-    public static final int WIDTH = 2;
+    public static final int DEFAULT_WIDTH = 2;
 
 }

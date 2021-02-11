@@ -90,9 +90,9 @@ public class LoginWindowController {
             // type informationa ab. wrong pasword or worng email using new fxml file
             loginFailedPane.setOpacity(colorProbe.FULLY_VISIBLE);
             loginTextRectangle.setStroke(colorProbe.WRONG_DATA_RED);
-            loginTextRectangle.setStrokeWidth(colorProbe.WIDTH);
+            loginTextRectangle.setStrokeWidth(colorProbe.DEFAULT_WIDTH);
             passwordTextRectangle.setStroke(colorProbe.WRONG_DATA_RED);
-            passwordTextRectangle.setStrokeWidth(colorProbe.WIDTH);
+            passwordTextRectangle.setStrokeWidth(colorProbe.DEFAULT_WIDTH);
         }
 
         // pack data to class and to be later sent to server
