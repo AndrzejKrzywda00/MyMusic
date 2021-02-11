@@ -52,9 +52,9 @@
                         <Font name="System Bold" size="20.0" />
                      </font>
                   </Label>
-                  <Rectangle arcHeight="80.0" arcWidth="55.0" fill="#e7ebf0" height="41.0" stroke="BLACK" strokeType="INSIDE" width="354.0" GridPane.columnIndex="1" />
-                  <Rectangle arcHeight="80.0" arcWidth="55.0" fill="#e7ebf0" height="41.0" stroke="BLACK" strokeType="INSIDE" width="354.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-                  <Rectangle arcHeight="80.0" arcWidth="55.0" fill="#e7ebf0" height="41.0" stroke="BLACK" strokeType="INSIDE" width="354.0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                  <Rectangle arcHeight="80.0" arcWidth="40.0" fill="#e7ebf0" height="41.0" stroke="BLACK" strokeType="INSIDE" width="354.0" GridPane.columnIndex="1" />
+                  <Rectangle arcHeight="80.0" arcWidth="40.0" fill="#e7ebf0" height="41.0" stroke="BLACK" strokeType="INSIDE" width="354.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                  <Rectangle arcHeight="80.0" arcWidth="40.0" fill="#e7ebf0" height="41.0" stroke="BLACK" strokeType="INSIDE" width="354.0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
                </children>
             </GridPane>
             <GridPane layoutX="39.0" layoutY="278.0" prefHeight="295.0" prefWidth="610.0">
@@ -136,21 +136,21 @@
                         <Insets left="20.0" />
                      </GridPane.margin>
                   </Label>
-                  <Rectangle arcHeight="80.0" arcWidth="55.0" fill="#e7ebf0" height="41.0" stroke="BLACK" strokeType="INSIDE" width="136.0" GridPane.columnIndex="2" GridPane.rowIndex="1" />
-                  <Rectangle arcHeight="80.0" arcWidth="55.0" fill="#e7ebf0" height="41.0" stroke="BLACK" strokeType="INSIDE" width="410.0" GridPane.columnIndex="2" GridPane.rowIndex="2" />
-                  <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#9da2a7" height="62.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="63.0" GridPane.columnIndex="2" GridPane.rowIndex="4">
-                     <GridPane.margin>
-                        <Insets left="4.0" />
-                     </GridPane.margin>
-                  </Rectangle>
+                  <Rectangle arcHeight="80.0" arcWidth="40.0" fill="#e7ebf0" height="41.0" stroke="BLACK" strokeType="INSIDE" width="136.0" GridPane.columnIndex="2" GridPane.rowIndex="1" />
+                  <Rectangle arcHeight="80.0" arcWidth="40.0" fill="#e7ebf0" height="41.0" stroke="BLACK" strokeType="INSIDE" width="410.0" GridPane.columnIndex="2" GridPane.rowIndex="2" />
                   <ImageView fitHeight="72.0" fitWidth="80.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="2" GridPane.rowIndex="4">
                      <image>
                         <Image url="@../../res/img/folderIcon.png" />
                      </image>
                      <GridPane.margin>
-                        <Insets />
+                        <Insets left="95.0" />
                      </GridPane.margin>
                   </ImageView>
+                  <Label text="Wybierz z pliku..." underline="true" GridPane.columnIndex="2" GridPane.rowIndex="4">
+                     <font>
+                        <Font name="System Bold" size="13.0" />
+                     </font>
+                  </Label>
                </children>
             </GridPane>
             <Line endX="280.4000244140625" endY="-1.52587890625E-5" layoutX="167.0" layoutY="259.0" startX="-127.60000610351562" startY="-1.52587890625E-5" />
