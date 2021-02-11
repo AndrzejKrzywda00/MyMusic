@@ -10,13 +10,14 @@ public class User {
     private String name;
     private String login;
     private Image avatar;
+    private String description;
 
-    public String getName() {
-        return this.name;
-    }
+    public String getName() { return this.name; }
 
-    public String getLogin() {
-        return this.login;
-    }
+    public String getLogin() { return this.login; }
+
+    public Image getAvatar() { return  this.avatar; }
+
+    public String getDescription() { return this.description; }
 
 }

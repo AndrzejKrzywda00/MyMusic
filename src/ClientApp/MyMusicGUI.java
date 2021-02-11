@@ -21,9 +21,13 @@ public class MyMusicGUI extends Application {
 
     // properties
     PhaseSynchronizer phaseSynch = PhaseSynchronizer.getInstance();    // an instance of PhaseSynchronizer is created to cope with phases
+
+    User user;  // user of instance of application - one's data is downloaded from server
+
     // constant data for this class
     public static final String MAIN_WINDOW_FXML_PATH = "/FXMLfiles/mainWindowSource.fxml";
     public static final String LOGIN_WINDOW_FXML_PATH = "/FXMLfiles/loginWindowSource.fxml";
+
 
     // contructor
     public MyMusicGUI() {
