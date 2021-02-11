@@ -19,6 +19,11 @@ import java.io.IOException;
 
 public class MyMusicGUI extends Application {
 
+    /* I think this class sholud only sychronize and manage changes
+    * All the functioanlity will be moved to functional
+    * objects, instances of which will be kept here
+    * */
+
     // properties
     PhaseSynchronizer phaseSynch = PhaseSynchronizer.getInstance();    // an instance of PhaseSynchronizer is created to cope with phases
 
@@ -86,7 +91,7 @@ public class MyMusicGUI extends Application {
         loggingStage.show();
 
         // one window can be visible at a time
-        // TODO - make this an extensible element -- possibly with some listeners
+        // TODO - write automatic synchronization of viisibility of windows
 
 
     }
