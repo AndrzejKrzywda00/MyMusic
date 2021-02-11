@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.geometry.Insets?>
+<?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
@@ -16,7 +17,7 @@
 <?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 
-<StackPane maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<StackPane maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="JavaFX.Controllers.addTrackMenuController">
    <children>
       <Pane prefHeight="200.0" prefWidth="200.0">
          <children>
@@ -151,6 +152,19 @@
                         <Font name="System Bold" size="13.0" />
                      </font>
                   </Label>
+                  <Line endX="-60.814208984375" startX="-100.0" strokeLineCap="ROUND" strokeWidth="2.0" GridPane.columnIndex="2">
+                     <GridPane.margin>
+                        <Insets left="20.0" top="20.0" />
+                     </GridPane.margin>
+                  </Line>
+                  <Label text=":" GridPane.columnIndex="2">
+                     <GridPane.margin>
+                        <Insets bottom="4.0" left="62.0" />
+                     </GridPane.margin>
+                     <font>
+                        <Font name="System Bold" size="21.0" />
+                     </font>
+                  </Label>
                </children>
             </GridPane>
             <Line endX="280.4000244140625" endY="-1.52587890625E-5" layoutX="167.0" layoutY="259.0" startX="-127.60000610351562" startY="-1.52587890625E-5" />
@@ -176,11 +190,17 @@
                      </stops>
                   </LinearGradient>
                </fill>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
             </Rectangle>
             <Label layoutX="638.0" layoutY="501.0" prefHeight="62.0" prefWidth="83.0" text="DODAJ&#10;UTWÓR" textAlignment="CENTER" textFill="WHITE">
                <font>
                   <Font name="System Bold Italic" size="20.0" />
                </font>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
             </Label>
          </children>
       </Pane>
