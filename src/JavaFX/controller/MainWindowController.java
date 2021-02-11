@@ -21,7 +21,11 @@ import java.io.IOException;
 
 public class MainWindowController {
 
-    // This class is the controller of the main widow of the application
+    /* This class is the controller of the main widow of the application
+    It sholud only manage graphic elements and take data from forms
+    or display it
+    All functionality related to data sholud be held in separate classes
+     */
 
     // properties
 
