@@ -8,6 +8,7 @@ public class Track {
 
     // Holds all vital information of a track in MyMusic Application.
 
+    private String title;           // just the title
     private String author;          // Author/authors of the track
     private int lengthInSeconds;    // length of track - finally will be displayed in this format hours:minutes:seconds
     private ID uniqueID;            // unique ID added when a track is archived or manually added
@@ -19,7 +20,7 @@ public class Track {
     private Source source;          // source tells where to look for the actual track
     private Image img;              // just the thumbnail
 
-
+    
 
 }
 
