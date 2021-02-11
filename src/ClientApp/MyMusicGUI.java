@@ -83,7 +83,7 @@ public class MyMusicGUI extends Application {
 
         // one window can be visible at a time
         // TODO - make this an extensible element -- possibly with some listeners
-        
+
 
     }
 }

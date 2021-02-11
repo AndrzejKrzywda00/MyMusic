@@ -128,36 +128,36 @@
                </Label>
                <Button fx:id="loginButton" defaultButton="true" layoutX="249.0" layoutY="341.0" mnemonicParsing="false" onAction="#loginButtonClicked" onMouseEntered="#loginButtonEntered" onMouseExited="#loginButtonExited" opacity="0.0" prefHeight="80.0" prefWidth="241.0" text="Button" />
                <Button fx:id="registerButton" layoutX="-42.0" layoutY="340.0" mnemonicParsing="false" onAction="#registerButtonClicked" onMouseEntered="#registerButtonEntered" onMouseExited="#registerButtonExited" opacity="0.0" prefHeight="80.0" prefWidth="248.0" text="Button" />
-               <Pane fx:id="loginFailedPane" layoutX="12.0" layoutY="268.0" prefHeight="44.0" prefWidth="436.0">
+               <Pane layoutX="14.0" layoutY="276.0">
+                  <Label layoutX="45.0" layoutY="11.0" text="Zapamiętaj mnie">
+                     <font>
+                        <Font name="System Bold" size="15.0" />
+                     </font>
+                  </Label>
+                  <ImageView fitHeight="126.0" fitWidth="38.0" layoutY="5.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../res/img/frameLogo.png" />
+                     </image>
+                  </ImageView>
+                  <ImageView fx:id="tickRememberMe" fitHeight="100.0" fitWidth="38.0" layoutY="4.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../res/img/tickLogo.png" />
+                     </image>
+                  </ImageView>
+                  <Button fx:id="rememberMeButton" layoutX="-2.0" layoutY="5.0" mnemonicParsing="false" opacity="0.0" prefHeight="34.0" prefWidth="165.0" text="Button" />
+               </Pane>
+               <Pane fx:id="loginFailedPane" layoutX="238.0" layoutY="274.0" opacity="0.0" prefHeight="44.0" prefWidth="219.0">
                   <children>
-                     <ImageView fitHeight="26.0" fitWidth="31.0" layoutX="247.0" layoutY="9.0" pickOnBounds="true" preserveRatio="true">
+                     <ImageView fitHeight="26.0" fitWidth="31.0" layoutX="14.0" layoutY="10.0" pickOnBounds="true" preserveRatio="true">
                         <image>
                            <Image url="@../../res/img/wrongDataIcon.png" />
                         </image>
                      </ImageView>
-                     <Label layoutX="280.0" layoutY="11.0" text="Błędne dane logowania" textFill="RED">
+                     <Label layoutX="48.0" layoutY="12.0" text="Błędne dane logowania" textFill="RED" wrapText="true">
                         <font>
                            <Font size="15.0" />
                         </font>
                      </Label>
-                     <Pane layoutY="2.0">
-                        <Label layoutX="45.0" layoutY="11.0" text="Zapamiętaj mnie">
-                           <font>
-                              <Font name="System Bold" size="15.0" />
-                           </font>
-                        </Label>
-                        <ImageView fitHeight="126.0" fitWidth="38.0" layoutY="5.0" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@/img/frameLogo.png" />
-                           </image>
-                        </ImageView>
-                        <ImageView fx:id="tickRememberMe" fitHeight="100.0" fitWidth="38.0" layoutY="4.0" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@/img/tickLogo.png" />
-                           </image>
-                        </ImageView>
-                        <Button fx:id="rememberMeButton" layoutX="-2.0" layoutY="5.0" mnemonicParsing="false" opacity="0.0" prefHeight="34.0" prefWidth="165.0" text="Button" />
-                     </Pane>
                   </children>
                </Pane>
          </children>

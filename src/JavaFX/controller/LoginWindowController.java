@@ -1,7 +1,8 @@
 package JavaFX.controller;
 
 //import com.sun.javafx.geom.Rectangle;
-import Colors.LoginButtonColors;
+import LoginWindowConstants.LoginButtonColors;
+import LoginWindowConstants.LoginStrings;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
@@ -20,9 +21,9 @@ public class LoginWindowController {
 
     private String password = "jebacpis";
     private String login = "Andrzej";
-    private static final String EMPTY_STRING = "";
 
-    private LoginButtonColors probe = new LoginButtonColors();
+    private LoginStrings stringContens = new LoginStrings();
+    private LoginButtonColors colorProbe = new LoginButtonColors();
 
     /* Here controlling all information flow and configuration of logging window */
     @FXML
@@ -62,7 +63,7 @@ public class LoginWindowController {
     void initialize() {
 
         rememberMeButton.setOnAction( e -> {
-            int newOpacity = tickRememberMe.getOpacity() == 0 ? 1 : 0;
+            int newOpacity = tickRememberMe.getOpacity() == colorProbe.INVISIBLE ? colorProbe.FULLY_VISIBLE : colorProbe.INVISIBLE;
             tickRememberMe.setOpacity(newOpacity);
         });
     }
@@ -71,40 +72,38 @@ public class LoginWindowController {
     void loginButtonClicked() {
         /* Parse data and check if it is correct */
         if ( password.equals(passwordTextField.getText()) && login.equals(loginTextField.getText())) {
-            System.out.println("Udało się zalogować do systemu!");
-
+            // logged in successfully
         }
         else {
             // type informationa ab. wrong pasword or worng email using new fxml file
-            loginFailedPane.setOpacity(1.0);    // now fully visible
-            loginTextRectangle.setStroke(Color.RED);
-            loginTextRectangle.setStrokeWidth(2);
-            passwordTextRectangle.setStroke(Color.RED);
-            passwordTextRectangle.setStrokeWidth(2);
+            loginFailedPane.setOpacity(colorProbe.FULLY_VISIBLE);
+            loginTextRectangle.setStroke(colorProbe.WRONG_DATA_RED);
+            loginTextRectangle.setStrokeWidth(colorProbe.WIDTH);
+            passwordTextRectangle.setStroke(colorProbe.WRONG_DATA_RED);
+            passwordTextRectangle.setStrokeWidth(colorProbe.WIDTH);
         }
-        passwordTextField.setText(EMPTY_STRING);
-        loginTextField.setText(EMPTY_STRING);
+        passwordTextField.setText(stringContens.EMPTY_STRING);
+        loginTextField.setText(stringContens.EMPTY_STRING);
     }
 
     @FXML
     void loginButtonEntered() {
-        loginRectangle.setFill(probe.loginActive);
+        loginRectangle.setFill(colorProbe.LOGIN_ACTIVE);
     }
 
     @FXML
     void loginButtonExited() {
-        loginRectangle.setFill(probe.loginInactive);
+        loginRectangle.setFill(colorProbe.LOGIN_INACTIVE);
     }
 
     @FXML
     void registerButtonEntered() {
-        registrationRectangle.setFill(probe.registerActive);
-
+        registrationRectangle.setFill(colorProbe.REGISTER_ACTIVE);
     }
 
     @FXML
     void registerButtonExited() {
-        registrationRectangle.setFill(probe.registerInactive);
+        registrationRectangle.setFill(colorProbe.REGISTER_INACTIVE);
     }
 
     @FXML
