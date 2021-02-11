@@ -92,7 +92,5 @@ public class MyMusicGUI extends Application {
 
         // one window can be visible at a time
         // TODO - write automatic synchronization of viisibility of windows
-
-
     }
 }

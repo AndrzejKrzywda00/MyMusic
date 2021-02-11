@@ -8,14 +8,10 @@ public class addTrackMenuController {
 
     // constructor
     public addTrackMenuController() {
-
     }
 
     // initalization
     public void initialize() {
-
     }
-
-
 
 }

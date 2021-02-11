@@ -1,6 +1,7 @@
 package JavaFX.controller;
 
 //import com.sun.javafx.geom.Rectangle;
+import ClientApp.LoginContent;
 import LoginWindowConstants.LoginButtonColors;
 import LoginWindowConstants.LoginStrings;
 import javafx.scene.control.PasswordField;
@@ -15,15 +16,21 @@ import javafx.scene.control.Button;
 public class LoginWindowController {
 
     // TODO -- fill string magic values with proper resource bundles in two languages
+    // partially done
 
-    private Color defaultLogin;
-    private Color defaultRegistration;
+    // to be removed
+    private Boolean authorized = true;
 
-    private String password = "jebacpis";
-    private String login = "Andrzej";
-
+    // contenet classes
+    // TODO -- possiblly add decorators to them
     private LoginStrings stringContens = new LoginStrings();
     private LoginButtonColors colorProbe = new LoginButtonColors();
+
+    // important functional classes
+    LoginContent loginContent = new LoginContent();
+
+    // important local variables
+    Boolean wantsToBeRemembered = false; // takes the data from button 'rememberMeButton'
 
     /* Here controlling all information flow and configuration of logging window */
     @FXML
@@ -63,16 +70,21 @@ public class LoginWindowController {
     void initialize() {
 
         rememberMeButton.setOnAction( e -> {
-            int newOpacity = tickRememberMe.getOpacity() == colorProbe.INVISIBLE ? colorProbe.FULLY_VISIBLE : colorProbe.INVISIBLE;
+
+            // checking/unchecking the tick button -- this (int) override is always safe -- this is for other engineers
+            int newOpacity = (tickRememberMe.getOpacity() == colorProbe.INVISIBLE) ? (int)colorProbe.FULLY_VISIBLE : (int)colorProbe.INVISIBLE;
             tickRememberMe.setOpacity(newOpacity);
+
+            // whenever the button is clicked, the value will be inverted
+            wantsToBeRemembered = (wantsToBeRemembered == false) ? true : false;
         });
     }
 
     @FXML
     void loginButtonClicked() {
-        /* Parse data and check if it is correct */
-        if ( password.equals(passwordTextField.getText()) && login.equals(loginTextField.getText())) {
-            // logged in successfully
+
+        if (authorized) {
+            // always authorized for now
         }
         else {
             // type informationa ab. wrong pasword or worng email using new fxml file
@@ -82,28 +94,33 @@ public class LoginWindowController {
             passwordTextRectangle.setStroke(colorProbe.WRONG_DATA_RED);
             passwordTextRectangle.setStrokeWidth(colorProbe.WIDTH);
         }
+
+        // pack data to class and to be later sent to server
+        loginContent.getAllData(loginTextField.getText(), passwordTextField.getText(), wantsToBeRemembered);
+
+        // clearing the text fields (all cases)
         passwordTextField.setText(stringContens.EMPTY_STRING);
         loginTextField.setText(stringContens.EMPTY_STRING);
     }
 
     @FXML
     void loginButtonEntered() {
-        loginRectangle.setFill(colorProbe.LOGIN_ACTIVE);
+        loginRectangle.setFill((Color)colorProbe.LOGIN_ACTIVE);
     }
 
     @FXML
     void loginButtonExited() {
-        loginRectangle.setFill(colorProbe.LOGIN_INACTIVE);
+        loginRectangle.setFill((Color)colorProbe.LOGIN_INACTIVE);
     }
 
     @FXML
     void registerButtonEntered() {
-        registrationRectangle.setFill(colorProbe.REGISTER_ACTIVE);
+        registrationRectangle.setFill((Color)colorProbe.REGISTER_ACTIVE);
     }
 
     @FXML
     void registerButtonExited() {
-        registrationRectangle.setFill(colorProbe.REGISTER_INACTIVE);
+        registrationRectangle.setFill((Color)colorProbe.REGISTER_INACTIVE);
     }
 
     @FXML

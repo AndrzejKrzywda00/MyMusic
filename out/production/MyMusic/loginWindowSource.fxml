@@ -146,7 +146,7 @@
                         <Image url="@../../res/img/frameLogo.png" />
                      </image>
                   </ImageView>
-                  <ImageView fx:id="tickRememberMe" fitHeight="100.0" fitWidth="38.0" layoutY="4.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fx:id="tickRememberMe" fitHeight="100.0" fitWidth="38.0" layoutY="4.0" opacity="0.0" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@../../res/img/tickLogo.png" />
                      </image>
