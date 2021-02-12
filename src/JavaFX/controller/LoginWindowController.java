@@ -2,10 +2,12 @@ package JavaFX.controller;
 
 //import com.sun.javafx.geom.Rectangle;
 import ClientApp.LoginContent;
-import CustomControls.TextFieldLimited;
 import LoginWindowConstants.LoginElementsColors;
 import LoginWindowConstants.LoginStrings;
+import javafx.beans.value.ChangeListener;
+import javafx.beans.value.ObservableValue;
 import javafx.scene.control.PasswordField;
+import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.Pane;
 import javafx.scene.paint.Color;
@@ -17,7 +19,7 @@ public class LoginWindowController {
 
     // TODO -- fill string magic values with proper resource bundles in two languages
     // partially done
-    private static final int TEXT_FIELDS_CAPACITY = 20;
+    private static final int TEXT_FIELDS_CAPACITY = 25;
 
     // to be removed
     private Boolean authorized = true;
@@ -50,7 +52,7 @@ public class LoginWindowController {
     PasswordField passwordTextField;
 
     @FXML
-    TextFieldLimited loginTextField;
+    TextField loginTextField;
 
     @FXML
     Pane loginFailedPane;
@@ -70,12 +72,28 @@ public class LoginWindowController {
     @FXML
     void initialize() {
 
-        // constructing the limited custom text field
-        loginTextField = new TextFieldLimited(/*TEXT_FIELDS_CAPACITY*/3);
+        // TODO - wrap this behaviour in one class:
+        // login field will not take more than fixed number of characters
+        loginTextField.textProperty().addListener(new ChangeListener<String>() {
+            @Override
+            public void changed(ObservableValue<? extends String> observableValue, String oldValue, String newValue) {
+                if (newValue.length() > TEXT_FIELDS_CAPACITY) {
+                    loginTextField.setText(oldValue);
+                }
+            }
+        });
 
-        // constructing the limited custom password field
+        // password field will not take more than fixed number of characters
+        passwordTextField.textProperty().addListener(new ChangeListener<String>() {
+            @Override
+            public void changed(ObservableValue<? extends String> observableValue, String oldValue, String newValue) {
+                if (newValue.length() > TEXT_FIELDS_CAPACITY) {
+                    loginTextField.setText(oldValue);
+                }
+            }
+        });
 
-
+        // chceking if tick has been changed
         rememberMeButton.setOnAction( e -> {
 
             // checking/unchecking the tick button -- this (int) override is always safe -- this is for other engineers
@@ -137,7 +155,7 @@ public class LoginWindowController {
         /* Direct user to registration form */
     }
 
-    // TODO -- make an option to show password & make an emeregncy window to show up when login failed
+    // TODO -- make an option to show password
     // also add links and labels to registration and main logo
 
     public LoginWindowController() {
