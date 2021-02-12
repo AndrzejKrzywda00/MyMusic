@@ -1,6 +1,8 @@
-package ClientApp;
+package enums;
 
-public enum Rating {
+import Interfaces.ITextSerializeable;
+
+public enum Rating implements ITextSerializeable {
 
     // Implements simple rating in range from 1 to 10.
     // In my app will be shown as stars
@@ -22,5 +24,12 @@ public enum Rating {
     Rating(int howManyStars, String description) {
         this.howManyStars = howManyStars;
         this.description = description;
+    }
+
+    public String serialize() {
+        StringBuilder output = new StringBuilder();
+        output.append(howManyStars);
+        output.append(";");
+        return output.toString();
     }
 }

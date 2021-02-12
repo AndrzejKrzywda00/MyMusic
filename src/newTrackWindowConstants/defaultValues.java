@@ -1,6 +1,6 @@
 package newTrackWindowConstants;
 
-import ClientApp.Rating;
+import enums.Rating;
 import javafx.scene.image.Image;
 
 public class defaultValues {

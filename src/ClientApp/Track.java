@@ -47,18 +47,18 @@ public class Track implements ITextSerializeable {
         output.append(";");
         output.append(format);
         output.append(";");
-        output.append(rating);
-        output.append(";");
+        output.append(rating.serialize());
         output.append(description);
         output.append(";");
-        output.append(thumbnail);
-        output.append(";");
+
+        //questionable
+        //output.append(thumbnail);
+        //output.append(";");
 
         output.append(uniqueID.serialize());
-        output.append(addedDate.toString());
+        output.append(addedDate);
         output.append(";");
-        output.append(origin);
-        output.append(";");
+        output.append(origin.serialize());
 
         return output.toString();
     }
