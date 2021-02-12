@@ -1,4 +1,4 @@
-package ClientApp;
+package ClientApp.DataContent;
 
 import Interfaces.ITextSerializeable;
 

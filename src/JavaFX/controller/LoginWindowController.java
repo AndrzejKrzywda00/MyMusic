@@ -1,7 +1,7 @@
 package JavaFX.controller;
 
 //import com.sun.javafx.geom.Rectangle;
-import ClientApp.LoginContent;
+import ClientApp.DataContent.LoginContent;
 import LoginWindowConstants.LoginElementsColors;
 import LoginWindowConstants.LoginStrings;
 import javafx.beans.value.ChangeListener;
