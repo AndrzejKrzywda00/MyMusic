@@ -3,6 +3,7 @@
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.ColumnConstraints?>
@@ -55,7 +56,40 @@
                   </Label>
                   <Rectangle arcHeight="80.0" arcWidth="40.0" fill="#e7ebf0" height="41.0" stroke="BLACK" strokeType="INSIDE" width="354.0" GridPane.columnIndex="1" />
                   <Rectangle arcHeight="80.0" arcWidth="40.0" fill="#e7ebf0" height="41.0" stroke="BLACK" strokeType="INSIDE" width="354.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-                  <Rectangle arcHeight="80.0" arcWidth="40.0" fill="#e7ebf0" height="41.0" stroke="BLACK" strokeType="INSIDE" width="354.0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                  <Rectangle arcHeight="80.0" arcWidth="40.0" fill="#e7ebf0" height="41.0" stroke="BLACK" strokeType="INSIDE" width="537.0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                  <TextField alignment="TOP_LEFT" prefHeight="38.0" style="-fx-background-color: none;" GridPane.columnIndex="1">
+                     <opaqueInsets>
+                        <Insets />
+                     </opaqueInsets>
+                     <GridPane.margin>
+                        <Insets left="15.0" right="190.0" />
+                     </GridPane.margin>
+                     <font>
+                        <Font name="System Bold" size="21.0" />
+                     </font>
+                  </TextField>
+                  <TextField alignment="TOP_LEFT" prefHeight="38.0" prefWidth="330.0" style="-fx-background-color: none;" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                     <opaqueInsets>
+                        <Insets />
+                     </opaqueInsets>
+                     <GridPane.margin>
+                        <Insets left="15.0" right="190.0" />
+                     </GridPane.margin>
+                     <font>
+                        <Font size="21.0" />
+                     </font>
+                  </TextField>
+                  <TextField alignment="TOP_LEFT" prefHeight="46.0" prefWidth="389.0" promptText="URL lub ścieżka lokalna" style="-fx-background-color: none;" GridPane.columnIndex="1" GridPane.rowIndex="2">
+                     <opaqueInsets>
+                        <Insets />
+                     </opaqueInsets>
+                     <GridPane.margin>
+                        <Insets left="15.0" right="30.0" />
+                     </GridPane.margin>
+                     <font>
+                        <Font size="21.0" />
+                     </font>
+                  </TextField>
                </children>
             </GridPane>
             <GridPane layoutX="39.0" layoutY="278.0" prefHeight="295.0" prefWidth="610.0">
@@ -76,26 +110,41 @@
                      <image>
                         <Image url="@../../res/img/addPropertyIcon.png" />
                      </image>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
                   </ImageView>
                   <ImageView fitHeight="44.0" fitWidth="45.0" pickOnBounds="true" preserveRatio="true" GridPane.halignment="CENTER" GridPane.rowIndex="1">
                      <image>
                         <Image url="@../../res/img/addPropertyIcon.png" />
                      </image>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
                   </ImageView>
                   <ImageView fitHeight="44.0" fitWidth="45.0" pickOnBounds="true" preserveRatio="true" GridPane.halignment="CENTER" GridPane.rowIndex="2">
                      <image>
                         <Image url="@../../res/img/addPropertyIcon.png" />
                      </image>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
                   </ImageView>
                   <ImageView fitHeight="44.0" fitWidth="45.0" pickOnBounds="true" preserveRatio="true" GridPane.halignment="CENTER" GridPane.rowIndex="3">
                      <image>
                         <Image url="@../../res/img/addPropertyIcon.png" />
                      </image>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
                   </ImageView>
                   <ImageView fitHeight="44.0" fitWidth="45.0" pickOnBounds="true" preserveRatio="true" GridPane.halignment="CENTER" GridPane.rowIndex="4">
                      <image>
                         <Image url="@../../res/img/addPropertyIcon.png" />
                      </image>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
                   </ImageView>
                   <Label text="Czas trwania" GridPane.columnIndex="1">
                      <font>
@@ -146,11 +195,17 @@
                      <GridPane.margin>
                         <Insets left="95.0" />
                      </GridPane.margin>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
                   </ImageView>
                   <Label text="Wybierz z pliku..." underline="true" GridPane.columnIndex="2" GridPane.rowIndex="4">
                      <font>
                         <Font name="System Bold" size="13.0" />
                      </font>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
                   </Label>
                   <Line endX="-60.814208984375" startX="-100.0" strokeLineCap="ROUND" strokeWidth="2.0" GridPane.columnIndex="2">
                      <GridPane.margin>
@@ -165,6 +220,67 @@
                         <Font name="System Bold" size="21.0" />
                      </font>
                   </Label>
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#b4bbc200" height="46.0" stroke="BLACK" strokeType="INSIDE" width="206.0" GridPane.columnIndex="2" GridPane.rowIndex="3">
+                     <cursor>
+                        <Cursor fx:constant="DEFAULT" />
+                     </cursor>
+                  </Rectangle>
+                  <ImageView fitHeight="74.0" fitWidth="37.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="2" GridPane.rowIndex="3">
+                     <image>
+                        <Image url="@../../res/img/starMarkedIcon.png" />
+                     </image>
+                     <GridPane.margin>
+                        <Insets left="5.0" />
+                     </GridPane.margin>
+                  </ImageView>
+                  <ImageView fitHeight="74.0" fitWidth="37.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="2" GridPane.rowIndex="3">
+                     <image>
+                        <Image url="@../../res/img/starMarkedIcon.png" />
+                     </image>
+                     <GridPane.margin>
+                        <Insets left="45.0" />
+                     </GridPane.margin>
+                  </ImageView>
+                  <ImageView fitHeight="74.0" fitWidth="37.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="2" GridPane.rowIndex="3">
+                     <image>
+                        <Image url="@../../res/img/starMarkedIcon.png" />
+                     </image>
+                     <GridPane.margin>
+                        <Insets left="85.0" />
+                     </GridPane.margin>
+                  </ImageView>
+                  <ImageView fitHeight="74.0" fitWidth="37.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="2" GridPane.rowIndex="3">
+                     <image>
+                        <Image url="@../../res/img/starMarkedIcon.png" />
+                     </image>
+                     <GridPane.margin>
+                        <Insets left="125.0" />
+                     </GridPane.margin>
+                  </ImageView>
+                  <ImageView fitHeight="74.0" fitWidth="37.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="2" GridPane.rowIndex="3">
+                     <image>
+                        <Image url="@../../res/img/starMarkedIcon.png" />
+                     </image>
+                     <GridPane.margin>
+                        <Insets left="165.0" />
+                     </GridPane.margin>
+                  </ImageView>
+                  <TextField prefHeight="0.0" prefWidth="115.0" style="-fx-background-color: none;" text="." GridPane.columnIndex="2" GridPane.rowIndex="1">
+                     <GridPane.margin>
+                        <Insets left="5.0" right="280.0" />
+                     </GridPane.margin>
+                     <font>
+                        <Font size="21.0" />
+                     </font>
+                  </TextField>
+                  <TextField prefHeight="39.0" prefWidth="53.0" style="-fx-background-color: none;" GridPane.columnIndex="2">
+                     <GridPane.margin>
+                        <Insets left="10.0" right="350.0" />
+                     </GridPane.margin>
+                     <font>
+                        <Font size="16.0" />
+                     </font>
+                  </TextField>
                </children>
             </GridPane>
             <Line endX="280.4000244140625" endY="-1.52587890625E-5" layoutX="167.0" layoutY="259.0" startX="-127.60000610351562" startY="-1.52587890625E-5" />

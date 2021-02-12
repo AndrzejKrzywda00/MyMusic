@@ -22,11 +22,30 @@ public class Source {
     public String getLink() { return this.link; }
     public Type getType() { return this.type; }
 
-    // constructor
-    public Source() {
-
-        // initializing all necessary information
-
+    // TODO -- automatize this -- bond links with types
+    /***
+     * Used when URL is local path - so there we know if path is accessible
+     * @param link          only local link
+     * @param type          type of link (should be local)
+     * @param isActive      should be set as true (but let it to me for now)
+     */
+    public Source(String link, Type type, Boolean isActive) {
+        this.link = link;
+        this.type = type;
+        this.isActive = isActive;
     }
 
+    /***
+     * Used when URL is not local - so there we don't know of the path is accessible
+     * @param link          only remote link
+     * @param type          should be remote type
+     */
+    public Source(String link, Type type) {
+        this.link = link;
+        this.type = type;
+    }
+
+    public void setLinkActivity(Boolean isActive) {
+        this.isActive = isActive;
+    }
 }

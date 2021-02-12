@@ -24,7 +24,7 @@ public class Track implements ITextSerializeable {
 
     // added automatically -- no interaction with user
     private ID uniqueID;            // unique ID added when a track is archived or manually added
-    private Date addedDate;         // automaticaly added date of track archivisation day
+    private Date addedDate;         // automaticaly added date of track archivisation day (YMD)
     private Origin origin;          // auto property added by program to know type of archivisation
 
     // other methods
@@ -54,9 +54,8 @@ public class Track implements ITextSerializeable {
         output.append(thumbnail);
         output.append(";");
 
-        output.append(uniqueID);
-        output.append(";");
-        output.append(addedDate);
+        output.append(uniqueID.serialize());
+        output.append(addedDate.toString());
         output.append(";");
         output.append(origin);
         output.append(";");

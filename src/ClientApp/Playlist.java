@@ -28,7 +28,6 @@ public class Playlist implements ITextSerializeable {
     public ArrayList<Track> getTracks() { return this.tracks; }
     
     // other methods
-
     /***
      *
      * @return Returns Boolean telling if playlist has any tracks
@@ -52,8 +51,8 @@ public class Playlist implements ITextSerializeable {
     }
 
     public String serialize() {
-        String output = "";
-        return output;
+        StringBuilder output = new StringBuilder();
+        return output.toString();
     }
     
 }
