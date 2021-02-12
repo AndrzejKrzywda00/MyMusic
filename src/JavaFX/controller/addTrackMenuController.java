@@ -14,4 +14,6 @@ public class addTrackMenuController {
     public void initialize() {
     }
 
+    // TODO -- add all functioanlity connected to animation, not-active state of fields, responsiveness, time setter
+
 }
