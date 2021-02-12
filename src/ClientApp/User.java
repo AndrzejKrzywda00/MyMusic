@@ -1,8 +1,9 @@
 package ClientApp;
 
+import Interfaces.ITextSerializeable;
 import javafx.scene.image.Image;
 
-public class User {
+public class User implements ITextSerializeable {
 
     // This class holds all information related to user of the app
     // All this data is obtained from server after successfull logging
@@ -19,5 +20,10 @@ public class User {
     public Image getAvatar() { return  this.avatar; }
 
     public String getDescription() { return this.description; }
+
+    public String serialize() {
+        String output = "";
+        return output;
+    }
 
 }

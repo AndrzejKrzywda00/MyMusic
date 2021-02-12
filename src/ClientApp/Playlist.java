@@ -1,10 +1,11 @@
 package ClientApp;
 
+import Interfaces.ITextSerializeable;
 import javafx.scene.image.Image;
 
 import java.util.ArrayList;
 
-public class Playlist {
+public class Playlist implements ITextSerializeable {
     
     /* this class has an amount of tracks to be grupped by some criteria */
     
@@ -43,10 +44,15 @@ public class Playlist {
     public ArrayList<Image> getTracksThumbnails() {
         ArrayList<Image> thumbnails = null;
         for( Track track : tracks ) {
-            Image thumbnail = track.getImg();
+            Image thumbnail = track.getThumbnail();
             thumbnails.add(thumbnail);
         }
         return thumbnails;
+    }
+
+    public String serialize() {
+        String output = "";
+        return output;
     }
     
 }
