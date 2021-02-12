@@ -13,10 +13,17 @@ public class ID {
         this.content = generateID();
     }
 
-    String generateID() {
+    public String generateID() {
         /* Will generate random unique id for a track */
         String uniqueID = UUID.randomUUID().toString();
         return uniqueID;
+    }
+
+    public String serialize() {
+        StringBuilder output = new StringBuilder();
+        output.append(content);
+        output.append(";");
+        return output.toString();
     }
 
 }

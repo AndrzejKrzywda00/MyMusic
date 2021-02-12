@@ -1,30 +1,26 @@
 package ClientApp;
 
-public class Rating {
+public enum Rating {
 
     // Implements simple rating in range from 1 to 10.
     // In my app will be shown as stars
 
     // TODO -- make this enum for SURE!
-    private int howGood;
-    private Boolean initialised;
+    // ratings
+    OneStar(1,"one star"),
+    TwoStars(2,"two stars"),
+    ThreeStars(3,"three stars"),
+    FourStars(4,"four stars"),
+    FiveStars(5,"five stars"),
 
-    public Rating(int howGood) {
-        this.howGood = howGood;
-        this.initialised = false;
+    // when not added by user -- default version
+    NotInitalized(0,"not initialized");
+
+    private int howManyStars;
+    private String description;
+
+    Rating(int howManyStars, String description) {
+        this.howManyStars = howManyStars;
+        this.description = description;
     }
-
-    void updateRating(int howGood) {
-
-        // scale is forced to be between 1 and 10
-        if (howGood >= 1 && howGood <= 10) {
-            this.howGood = howGood;
-            this.initialised = true;
-        }
-    }
-
-    int getHowGood() {
-        return this.howGood;
-    }
-
 }
