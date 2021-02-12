@@ -22,11 +22,11 @@ public class AppDataContent implements ITextSerializeable {
 
     public String serialize() {
 
-        String output ="";
+        StringBuilder output = new StringBuilder();
 
         // make a strategy of how to serialize it
 
-        return output;
+        return output.toString();
     }
 
 }

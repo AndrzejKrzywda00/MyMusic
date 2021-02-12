@@ -13,6 +13,7 @@ public class Playlist implements ITextSerializeable {
     private String name;                // holds name of playlist
     private String description;         // holds description of playlist
     private ArrayList<Track> tracks;    // holds all added tracks
+    private ID uniqueID;                // is the unique id of the playlist
     
     // constructor
     public Playlist() {
