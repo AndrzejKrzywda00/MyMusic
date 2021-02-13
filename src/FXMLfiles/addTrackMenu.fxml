@@ -107,38 +107,6 @@
                 <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
               </rowConstraints>
                <children>
-                  <ImageView fx:id="plusImageFormat" fitHeight="44.0" fitWidth="45.0" pickOnBounds="true" preserveRatio="true" GridPane.halignment="CENTER" GridPane.rowIndex="1">
-                     <image>
-                        <Image url="@../../res/img/addPropertyIcon.png" />
-                     </image>
-                     <cursor>
-                        <Cursor fx:constant="HAND" />
-                     </cursor>
-                  </ImageView>
-                  <ImageView fx:id="plusImageDescription" fitHeight="44.0" fitWidth="45.0" pickOnBounds="true" preserveRatio="true" GridPane.halignment="CENTER" GridPane.rowIndex="2">
-                     <image>
-                        <Image url="@../../res/img/addPropertyIcon.png" />
-                     </image>
-                     <cursor>
-                        <Cursor fx:constant="HAND" />
-                     </cursor>
-                  </ImageView>
-                  <ImageView fx:id="plusImageRank" fitHeight="44.0" fitWidth="45.0" pickOnBounds="true" preserveRatio="true" GridPane.halignment="CENTER" GridPane.rowIndex="3">
-                     <image>
-                        <Image url="@../../res/img/addPropertyIcon.png" />
-                     </image>
-                     <cursor>
-                        <Cursor fx:constant="HAND" />
-                     </cursor>
-                  </ImageView>
-                  <ImageView fx:id="plusImageMin" fitHeight="44.0" fitWidth="45.0" pickOnBounds="true" preserveRatio="true" GridPane.halignment="CENTER" GridPane.rowIndex="4">
-                     <image>
-                        <Image url="@../../res/img/addPropertyIcon.png" />
-                     </image>
-                     <cursor>
-                        <Cursor fx:constant="HAND" />
-                     </cursor>
-                  </ImageView>
                   <Label text="Czas trwania" GridPane.columnIndex="1">
                      <font>
                         <Font name="System Bold" size="20.0" />
@@ -297,8 +265,34 @@
                         <Insets left="5.0" right="5.0" />
                      </GridPane.margin>
                   </TextField>
-                  <Button fx:id="plusTimeButton" mnemonicParsing="false" text="Button" />
+                  <Button fx:id="plusTimeButton" graphicTextGap="0.0" mnemonicParsing="false" onMouseClicked="#plusButtonClicked">
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor></Button>
+                  <Button fx:id="plusFormatButton" mnemonicParsing="false" GridPane.rowIndex="1">
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                  </Button>
+                  <Button fx:id="plusDescriptionButton" mnemonicParsing="false" GridPane.rowIndex="2">
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                  </Button>
+                  <Button fx:id="plusRatingButton" mnemonicParsing="false" GridPane.rowIndex="3">
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                  </Button>
+                  <Button fx:id="plusThumbnailButton" mnemonicParsing="false" GridPane.rowIndex="4">
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                  </Button>
                </children>
+               <cursor>
+                  <Cursor fx:constant="DEFAULT" />
+               </cursor>
             </GridPane>
             <Line endX="280.4000244140625" endY="-1.52587890625E-5" layoutX="167.0" layoutY="259.0" startX="-127.60000610351562" startY="-1.52587890625E-5" />
             <Label layoutX="463.0" layoutY="250.0" text="Informacje opcjonalne (kliknij w + aby dodać)">
