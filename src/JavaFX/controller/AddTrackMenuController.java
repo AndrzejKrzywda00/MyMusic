@@ -53,14 +53,47 @@ public class AddTrackMenuController {
     Button plusThumbnailButton;
 
     // methods
+
     @FXML
-    void plusButtonClicked(ActionEvent event) {
+    public void plusButtonClicked(ActionEvent event) {
+
+        // universal method of handling clicking on the one of five plusButtons
+
+        // 1. button
         if (event.getSource() == plusTimeButton) {
-            System.out.println("Kliknięto w 1 przycisk.");
+            // modify accessiblity of fields
+            // animate the fields
+            // animate the button
+        }
+
+        // 2. button
+        if (event.getSource() == plusFormatButton) {
+            // modify accessiblity of fields
+            // animate the fields
+            // animate the button
+        }
+
+        // 3. button
+        if (event.getSource() == plusDescriptionButton) {
+            // modify accessiblity of fields
+            // animate the fields
+            // animate the button
+        }
+
+        // 4. button
+        if (event.getSource() == plusRatingButton) {
+            // modify accessiblity of fields
+            // animate the fields
+            // animate the button
+        }
+
+        // 5. button
+        if (event.getSource() == plusThumbnailButton) {
+            // modify accessiblity of fields
+            // animate the fields
+            // animate the button
         }
     }
-
-
 
     // constructor
     public AddTrackMenuController() {
@@ -79,7 +112,7 @@ public class AddTrackMenuController {
         // turning on graphical configuration
         // padding, displaying images, setting shape for buttons etc...
         setPlusButtonsConfiguration();
-        plusTimeButton.addEventHandler();
+        //plusTimeButton.addEventHandler();
 
 
 

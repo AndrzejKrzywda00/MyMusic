@@ -265,7 +265,7 @@
                         <Insets left="5.0" right="5.0" />
                      </GridPane.margin>
                   </TextField>
-                  <Button fx:id="plusTimeButton" graphicTextGap="0.0" mnemonicParsing="false" onMouseClicked="#plusButtonClicked">
+                  <Button fx:id="plusTimeButton" graphicTextGap="0.0" mnemonicParsing="false" onAction="#plusButtonClicked">
                      <cursor>
                         <Cursor fx:constant="HAND" />
                      </cursor></Button>

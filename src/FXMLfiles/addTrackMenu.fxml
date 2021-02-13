@@ -265,26 +265,26 @@
                         <Insets left="5.0" right="5.0" />
                      </GridPane.margin>
                   </TextField>
-                  <Button fx:id="plusTimeButton" graphicTextGap="0.0" mnemonicParsing="false" onMouseClicked="#plusButtonClicked">
+                  <Button fx:id="plusTimeButton" graphicTextGap="0.0" mnemonicParsing="false" onAction="#plusButtonClicked">
                      <cursor>
                         <Cursor fx:constant="HAND" />
                      </cursor></Button>
-                  <Button fx:id="plusFormatButton" mnemonicParsing="false" GridPane.rowIndex="1">
+                  <Button fx:id="plusFormatButton" mnemonicParsing="false" onAction="#plusButtonClicked" GridPane.rowIndex="1">
                      <cursor>
                         <Cursor fx:constant="HAND" />
                      </cursor>
                   </Button>
-                  <Button fx:id="plusDescriptionButton" mnemonicParsing="false" GridPane.rowIndex="2">
+                  <Button fx:id="plusDescriptionButton" mnemonicParsing="false" onAction="#plusButtonClicked" GridPane.rowIndex="2">
                      <cursor>
                         <Cursor fx:constant="HAND" />
                      </cursor>
                   </Button>
-                  <Button fx:id="plusRatingButton" mnemonicParsing="false" GridPane.rowIndex="3">
+                  <Button fx:id="plusRatingButton" mnemonicParsing="false" onAction="#plusButtonClicked" GridPane.rowIndex="3">
                      <cursor>
                         <Cursor fx:constant="HAND" />
                      </cursor>
                   </Button>
-                  <Button fx:id="plusThumbnailButton" mnemonicParsing="false" GridPane.rowIndex="4">
+                  <Button fx:id="plusThumbnailButton" mnemonicParsing="false" onAction="#plusButtonClicked" GridPane.rowIndex="4">
                      <cursor>
                         <Cursor fx:constant="HAND" />
                      </cursor>
