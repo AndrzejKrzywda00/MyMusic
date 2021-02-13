@@ -102,23 +102,16 @@ public class AddTrackMenuController {
 
     // initalization
     public void initialize() {
-        // below should be enough to have active fields
-        // for labels just styling
-        // for text fields probably styling as well
-        // but still there is rectangle and so on
-        // timeLasting.setDisable(true);
-        // timeLasting.setStyle("css styling");
-
         // turning on graphical configuration
         // padding, displaying images, setting shape for buttons etc...
         setPlusButtonsConfiguration();
         //plusTimeButton.addEventHandler();
-
-
-
-
     }
 
+    /***
+     * This function performs whole configuration of buttons of adding optional parameters to a new track
+     * It adds images to buttons and shapes them properly
+     */
     void setPlusButtonsConfiguration() {
 
         // performing all configuration of all five buttons
@@ -166,6 +159,10 @@ public class AddTrackMenuController {
 
     }
 
+    /***
+     * This function populates list of ImageView objects with concrete .png file
+     * This file is set to be plus on dark background
+     */
     void populateImagesList() {
 
         for ( int i=0; i<imagesConstants.HOW_MANY_IMAGES; i++ ) {
