@@ -1,5 +1,7 @@
 package JavaFX.controller;
 
+import javafx.animation.Animation;
+import javafx.animation.RotateTransition;
 import javafx.fxml.FXML;
 import javafx.geometry.Insets;
 import javafx.scene.control.Button;
@@ -8,34 +10,36 @@ import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.shape.Circle;
+import javafx.scene.transform.Rotate;
+import javafx.util.Duration;
+import newTrackWindowConstants.DefaultValues;
 import newTrackWindowConstants.ImagesConstants;
 import newTrackWindowConstants.ImagesPaths;
 
-import java.awt.event.ActionEvent;
-import java.awt.event.MouseEvent;
+import javafx.event.ActionEvent;
 import java.util.ArrayList;
 import java.util.List;
 
 public class AddTrackMenuController {
 
     // This clas is the controller of the menu that adds a new track
-
     // WARNING - you can have cosillion here of two controllers when adding this to mainWindow.fxml
 
     // important content classes instances
     ImagesPaths imagesContent = new ImagesPaths();
-
     ImagesConstants imagesConstants = new ImagesConstants();
-
-    // accessing actual data
-    //Image plusRound = new Image(imagesContent.PLUS_IMAGE_PATH);
-    //ImageView plusButtonContent = new ImageView(plusRound);
+    DefaultValues defaultValues = new DefaultValues();
 
     // initializing empty ArratyList for all instances of ImageViews needed for buttons
     ArrayList<ImageView> plusImages = new ArrayList<ImageView>(imagesConstants.HOW_MANY_IMAGES);
 
+    // this list cotains values of all plus buttons to remember in which state the animation is
+    // for false "(+)" needs to go 90 degrees to the left
+    // for true "(+)" needs to go 90 degrees to the right
+    ArrayList<Boolean> rotationCache = new ArrayList<Boolean>(imagesConstants.HOW_MANY_IMAGES);
+
     /*
-    These are plus Images that have to open fields for optional parameters
+    These are buttons that have to open fields for optional parameters
      */
     @FXML
     Button plusTimeButton;
@@ -59,11 +63,35 @@ public class AddTrackMenuController {
 
         // universal method of handling clicking on the one of five plusButtons
 
+        RotateTransition rotate90degreesClockwise = new RotateTransition();
+        rotate90degreesClockwise.setDuration(Duration.millis(defaultValues.TIME_OF_PLUS_BUTTON_ANIMATION));
+        rotate90degreesClockwise.setAxis(Rotate.Z_AXIS);
+        rotate90degreesClockwise.setCycleCount(defaultValues.SINGLE_ANIMATION);
+        rotate90degreesClockwise.setByAngle(90/* degrees */ );    // difference in angle
+
+        RotateTransition rotate90degreesCounterClockwise = new RotateTransition();
+        rotate90degreesCounterClockwise.setDuration(Duration.millis(defaultValues.TIME_OF_PLUS_BUTTON_ANIMATION));
+        rotate90degreesCounterClockwise.setAxis(Rotate.Z_AXIS);
+        rotate90degreesCounterClockwise.setCycleCount(defaultValues.SINGLE_ANIMATION);
+        rotate90degreesCounterClockwise.setByAngle(-90/* degrees */);    // difference in angle
+
         // 1. button
         if (event.getSource() == plusTimeButton) {
             // modify accessiblity of fields
             // animate the fields
             // animate the button
+            if ( rotationCache.get(0) == false ) {
+                rotate90degreesClockwise.setNode(plusTimeButton);   // normal rotation
+                rotationCache.set(0,true);                          // now cache will remeber the state
+                rotate90degreesClockwise.play();
+            }
+            else {
+                // reversed rotaion
+                rotate90degreesCounterClockwise.setNode(plusTimeButton);
+                rotationCache.set(0,false);
+                rotate90degreesCounterClockwise.play();
+            }
+
         }
 
         // 2. button
@@ -71,6 +99,16 @@ public class AddTrackMenuController {
             // modify accessiblity of fields
             // animate the fields
             // animate the button
+            if ( rotationCache.get(1) == false ) {
+                rotate90degreesClockwise.setNode(plusFormatButton);     // normal rotation
+                rotationCache.set(1,true);                              // now cache will remeber the state
+                rotate90degreesClockwise.play();
+            }
+            else {
+                rotate90degreesCounterClockwise.setNode(plusFormatButton);    // reversed rotation
+                rotationCache.set(1,false);
+                rotate90degreesCounterClockwise.play();
+            }
         }
 
         // 3. button
@@ -78,6 +116,16 @@ public class AddTrackMenuController {
             // modify accessiblity of fields
             // animate the fields
             // animate the button
+            if ( rotationCache.get(2) == false ) {
+                rotate90degreesClockwise.setNode(plusDescriptionButton);        // normal rotation
+                rotationCache.set(2,true);                                      // now cache will remeber the state
+                rotate90degreesClockwise.play();
+            }
+            else {
+                rotate90degreesCounterClockwise.setNode(plusDescriptionButton);    // reversed rotation
+                rotationCache.set(2,false);
+                rotate90degreesCounterClockwise.play();
+            }
         }
 
         // 4. button
@@ -85,6 +133,16 @@ public class AddTrackMenuController {
             // modify accessiblity of fields
             // animate the fields
             // animate the button
+            if ( rotationCache.get(3) == false ) {
+                rotate90degreesClockwise.setNode(plusRatingButton);       // normal rotation
+                rotationCache.set(3,true);                                     // now cache will remeber the state
+                rotate90degreesClockwise.play();
+            }
+            else {
+                rotate90degreesCounterClockwise.setNode(plusRatingButton);    // reversed rotation
+                rotationCache.set(3,false);
+                rotate90degreesCounterClockwise.play();
+            }
         }
 
         // 5. button
@@ -92,12 +150,22 @@ public class AddTrackMenuController {
             // modify accessiblity of fields
             // animate the fields
             // animate the button
+            if ( rotationCache.get(4) == false ) {
+                rotate90degreesClockwise.setNode(plusThumbnailButton);     // normal rotation
+                rotationCache.set(4,true);                                   // now cache will remeber the state
+                rotate90degreesClockwise.play();
+            }
+            else {
+                rotate90degreesCounterClockwise.setNode(plusThumbnailButton);    // reversed rotation
+                rotationCache.set(4,false);
+                rotate90degreesCounterClockwise.play();
+            }
         }
     }
 
     // constructor
     public AddTrackMenuController() {
-
+        populateRotationCache();
     }
 
     // initalization
@@ -190,6 +258,12 @@ public class AddTrackMenuController {
         for ( ImageView plusButtonContent : plusImages) {
             plusButtonContent.setFitHeight(imagesConstants.PLUS_IMAGE_HEIGHT);
             plusButtonContent.setFitWidth(imagesConstants.PLUS_IMAGE_WIDTH);
+        }
+    }
+
+    void populateRotationCache() {
+        for ( int i=0; i<imagesConstants.HOW_MANY_IMAGES; i++ ) {
+            rotationCache.add(false);   // at the begging all nodes are in neutral state
         }
     }
 
