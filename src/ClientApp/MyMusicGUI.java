@@ -82,7 +82,7 @@ public class MyMusicGUI extends Application {
 
         // generating logging window
         Stage loggingStage = new Stage();
-        FXMLLoader loginLoader = new FXMLLoader(getClass().getResource(LOGIN_WINDOW_FXML_PATH));
+        FXMLLoader loginLoader = new FXMLLoader(getClass().getResource(ADD_TRACK_MENU_FXML_PATH));
         StackPane loginPane = loginLoader.load();
         Scene logingScene = new Scene(loginPane);
         loggingStage.setScene(logingScene);

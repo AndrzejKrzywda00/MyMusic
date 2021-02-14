@@ -262,13 +262,16 @@ public class AddTrackMenuController {
         }
     }
 
+    /***
+     * This function fills the ArrayList rotationCache with default - false values
+     */
     void populateRotationCache() {
         for ( int i=0; i<imagesConstants.HOW_MANY_IMAGES; i++ ) {
             rotationCache.add(false);   // at the begging all nodes are in neutral state
         }
     }
 
-    // TODO -- add all functioanlity connected to animation, not-active state of fields, responsiveness, time setter
+    // TODO -- not-active state of fields, responsiveness, time setter
 
 
 

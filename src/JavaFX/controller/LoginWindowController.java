@@ -65,7 +65,7 @@ public class LoginWindowController {
     // [X] - image
     @FXML
     Pane loginFailedPane;
-    
+
     @FXML
     Rectangle loginTextRectangle;
 
@@ -146,8 +146,6 @@ public class LoginWindowController {
         passwordTextField.setText(stringContens.EMPTY_STRING);
         loginTextField.setText(stringContens.EMPTY_STRING);
         tickRememberMe.setOpacity(colorProbe.INVISIBLE);
-
-        System.out.println(loginContent.serialize());
     }
 
     @FXML
@@ -180,6 +178,14 @@ public class LoginWindowController {
 
     public LoginWindowController() {
 
+    }
+
+    /***
+     * This function returns serialized data from this form
+     * "login;passwd;rememberMe;"
+     */
+    public String getData() {
+        return loginContent.serialize();
     }
 
 }
