@@ -8,6 +8,7 @@ import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
+import javafx.scene.control.Tooltip;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.Pane;
 import javafx.scene.paint.Color;
@@ -36,27 +37,35 @@ public class LoginWindowController {
     Boolean wantsToBeRemembered = false; // takes the data from button 'rememberMeButton'
 
     /* Here controlling all information flow and configuration of logging window */
+
+    // ( ZALOGUJ ) - button
     @FXML
     Button loginButton;
 
+    // ( ZAREJESTRUJ SIĘ ) - button
     @FXML
     Button registerButton;
 
+    // ( ZALOGUJ ) - green rectangle
     @FXML
     Rectangle loginRectangle;
 
+    // ( ZAREJESTRUJ SIĘ ) - blue rectangle
     @FXML
     Rectangle registrationRectangle;
 
+    // hasło : ( *********** )
     @FXML
     PasswordField passwordTextField;
 
+    // login : ( "UserName" )
     @FXML
     TextField loginTextField;
 
+    // [X] - image
     @FXML
     Pane loginFailedPane;
-
+    
     @FXML
     Rectangle loginTextRectangle;
 
@@ -68,6 +77,9 @@ public class LoginWindowController {
 
     @FXML
     Button rememberMeButton;    // button covering 'remember me' text and box
+
+    @FXML
+    ImageView logoImage;        // main big image
 
     @FXML
     void initialize() {
@@ -103,6 +115,13 @@ public class LoginWindowController {
             // whenever the button is clicked, the value will be inverted
             wantsToBeRemembered = (wantsToBeRemembered == false) ? true : false;
         });
+
+        // Tooltips
+
+        // This tooltip informs you about moving to main page of the application
+        Tooltip mainLogoTooltip = new Tooltip("Przejdź do głównej strony aplikacji MyMusic");
+        Tooltip.install(logoImage, mainLogoTooltip);    // installing tooltip on main logo in application
+
     }
 
     @FXML
@@ -123,9 +142,10 @@ public class LoginWindowController {
         // pack data to class and to be later sent to server
         loginContent.getAllData(loginTextField.getText(), passwordTextField.getText(), wantsToBeRemembered);
 
-        // clearing the text fields (all cases)
+        // clearing the text fields (all cases) and removing visibility of tick "remember me"
         passwordTextField.setText(stringContens.EMPTY_STRING);
         loginTextField.setText(stringContens.EMPTY_STRING);
+        tickRememberMe.setOpacity(colorProbe.INVISIBLE);
 
         System.out.println(loginContent.serialize());
     }

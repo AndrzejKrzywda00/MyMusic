@@ -32,7 +32,7 @@ public class MyMusicGUI extends Application {
     // constant data for this class
     public static final String MAIN_WINDOW_FXML_PATH = "/FXMLfiles/mainWindowSource.fxml";
     public static final String LOGIN_WINDOW_FXML_PATH = "/FXMLfiles/loginWindowSource.fxml";
-    public static final String ADD_TRACK_MENU_PATH = "/FXMLfiles/addTrackMenu.fxml";
+    public static final String ADD_TRACK_MENU_FXML_PATH = "/FXMLfiles/addTrackMenu.fxml";
 
 
     // contructor
@@ -82,7 +82,7 @@ public class MyMusicGUI extends Application {
 
         // generating logging window
         Stage loggingStage = new Stage();
-        FXMLLoader loginLoader = new FXMLLoader(getClass().getResource(ADD_TRACK_MENU_PATH));
+        FXMLLoader loginLoader = new FXMLLoader(getClass().getResource(LOGIN_WINDOW_FXML_PATH));
         StackPane loginPane = loginLoader.load();
         Scene logingScene = new Scene(loginPane);
         loggingStage.setScene(logingScene);

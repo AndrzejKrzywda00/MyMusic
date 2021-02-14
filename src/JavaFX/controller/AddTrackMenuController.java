@@ -61,6 +61,7 @@ public class AddTrackMenuController {
     @FXML
     public void plusButtonClicked(ActionEvent event) {
 
+        // TODO -- think how to make it look better
         // universal method of handling clicking on the one of five plusButtons
 
         RotateTransition rotate90degreesClockwise = new RotateTransition();
