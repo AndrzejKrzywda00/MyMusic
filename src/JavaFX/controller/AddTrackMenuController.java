@@ -9,6 +9,8 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.input.Clipboard;
+import javafx.scene.input.ClipboardContent;
 import javafx.scene.shape.Circle;
 import javafx.scene.transform.Rotate;
 import javafx.util.Duration;
@@ -38,6 +40,10 @@ public class AddTrackMenuController {
     // for true "(+)" needs to go 90 degrees to the right
     ArrayList<Boolean> rotationCache = new ArrayList<Boolean>(imagesConstants.HOW_MANY_IMAGES);
 
+    // handling pasting usting Clipboard
+    private final Clipboard clipboard = Clipboard.getSystemClipboard();
+    private final ClipboardContent clipboardContent = new ClipboardContent();
+
     /*
     These are buttons that have to open fields for optional parameters
      */
@@ -55,6 +61,16 @@ public class AddTrackMenuController {
 
     @FXML
     Button plusThumbnailButton;
+
+    //             <--
+    // wklej URL ze schowka - button
+    @FXML
+    Button pasteURLButton;
+
+    // TextFields
+
+    @FXML
+    TextField URLTextField;
 
     // methods
 
@@ -174,7 +190,12 @@ public class AddTrackMenuController {
         // turning on graphical configuration
         // padding, displaying images, setting shape for buttons etc...
         setPlusButtonsConfiguration();
-        //plusTimeButton.addEventHandler();
+        setPasteURLButtonConfiguration();
+
+        pasteURLButton.setOnAction( e -> {
+            pasteURLToTextField();
+            System.out.println(clipboardContent.getUrl());
+        });
     }
 
     /***
@@ -270,6 +291,27 @@ public class AddTrackMenuController {
             rotationCache.add(false);   // at the begging all nodes are in neutral state
         }
     }
+
+    // now setting up pasting button configuration which is right to the URL section
+
+    /***
+     * This function sets all vital configuration for pasting URL button
+     * It consists of an arrow image and text below
+     */
+    void setPasteURLButtonConfiguration() {
+        Image image = new Image(imagesContent.PASTE_ARROW_PATH);
+        ImageView arrowImage = new ImageView(image);
+        arrowImage.setFitHeight(40);
+        arrowImage.setFitWidth(40);
+        pasteURLButton.setGraphic(arrowImage);
+        pasteURLButton.setPadding(Insets.EMPTY);
+    }
+
+
+    void pasteURLToTextField() {
+        URLTextField.setText(clipboardContent.getString());
+    }
+
 
     // TODO -- not-active state of fields, responsiveness, time setter
 

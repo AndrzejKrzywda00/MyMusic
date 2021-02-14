@@ -47,6 +47,4 @@ public final class PhaseSynchronizer {
     public void setLoggingStage(Stage loggingStage) {
         this.loggingStage = loggingStage;
     }
-
-
 }

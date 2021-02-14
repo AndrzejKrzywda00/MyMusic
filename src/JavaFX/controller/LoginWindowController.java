@@ -2,6 +2,7 @@ package JavaFX.controller;
 
 //import com.sun.javafx.geom.Rectangle;
 import ClientApp.DataContent.LoginContent;
+import ClientApp.PhaseSynchronizer;
 import LoginWindowConstants.LoginElementsColors;
 import LoginWindowConstants.LoginStrings;
 import javafx.beans.value.ChangeListener;
@@ -30,11 +31,14 @@ public class LoginWindowController {
     private LoginStrings stringContens = new LoginStrings();
     private LoginElementsColors colorProbe = new LoginElementsColors();
 
-    // important functional classes
+    // important data classes
     LoginContent loginContent = new LoginContent();
 
     // important local variables
     Boolean wantsToBeRemembered = false; // takes the data from button 'rememberMeButton'
+
+    // singleton Synchronizer for windows
+    PhaseSynchronizer synchronizer = PhaseSynchronizer.getInstance();
 
     /* Here controlling all information flow and configuration of logging window */
 
@@ -129,6 +133,8 @@ public class LoginWindowController {
 
         if (authorized) {
             // always authorized for now
+            // update state of application through PhaseSynchronizer
+            synchronizer.setLoggedPhase();  // we are logged now
         }
         else {
             // type informationa ab. wrong pasword or worng email using new fxml file
