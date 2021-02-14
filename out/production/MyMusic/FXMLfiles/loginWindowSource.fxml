@@ -17,7 +17,6 @@
 <?import javafx.scene.shape.Line?>
 <?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
-<?import CustomControlsFunctions.*?>
 
 <StackPane xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="JavaFX.controller.LoginWindowController">
 <AnchorPane id="mainAnchorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="676.0" prefWidth="603.0" style="-fx-background-color: #d7ded9;" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1">
@@ -30,14 +29,14 @@
                   <Font name="Gabriola" size="65.0" />
                </font>
             </Label>
-            <ImageView id="logoPane" fx:id="logoPane" fitHeight="140.0" fitWidth="134.0" layoutX="55.0" layoutY="33.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fx:id="logoImage" fitHeight="140.0" fitWidth="134.0" layoutX="55.0" layoutY="33.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../../res/img/logoMyMusic.png" />
+                  <Image url="@/img/logoMyMusic.png" />
                </image>
             </ImageView>
          </children>
       </Pane>
-      <Pane layoutX="78.0" layoutY="199.0" prefHeight="438.0" prefWidth="446.0">
+      <Pane layoutX="78.0" layoutY="199.0" prefHeight="438.0" prefWidth="478.0">
          <children>
             <Label layoutX="106.0" layoutY="30.0" prefHeight="57.0" prefWidth="235.0" text="Zaloguj się">
                <font>
@@ -72,7 +71,7 @@
                   </Rectangle>
                   <ImageView fitHeight="38.0" fitWidth="38.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="1">
                      <image>
-                        <Image url="@../../res/img/loginIcon.png" />
+                        <Image url="@/img/loginIcon.png" />
                      </image>
                      <GridPane.margin>
                         <Insets left="10.0" />
@@ -85,7 +84,7 @@
                   </Line>
                   <ImageView fitHeight="31.0" fitWidth="29.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="1" GridPane.rowIndex="1">
                      <image>
-                        <Image url="@../../res/img/passwdIcon.png" />
+                        <Image url="@/img/passwdIcon.png" />
                      </image>
                      <GridPane.margin>
                         <Insets left="15.0" />
@@ -107,8 +106,7 @@
                   </Pane>
                   <Pane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1">
                      <children>
-                        <TextField fx:id="loginTextField" layoutX="49.0" layoutY="16.0" prefHeight="51.0" prefWidth="302.0"
-                                    style="-fx-background-color: none;">
+                        <TextField fx:id="loginTextField" layoutX="49.0" layoutY="16.0" prefHeight="51.0" prefWidth="302.0" style="-fx-background-color: none;">
                            <font>
                               <Font size="24.0" />
                            </font>
@@ -133,10 +131,6 @@
                   <cursor>
                      <Cursor fx:constant="HAND" />
                   </cursor></Button>
-               <Button fx:id="registerButton" layoutX="-42.0" layoutY="340.0" mnemonicParsing="false" onAction="#registerButtonClicked" onMouseEntered="#registerButtonEntered" onMouseExited="#registerButtonExited" opacity="0.0" prefHeight="80.0" prefWidth="248.0" text="Button">
-                  <cursor>
-                     <Cursor fx:constant="HAND" />
-                  </cursor></Button>
                <Pane layoutX="14.0" layoutY="276.0">
                   <Label layoutX="45.0" layoutY="11.0" text="Zapamiętaj mnie">
                      <font>
@@ -145,12 +139,12 @@
                   </Label>
                   <ImageView fitHeight="126.0" fitWidth="38.0" layoutY="5.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@../../res/img/frameLogo.png" />
+                        <Image url="@/img/frameLogo.png" />
                      </image>
                   </ImageView>
                   <ImageView fx:id="tickRememberMe" fitHeight="100.0" fitWidth="38.0" layoutY="4.0" opacity="0.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@../../res/img/tickLogo.png" />
+                        <Image url="@/img/tickLogo.png" />
                      </image>
                   </ImageView>
                   <Button fx:id="rememberMeButton" layoutX="-2.0" layoutY="5.0" mnemonicParsing="false" opacity="0.0" prefHeight="34.0" prefWidth="165.0" text="Button">
@@ -162,7 +156,7 @@
                   <children>
                      <ImageView fitHeight="26.0" fitWidth="31.0" layoutX="14.0" layoutY="10.0" pickOnBounds="true" preserveRatio="true">
                         <image>
-                           <Image url="@../../res/img/wrongDataIcon.png" />
+                           <Image url="@/img/wrongDataIcon.png" />
                         </image>
                      </ImageView>
                      <Label layoutX="48.0" layoutY="12.0" text="Błędne dane logowania" textFill="RED" wrapText="true">
@@ -172,6 +166,10 @@
                      </Label>
                   </children>
                </Pane>
+               <Button fx:id="registerButton" layoutX="-42.0" layoutY="340.0" mnemonicParsing="false" onAction="#registerButtonClicked" onMouseEntered="#registerButtonEntered" onMouseExited="#registerButtonExited" opacity="0.0" prefHeight="80.0" prefWidth="248.0" text="Button">
+                  <cursor>
+                     <Cursor fx:constant="HAND" />
+                  </cursor></Button>
          </children>
       </Pane>
    </children>
