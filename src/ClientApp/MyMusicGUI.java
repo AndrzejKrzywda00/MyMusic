@@ -8,6 +8,7 @@ Release : 1.0.0
 package ClientApp;
 
 import JavaFX.controller.MainWindowController;
+import enums.Phase;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
@@ -34,6 +35,37 @@ public class MyMusicGUI extends Application {
     public static final String LOGIN_WINDOW_FXML_PATH = "/FXMLfiles/loginWindowSource.fxml";
     public static final String ADD_TRACK_MENU_FXML_PATH = "/FXMLfiles/addTrackMenu.fxml";
 
+    // building listener for changes in PhaseSynchronizer
+    Runnable runnable =
+            () -> {};
+
+    Thread synchronizationListener = new Thread() {     // creating annonymous subclass of Thread
+        public void run() {
+            while (true) {
+                try {
+                    System.out.println(phaseSynch.getPhase().toString());
+                    if (phaseSynch.getPhase() == Phase.Logged) {
+                        loggingStage.hide();
+                        primaryStageInstance.show();
+                    }
+                    if (phaseSynch.getPhase() == Phase.NotLogged) {
+                        primaryStageInstance.hide();
+                        loggingStage.show();
+                    }
+                    synchronizationListener.sleep(1000);    // waiting one second
+                } catch (InterruptedException error) {
+                    System.out.println(error.getCause());   // showing cause of exception
+                }
+            }
+        }
+    };
+
+    // stack panes, stages, etc...
+    Stage primaryStageInstance = null;
+
+    Stage loggingStage = new Stage();
+
+
 
     // contructor
     public MyMusicGUI() {
@@ -56,16 +88,16 @@ public class MyMusicGUI extends Application {
         loader.setLocation(this.getClass().getResource(MAIN_WINDOW_FXML_PATH));
 
         StackPane stackPane = null;
-        
+
         try {
             stackPane = loader.load();  // this throws IOException if there is problem in fxml file
         } catch (IOException error) {
             error.printStackTrace();
         }
 
-        MainWindowController controller = loader.getController();
         Scene scene = new Scene(stackPane);
 
+        MainWindowController controller = loader.getController();
         primaryStage.setScene(scene);
 
         // global config of the app
@@ -81,8 +113,7 @@ public class MyMusicGUI extends Application {
         //primaryStage.show();
 
         // generating logging window
-        Stage loggingStage = new Stage();
-        FXMLLoader loginLoader = new FXMLLoader(getClass().getResource(ADD_TRACK_MENU_FXML_PATH));
+        FXMLLoader loginLoader = new FXMLLoader(getClass().getResource(LOGIN_WINDOW_FXML_PATH));
         StackPane loginPane = loginLoader.load();
         Scene logingScene = new Scene(loginPane);
         loggingStage.setScene(logingScene);
@@ -91,10 +122,11 @@ public class MyMusicGUI extends Application {
         loggingStage.setTitle("Zaloguj do MyMusic");
         loggingStage.show();
 
+        primaryStageInstance = primaryStage;    // mapping arg into instance
+
         // one window can be visible at a time
-        // TODO - write automatic synchronization of viisibility of windows
-
-        
-
+        // TODO - write automatic synchronization of visibility of windows
+        synchronizationListener.start();
     }
+
 }

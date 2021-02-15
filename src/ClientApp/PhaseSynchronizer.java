@@ -40,11 +40,18 @@ public final class PhaseSynchronizer {
         this.phase = Phase.NotLogged;
     }
 
+    // getters for stages - not sure if necessary
+
     public void setPrmiaryStage(Stage primaryStage) {
         this.primaryStage = primaryStage;
     }
 
     public void setLoggingStage(Stage loggingStage) {
         this.loggingStage = loggingStage;
+    }
+
+    // phase getter
+    public Phase getPhase() {
+        return this.phase;
     }
 }

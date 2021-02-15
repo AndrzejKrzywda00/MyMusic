@@ -297,7 +297,7 @@
                   <Font name="System Bold" size="14.0" />
                </font>
             </Label>
-            <Rectangle arcHeight="80.0" arcWidth="45.0" fill="#01b224" height="46.0" layoutX="516.0" layoutY="526.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="232.0">
+            <Rectangle arcHeight="80.0" arcWidth="45.0" fill="#00bd42" height="46.0" layoutX="516.0" layoutY="526.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="232.0">
                <cursor>
                   <Cursor fx:constant="HAND" />
                </cursor>

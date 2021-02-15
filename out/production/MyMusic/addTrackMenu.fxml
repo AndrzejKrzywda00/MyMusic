@@ -16,7 +16,8 @@
 <?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 
-<StackPane maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="JavaFX.controller.AddTrackMenuController">
+<StackPane maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/11.0.2"
+           xmlns:fx="http://javafx.com/fxml/1" fx:controller="JavaFX.controller.AddTrackMenuController">
    <children>
       <Pane prefHeight="200.0" prefWidth="200.0">
          <children>
@@ -297,7 +298,7 @@
                   <Font name="System Bold" size="14.0" />
                </font>
             </Label>
-            <Rectangle arcHeight="80.0" arcWidth="45.0" fill="#01b224" height="46.0" layoutX="516.0" layoutY="526.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="232.0">
+            <Rectangle arcHeight="80.0" arcWidth="45.0" fill="#00bd42" height="46.0" layoutX="516.0" layoutY="526.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="232.0">
                <cursor>
                   <Cursor fx:constant="HAND" />
                </cursor>
