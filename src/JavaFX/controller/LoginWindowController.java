@@ -42,7 +42,7 @@ public class LoginWindowController implements IControllable {
     Boolean wantsToBeRemembered = false; // takes the data from button 'rememberMeButton'
 
     // singleton Synchronizer for windows
-    PhaseSynchronizer synchronizer = PhaseSynchronizer.getInstance();
+    PhaseSynchronizer phaseSynchronizer = PhaseSynchronizer.getInstance();
 
     /* Here controlling all information flow and configuration of logging window */
 
@@ -138,7 +138,8 @@ public class LoginWindowController implements IControllable {
         if (authorized) {
             // always authorized for now
             // update state of application through PhaseSynchronizer
-            synchronizer.setLoggedPhase();  // we are logged now
+            phaseSynchronizer.setLoggedPhase();  // we are logged now
+            phaseSynchronizer.notifyObservers(); // notify start() function and trigger update
         }
         else {
             // type informationa ab. wrong pasword or worng email using new fxml file

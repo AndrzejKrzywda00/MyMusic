@@ -49,6 +49,9 @@ public class ScreensContainer extends StackPane {
     // Loads the .fxml file, adds the screen to the screens collection
     // and finally injects the screenPane to the controller
 
+    // some magic values
+    private static final int rapidFadeTime = 1;  // milisecond
+
     /***
      *
      * @param name      Name of the screen - this is ID
@@ -81,7 +84,7 @@ public class ScreensContainer extends StackPane {
             if (!getChildren().isEmpty()) {                     // we have more than one screen
                 Timeline fade = new Timeline(
                         new KeyFrame(Duration.ZERO, new KeyValue(opacity, 1.0)),
-                        new KeyFrame(new Duration(1000), new EventHandler<ActionEvent>() {
+                        new KeyFrame(new Duration(rapidFadeTime), new EventHandler<ActionEvent>() {
 
                             @Override
                             public void handle(ActionEvent event) {

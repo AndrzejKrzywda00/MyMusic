@@ -7,8 +7,7 @@ public interface IObserver {
 
     /***
      * Sets the right fields in the class
-     * @return  true if operataion has been successfull, false otherwise
      */
-    public Boolean update();
+    public void update();
 
 }

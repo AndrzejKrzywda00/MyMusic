@@ -1,9 +1,13 @@
 package ClientApp;
 
+import Interfaces.IObservable;
+import Interfaces.IObserver;
 import enums.Phase;
 import javafx.stage.Stage;
 
-public final class PhaseSynchronizer {
+import java.util.ArrayList;
+
+public final class PhaseSynchronizer implements IObservable {
 
     // this class will sychronize changes between two accessible states of an app
     // which are Logged and NotLogged
@@ -13,10 +17,11 @@ public final class PhaseSynchronizer {
 
     private static final PhaseSynchronizer INSTANCE = new PhaseSynchronizer();
 
+    // list contains all classes that will be notified when state of this app is changed
+    private ArrayList<IObserver> subscribers = new ArrayList<IObserver>();
+
     // properties
     private Phase phase;
-    private Stage loggingStage;
-    private Stage primaryStage;
 
     private PhaseSynchronizer() {
         this.phase = Phase.NotLogged;   // be default user is not logged
@@ -40,18 +45,31 @@ public final class PhaseSynchronizer {
         this.phase = Phase.NotLogged;
     }
 
-    // getters for stages - not sure if necessary
-
-    public void setPrmiaryStage(Stage primaryStage) {
-        this.primaryStage = primaryStage;
-    }
-
-    public void setLoggingStage(Stage loggingStage) {
-        this.loggingStage = loggingStage;
-    }
-
     // phase getter
     public Phase getPhase() {
         return this.phase;
+    }   // this satisfies getState() method from design pattern
+
+    /*
+    Contenent of IObservable interface
+     */
+
+    @Override
+    public void add(IObserver subscriber) {
+        subscribers.add(subscriber);
     }
+
+    @Override
+    public void remove(IObserver subscriber) {
+        subscribers.remove(subscriber);
+    }
+
+    @Override
+    public void notifyObservers() {
+        for (IObserver subscriber : subscribers) {
+            subscriber.update();    // trigger somebodys function update
+            System.out.println("triggered update in all subscribers");
+        }
+    }
+
 }
