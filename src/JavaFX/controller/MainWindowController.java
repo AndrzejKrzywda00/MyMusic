@@ -1,6 +1,7 @@
 package JavaFX.controller;
 
 import ClientApp.User;
+import Interfaces.IControllable;
 import enums.Phase;
 import javafx.event.ActionEvent;
 import javafx.event.Event;
@@ -19,7 +20,7 @@ import javafx.stage.Stage;
 import javax.swing.*;
 import java.io.IOException;
 
-public class MainWindowController {
+public class MainWindowController implements IControllable {
 
     /* This class is the controller of the main widow of the application
     It sholud only manage graphic elements and take data from forms
@@ -36,8 +37,11 @@ public class MainWindowController {
     private Stage loginWindow;  // this is logging window and is owned via association by mainWindow
     private User user;          // this is user set to this instance of application
 
+    ScreensController superController;
+
     public MainWindowController() {
         // warning - constructor must be public
+        setScreenParent(superController);
     }
 
     void initialize() {
@@ -58,4 +62,9 @@ public class MainWindowController {
         // ...Pane.setCenter(parent);
     }
 
+    // from IControllable
+    @Override
+    public void setScreenParent(ScreensController superController) {
+        this.superController = superController;
+    }
 }

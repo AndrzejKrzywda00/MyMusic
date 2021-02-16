@@ -16,7 +16,8 @@
 <?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 
-<StackPane maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="JavaFX.controller.AddTrackMenuController">
+<StackPane maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/11.0.2"
+           xmlns:fx="http://javafx.com/fxml/1" fx:controller="JavaFX.controller.AddTrackMenuController">
    <children>
       <Pane prefHeight="200.0" prefWidth="200.0">
          <children>

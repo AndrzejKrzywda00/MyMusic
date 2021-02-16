@@ -1,6 +1,6 @@
 /*
 Application My Music
-Developed by Andrzej Krzywda
+@author Andrzej Krzywda
 Date : February 2021
 Release : 1.0.0
  */
@@ -26,7 +26,7 @@ public class MyMusicGUI extends Application {
     * */
 
     // properties
-    PhaseSynchronizer phaseSynch = PhaseSynchronizer.getInstance();    // an instance of PhaseSynchronizer is created to cope with phases
+    PhaseSynchronizer phaseSynchronizer = PhaseSynchronizer.getInstance();    // an instance of PhaseSynchronizer is created to cope with phases
 
     User user;  // user of instance of application - one's data is downloaded from server
 
@@ -35,37 +35,9 @@ public class MyMusicGUI extends Application {
     public static final String LOGIN_WINDOW_FXML_PATH = "/FXMLfiles/loginWindowSource.fxml";
     public static final String ADD_TRACK_MENU_FXML_PATH = "/FXMLfiles/addTrackMenu.fxml";
 
-    // building listener for changes in PhaseSynchronizer
-    Runnable runnable =
-            () -> {};
-
-    Thread synchronizationListener = new Thread() {     // creating annonymous subclass of Thread
-        public void run() {
-            while (true) {
-                try {
-                    System.out.println(phaseSynch.getPhase().toString());
-                    if (phaseSynch.getPhase() == Phase.Logged) {
-                        loggingStage.hide();
-                        primaryStageInstance.show();
-                    }
-                    if (phaseSynch.getPhase() == Phase.NotLogged) {
-                        primaryStageInstance.hide();
-                        loggingStage.show();
-                    }
-                    synchronizationListener.sleep(1000);    // waiting one second
-                } catch (InterruptedException error) {
-                    System.out.println(error.getCause());   // showing cause of exception
-                }
-            }
-        }
-    };
-
-    // stack panes, stages, etc...
-    Stage primaryStageInstance = null;
-
-    Stage loggingStage = new Stage();
-
-
+    // names of the windows
+    public static final String loginWindowName = "loginWindow";
+    public static final String mainWindowName = "mainWindow";
 
     // contructor
     public MyMusicGUI() {
@@ -115,6 +87,7 @@ public class MyMusicGUI extends Application {
         // generating logging window
         FXMLLoader loginLoader = new FXMLLoader(getClass().getResource(LOGIN_WINDOW_FXML_PATH));
         StackPane loginPane = loginLoader.load();
+        Stage loggingStage = new Stage();
         Scene logingScene = new Scene(loginPane);
         loggingStage.setScene(logingScene);
         loggingStage.sizeToScene();
@@ -122,11 +95,8 @@ public class MyMusicGUI extends Application {
         loggingStage.setTitle("Zaloguj do MyMusic");
         loggingStage.show();
 
-        primaryStageInstance = primaryStage;    // mapping arg into instance
-
         // one window can be visible at a time
         // TODO - write automatic synchronization of visibility of windows
-        synchronizationListener.start();
     }
 
 }

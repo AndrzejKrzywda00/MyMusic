@@ -3,6 +3,7 @@ package JavaFX.controller;
 //import com.sun.javafx.geom.Rectangle;
 import ClientApp.DataContent.LoginContent;
 import ClientApp.PhaseSynchronizer;
+import Interfaces.IControllable;
 import LoginWindowConstants.LoginElementsColors;
 import LoginWindowConstants.LoginStrings;
 import javafx.beans.value.ChangeListener;
@@ -17,7 +18,7 @@ import javafx.scene.shape.Rectangle;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 
-public class LoginWindowController {
+public class LoginWindowController implements IControllable {
 
     // TODO -- fill string magic values with proper resource bundles in two languages
     // partially done
@@ -194,4 +195,9 @@ public class LoginWindowController {
         return loginContent.serialize();
     }
 
+    // from IControllable
+    @Override
+    public void setScreenParent(ScreensController superController) {
+
+    }
 }

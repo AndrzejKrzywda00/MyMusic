@@ -1,5 +1,6 @@
 package JavaFX.controller;
 
+import Interfaces.IControllable;
 import javafx.animation.Animation;
 import javafx.animation.RotateTransition;
 import javafx.fxml.FXML;
@@ -22,7 +23,7 @@ import javafx.event.ActionEvent;
 import java.util.ArrayList;
 import java.util.List;
 
-public class AddTrackMenuController {
+public class AddTrackMenuController implements IControllable {
 
     // This clas is the controller of the menu that adds a new track
     // WARNING - you can have cosillion here of two controllers when adding this to mainWindow.fxml
@@ -312,9 +313,12 @@ public class AddTrackMenuController {
         URLTextField.setText(clipboardContent.getString());
     }
 
+    // from Interface IControllable
+    @Override
+    public void setScreenParent(ScreensController superController) {
+
+    }
 
     // TODO -- not-active state of fields, responsiveness, time setter
-
-
 
 }
