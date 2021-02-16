@@ -24,6 +24,9 @@ public class LoginWindowController implements IControllable {
     // partially done
     private static final int TEXT_FIELDS_CAPACITY = 25;
 
+    // container
+    ScreensContainer superContainer;
+
     // to be removed
     private Boolean authorized = true;
 
@@ -197,7 +200,7 @@ public class LoginWindowController implements IControllable {
 
     // from IControllable
     @Override
-    public void setScreenParent(ScreensContainer superController) {
-
+    public void setScreenParent(ScreensContainer superContainer) {
+        this.superContainer = superContainer;
     }
 }

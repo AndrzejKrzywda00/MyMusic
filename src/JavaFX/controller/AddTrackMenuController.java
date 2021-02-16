@@ -25,6 +25,9 @@ public class AddTrackMenuController implements IControllable {
     // This clas is the controller of the menu that adds a new track
     // WARNING - you can have cosillion here of two controllers when adding this to mainWindow.fxml
 
+    // parent container of this class
+    ScreensContainer superContainer;
+
     // important content classes instances
     ImagesPaths imagesContent = new ImagesPaths();
     ImagesConstants imagesConstants = new ImagesConstants();
@@ -312,8 +315,8 @@ public class AddTrackMenuController implements IControllable {
 
     // from Interface IControllable
     @Override
-    public void setScreenParent(ScreensContainer superController) {
-
+    public void setScreenParent(ScreensContainer superContainer) {
+        this.superContainer = superContainer;
     }
 
     // TODO -- not-active state of fields, responsiveness, time setter
