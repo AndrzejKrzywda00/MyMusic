@@ -68,7 +68,6 @@ public final class PhaseSynchronizer implements IObservable {
     public void notifyObservers() {
         for (IObserver subscriber : subscribers) {
             subscriber.update();    // trigger somebodys function update
-            System.out.println("triggered update in all subscribers");
         }
     }
 

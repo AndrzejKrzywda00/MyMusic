@@ -12,9 +12,11 @@ import Interfaces.IObserver;
 import JavaFX.controller.ScreensContainer;
 import enums.Phase;
 import javafx.application.Application;
+import javafx.geometry.Rectangle2D;
 import javafx.scene.Group;
 import javafx.scene.Scene;
 import javafx.scene.image.Image;
+import javafx.stage.Screen;
 import javafx.stage.Stage;
 
 public class MyMusicGUI extends Application implements IObserver {
@@ -34,7 +36,8 @@ public class MyMusicGUI extends Application implements IObserver {
     public static final String mainWindowName = "mainWindow";
 
     // properties
-    PhaseSynchronizer phaseSynchronizer = PhaseSynchronizer.getInstance();    // an instance of PhaseSynchronizer is created to cope with phases
+    // an instance of PhaseSynchronizer is created to cope with phases
+    PhaseSynchronizer phaseSynchronizer = PhaseSynchronizer.getInstance();
 
     // user of instance of application - one's data is downloaded from server
     User user;
@@ -76,56 +79,12 @@ public class MyMusicGUI extends Application implements IObserver {
         this.primaryStage.setScene(scene);
         this.primaryStage.show();
 
-        /*
+        Rectangle2D screenBounds = Screen.getPrimary().getBounds();
+        Double screenDPI = Screen.getPrimary().getDpi();
 
-        // Importing info from .fxml file
-        // It describes all layout of the application
-        FXMLLoader loader = new FXMLLoader();
+        System.out.println(screenDPI);
+        System.out.println(screenBounds);
 
-        // File is in 'FXML files' package
-        // TODO -- add proper handling of IOException -- checking if fxml exists and is proper type
-        // probably use 'try' on all code
-        loader.setLocation(this.getClass().getResource(MAIN_WINDOW_FXML_PATH));
-
-        StackPane stackPane = null;
-
-        try {
-            stackPane = loader.load();  // this throws IOException if there is problem in fxml file
-        } catch (IOException error) {
-            error.printStackTrace();
-        }
-
-        Scene scene = new Scene(stackPane);
-
-        MainWindowController controller = loader.getController();
-        primaryStage.setScene(scene);
-
-        // global config of the app
-        // this is primary stage of the application and here
-        // will be held the main functionality
-        // It will start some child windows
-
-        Image icon = new Image("logoMyMusicSmall.png");     //resource must be 32x32 or smaller but 64x64 is too big
-        primaryStage.sizeToScene();
-        primaryStage.getIcons().add(icon);
-        primaryStage.setTitle("MyMusic");
-        primaryStage.setMaximized(true);
-        //primaryStage.show();
-
-        // generating logging window
-        FXMLLoader loginLoader = new FXMLLoader(getClass().getResource(LOGIN_WINDOW_FXML_PATH));
-        StackPane loginPane = loginLoader.load();
-        Stage loggingStage = new Stage();
-        Scene logingScene = new Scene(loginPane);
-        loggingStage.setScene(logingScene);
-        loggingStage.sizeToScene();
-        loggingStage.getIcons().add(icon);
-        loggingStage.setTitle("Zaloguj do MyMusic");
-        loggingStage.show();
-         */
-
-        // one window can be visible at a time
-        // TODO - write automatic synchronization of visibility of windows
     }
 
     // this method satisfies the IObserver interface
@@ -140,6 +99,8 @@ public class MyMusicGUI extends Application implements IObserver {
         }
     }
 
+    // This function calls setScreen method on mainContainer
+    // but also adds some specific configuration to primaryStages
     public void setScreenToMain(String name) {
         mainContainer.setScreen(name);
         // formating primaryStage
