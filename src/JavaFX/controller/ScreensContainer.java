@@ -19,7 +19,7 @@ import java.io.IOException;
 import java.security.Key;
 import java.util.HashMap;
 
-public class ScreensController extends StackPane {
+public class ScreensContainer extends StackPane {
 
     // ScreensController class IS the controller of controllers
     // it sychronizes changes between what the user will see in the runtime
@@ -32,7 +32,7 @@ public class ScreensController extends StackPane {
      */
     private HashMap<String, Node> screens = new HashMap<String, Node>();
 
-    public ScreensController() {
+    public ScreensContainer() {
         super();    // starting the StackPane
     }
 
@@ -75,10 +75,9 @@ public class ScreensController extends StackPane {
      * @return  true if screen has been set successfully, false otherwise
      * @throws ScreenNotLoadedException when screen hasn't been loaded prevously
      */
-    public Boolean setScreen(final String name) throws ScreenNotLoadedException {
+    public Boolean setScreen(final String name) {
         if (screens.get(name) != null) {                        // there exist such screen loaded
-            final DoubleProperty opacity = opacityProperty();   // taking the opacity property of this
-            Node newScreen = screens.get(name);                 // the screen we are adding
+            final DoubleProperty opacity = opacityProperty();   // taking the opacity property
             if (!getChildren().isEmpty()) {                     // we have more than one screen
                 Timeline fade = new Timeline(
                         new KeyFrame(Duration.ZERO, new KeyValue(opacity, 1.0)),
@@ -87,7 +86,7 @@ public class ScreensController extends StackPane {
                             @Override
                             public void handle(ActionEvent event) {
                                 getChildren().remove(0);            // removing current screen that is displayed
-                                getChildren().add(0, newScreen);    // adding the selected screen
+                                getChildren().add(0, screens.get(name));    // adding the selected screen
                                 Timeline fadeIn = new Timeline(
                                         new KeyFrame(Duration.ZERO, new KeyValue(opacity, 1.0)),
                                         new KeyFrame(new Duration(800), new KeyValue(opacity, 1.0)));
@@ -105,7 +104,7 @@ public class ScreensController extends StackPane {
             }
             return true;
         } else {
-            //throw new ScreenNotLoadedException("Screen hasn't been loaded");
+            System.out.println("Screen hasn't been loaded");
             return false;
         }
     }

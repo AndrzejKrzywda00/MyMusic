@@ -197,7 +197,7 @@ public class LoginWindowController implements IControllable {
 
     // from IControllable
     @Override
-    public void setScreenParent(ScreensController superController) {
+    public void setScreenParent(ScreensContainer superController) {
 
     }
 }

@@ -3,21 +3,10 @@ package JavaFX.controller;
 import ClientApp.User;
 import Interfaces.IControllable;
 import enums.Phase;
-import javafx.event.ActionEvent;
-import javafx.event.Event;
-import javafx.event.EventHandler;
 import javafx.fxml.FXMLLoader;
-import javafx.fxml.Initializable;
 import javafx.scene.Parent;
-import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.control.CheckBox;
-import javafx.scene.control.Label;
-import javafx.scene.input.MouseEvent;
-import javafx.scene.layout.StackPane;
 import javafx.stage.Stage;
 
-import javax.swing.*;
 import java.io.IOException;
 
 public class MainWindowController implements IControllable {
@@ -37,7 +26,7 @@ public class MainWindowController implements IControllable {
     private Stage loginWindow;  // this is logging window and is owned via association by mainWindow
     private User user;          // this is user set to this instance of application
 
-    ScreensController superController;
+    ScreensContainer superController;
 
     public MainWindowController() {
         // warning - constructor must be public
@@ -64,7 +53,7 @@ public class MainWindowController implements IControllable {
 
     // from IControllable
     @Override
-    public void setScreenParent(ScreensController superController) {
+    public void setScreenParent(ScreensContainer superController) {
         this.superController = superController;
     }
 }

@@ -7,16 +7,12 @@ Release : 1.0.0
 
 package ClientApp;
 
-import JavaFX.controller.MainWindowController;
-import enums.Phase;
+import JavaFX.controller.ScreensContainer;
 import javafx.application.Application;
-import javafx.fxml.FXMLLoader;
+import javafx.scene.Group;
 import javafx.scene.Scene;
 import javafx.scene.image.Image;
-import javafx.scene.layout.StackPane;
 import javafx.stage.Stage;
-
-import java.io.IOException;
 
 public class MyMusicGUI extends Application {
 
@@ -24,11 +20,6 @@ public class MyMusicGUI extends Application {
     * All the functioanlity will be moved to functional
     * objects, instances of which will be kept here
     * */
-
-    // properties
-    PhaseSynchronizer phaseSynchronizer = PhaseSynchronizer.getInstance();    // an instance of PhaseSynchronizer is created to cope with phases
-
-    User user;  // user of instance of application - one's data is downloaded from server
 
     // constant data for this class
     public static final String MAIN_WINDOW_FXML_PATH = "/FXMLfiles/mainWindowSource.fxml";
@@ -39,6 +30,13 @@ public class MyMusicGUI extends Application {
     public static final String loginWindowName = "loginWindow";
     public static final String mainWindowName = "mainWindow";
 
+    // properties
+    PhaseSynchronizer phaseSynchronizer = PhaseSynchronizer.getInstance();    // an instance of PhaseSynchronizer is created to cope with phases
+
+    // user of instance of application - one's data is downloaded from server
+    User user;
+
+
     // contructor
     public MyMusicGUI() {
     }
@@ -48,9 +46,31 @@ public class MyMusicGUI extends Application {
     }
 
     @Override
-    public void start(Stage primaryStage) throws IOException {
+    public void start(Stage primaryStage) throws InterruptedException{
 
-        /* Importing info from .fxml file */
+
+        // master controller, that manages changes in controllers
+        ScreensContainer mainContainer = new ScreensContainer();
+        mainContainer.loadScreen(loginWindowName, LOGIN_WINDOW_FXML_PATH);
+        mainContainer.loadScreen(mainWindowName, MAIN_WINDOW_FXML_PATH);
+
+        // setting which screen i want to display
+        mainContainer.setScreen(loginWindowName);
+
+        Image icon = new Image("logoMyMusicSmall.png");     //resource must be 32x32 or smaller but 64x64 is too big
+        primaryStage.getIcons().add(icon);
+
+        primaryStage.setTitle("MyMusic - logowanie");
+
+        Group root = new Group();
+        root.getChildren().addAll(mainContainer);
+        Scene scene = new Scene(root);
+        primaryStage.setScene(scene);
+        primaryStage.show();
+
+        /*
+
+        // Importing info from .fxml file
         // It describes all layout of the application
         FXMLLoader loader = new FXMLLoader();
 
@@ -73,10 +93,10 @@ public class MyMusicGUI extends Application {
         primaryStage.setScene(scene);
 
         // global config of the app
-        /* this is primary stage of the application and here
-        will be held the main functionality
-        It will start some child windows
-         */
+        // this is primary stage of the application and here
+        // will be held the main functionality
+        // It will start some child windows
+
         Image icon = new Image("logoMyMusicSmall.png");     //resource must be 32x32 or smaller but 64x64 is too big
         primaryStage.sizeToScene();
         primaryStage.getIcons().add(icon);
@@ -94,6 +114,9 @@ public class MyMusicGUI extends Application {
         loggingStage.getIcons().add(icon);
         loggingStage.setTitle("Zaloguj do MyMusic");
         loggingStage.show();
+
+
+         */
 
         // one window can be visible at a time
         // TODO - write automatic synchronization of visibility of windows

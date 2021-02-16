@@ -1,12 +1,10 @@
 package JavaFX.controller;
 
 import Interfaces.IControllable;
-import javafx.animation.Animation;
 import javafx.animation.RotateTransition;
 import javafx.fxml.FXML;
 import javafx.geometry.Insets;
 import javafx.scene.control.Button;
-import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
@@ -21,7 +19,6 @@ import newTrackWindowConstants.ImagesPaths;
 
 import javafx.event.ActionEvent;
 import java.util.ArrayList;
-import java.util.List;
 
 public class AddTrackMenuController implements IControllable {
 
@@ -315,7 +312,7 @@ public class AddTrackMenuController implements IControllable {
 
     // from Interface IControllable
     @Override
-    public void setScreenParent(ScreensController superController) {
+    public void setScreenParent(ScreensContainer superController) {
 
     }
 

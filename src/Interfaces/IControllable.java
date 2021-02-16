@@ -1,6 +1,6 @@
 package Interfaces;
 
-import JavaFX.controller.ScreensController;
+import JavaFX.controller.ScreensContainer;
 
 public interface IControllable {
 
@@ -12,6 +12,6 @@ public interface IControllable {
      * @param screensController This is the controller of all controllers
      * Function has to set parent of controlling instance to super controller
      */
-    public void setScreenParent(ScreensController superController);
+    public void setScreenParent(ScreensContainer superController);
 
 }
