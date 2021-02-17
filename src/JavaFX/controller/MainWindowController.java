@@ -56,8 +56,9 @@ public class MainWindowController implements IControllable {
     @FXML
     VBox sideMenu;              // whole side menu
 
+    // functional buttons
     @FXML
-    AnchorPane baseAnchorPane;
+    Button addTrackButton;      // loads the addTrack fxml file
 
     /* When user is not logged we can see only logging window, the main one is not visible
     When user is logged - logging one is invisible
@@ -95,6 +96,12 @@ public class MainWindowController implements IControllable {
             }
         };
         logOutButton.addEventHandler(ActionEvent.ACTION, clickHandler);
+
+        // add new track button is clicked
+        addTrackButton.setOnAction( e -> {
+            // switch the content to add new track form
+
+        });
 
     }
 
@@ -167,8 +174,8 @@ public class MainWindowController implements IControllable {
         } catch (IOException error) {
             error.printStackTrace();
         }
-        // here add this to main pane via
-        // ...Pane.setCenter(parent);
+
+        //.setCenter --- adding elements
     }
 
     private void formatMenuButtonsExpanded() {
