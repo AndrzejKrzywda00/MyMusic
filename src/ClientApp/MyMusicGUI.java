@@ -79,12 +79,6 @@ public class MyMusicGUI extends Application implements IObserver {
         this.primaryStage.setScene(scene);
         this.primaryStage.show();
 
-        Rectangle2D screenBounds = Screen.getPrimary().getBounds();
-        Double screenDPI = Screen.getPrimary().getDpi();
-
-        System.out.println(screenDPI);
-        System.out.println(screenBounds);
-
     }
 
     // this method satisfies the IObserver interface
@@ -92,25 +86,29 @@ public class MyMusicGUI extends Application implements IObserver {
     public void update() {
         // we need to check the state of phaseSychronizer
         if (phaseSynchronizer.getPhase() == Phase.NotLogged) {
-            setScreenToMain(loginWindowName);
+            setScreenToLogin();
         }
         if (phaseSynchronizer.getPhase() == Phase.Logged) {
-            setScreenToMain(mainWindowName);
+            setScreenToMain();
         }
     }
 
     // This function calls setScreen method on mainContainer
     // but also adds some specific configuration to primaryStages
-    public void setScreenToMain(String name) {
-        mainContainer.setScreen(name);
+    public void setScreenToMain() {
+        mainContainer.setScreen(mainWindowName);
         // formating primaryStage
         primaryStage.setTitle("Aplikacja do archiwizacji muzyki - MyMusic");    // adding some description
         primaryStage.setMaximized(true);        // main window will always be maximized
 
     }
 
-    public void setScreenToLogin(String name) {
-        mainContainer.setScreen(name);
+    public void setScreenToLogin() {
+        /*
+        Size of the login window is 603 x 676 and should be centered
+         */
         this.primaryStage.setTitle("MyMusic - logowanie");      // adding some description
+        this.primaryStage.setMaximized(false);
+        mainContainer.setScreen(loginWindowName);
     }
 }

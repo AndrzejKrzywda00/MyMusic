@@ -2,6 +2,7 @@ package newTrackWindowConstants;
 
 import enums.Rating;
 import javafx.scene.image.Image;
+import javafx.scene.paint.Color;
 
 public class DefaultValues {
 
@@ -21,5 +22,12 @@ public class DefaultValues {
 
     // animation time in MILISECONDS
     public static final double TIME_OF_PLUS_BUTTON_ANIMATION = 200;
+
+    // how many images will be in side menu
+    public static final int HOW_MANY_IMAGES = 6;
+
+    // color in rgb format
+    public static final Color NON_ACTIVE_GREY = Color.rgb(245, 245, 235);
+    public static final Color ACTIVE_GREY = Color.rgb(206, 207, 192);
 
 }

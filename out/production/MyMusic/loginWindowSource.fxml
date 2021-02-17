@@ -19,7 +19,8 @@
 <?import javafx.scene.text.Font?>
 
 <StackPane xmlns="http://javafx.com/javafx/11.0.2" xmlns:fx="http://javafx.com/fxml/1" fx:controller="JavaFX.controller.LoginWindowController">
-<AnchorPane id="mainAnchorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="676.0" prefWidth="603.0" style="-fx-background-color: #d7ded9;" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane id="mainAnchorPane" maxHeight="676.0" maxWidth="603.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="676.0" prefWidth="603.0"
+            style="-fx-background-color: #d7ded9;" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1">
    <children>
       <Pane layoutX="67.0" layoutY="28.0" prefHeight="200.0" prefWidth="469.0" AnchorPane.leftAnchor="67.0" AnchorPane.rightAnchor="67.0">
          <children>

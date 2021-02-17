@@ -203,7 +203,7 @@ public class AddTrackMenuController implements IControllable {
      * This function performs whole configuration of buttons of adding optional parameters to a new track
      * It adds images to buttons and shapes them properly
      */
-    void setPlusButtonsConfiguration() {
+    private void setPlusButtonsConfiguration() {
 
         // performing all configuration of all five buttons
         // they are aligned like this:
@@ -254,29 +254,20 @@ public class AddTrackMenuController implements IControllable {
      * This function populates list of ImageView objects with concrete .png file
      * This file is set to be plus on dark background
      */
-    void populateImagesList() {
+    private void populateImagesList() {
 
         for ( int i=0; i<imagesConstants.HOW_MANY_IMAGES; i++ ) {
             Image plus = new Image(imagesContent.PLUS_IMAGE_PATH);
             ImageView plusContent = new ImageView(plus);
             plusImages.add(plusContent);
         }
-
-        // alternative way but it seem to not work
-        /*
-        for ( ImageView image : plusImages ) {
-            Image plus = new Image(imagesContent.PLUS_IMAGE_PATH);
-            image = new ImageView(plus);
-        }
-         */
-
     }
 
     /***
      * This function sets the dimensions of image to fit in the form
      * For now it uses constant values for 45 px X 45 px
      */
-    void formatPlusButtonsImages() {
+    private void formatPlusButtonsImages() {
         // formating images which will be added to buttons ( width = height )
         for ( ImageView plusButtonContent : plusImages) {
             plusButtonContent.setFitHeight(imagesConstants.PLUS_IMAGE_HEIGHT);
@@ -287,7 +278,7 @@ public class AddTrackMenuController implements IControllable {
     /***
      * This function fills the ArrayList rotationCache with default - false values
      */
-    void populateRotationCache() {
+    private void populateRotationCache() {
         for ( int i=0; i<imagesConstants.HOW_MANY_IMAGES; i++ ) {
             rotationCache.add(false);   // at the begging all nodes are in neutral state
         }
@@ -299,7 +290,7 @@ public class AddTrackMenuController implements IControllable {
      * This function sets all vital configuration for pasting URL button
      * It consists of an arrow image and text below
      */
-    void setPasteURLButtonConfiguration() {
+    private void setPasteURLButtonConfiguration() {
         Image image = new Image(imagesContent.PASTE_ARROW_PATH);
         ImageView arrowImage = new ImageView(image);
         arrowImage.setFitHeight(40);
@@ -309,7 +300,7 @@ public class AddTrackMenuController implements IControllable {
     }
 
 
-    void pasteURLToTextField() {
+    private void pasteURLToTextField() {
         URLTextField.setText(clipboardContent.getString());
     }
 

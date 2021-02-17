@@ -125,7 +125,6 @@ public class LoginWindowController implements IControllable {
         });
 
         // Tooltips
-
         // This tooltip informs you about moving to main page of the application
         Tooltip mainLogoTooltip = new Tooltip("Przejdź do głównej strony aplikacji MyMusic");
         Tooltip.install(logoImage, mainLogoTooltip);    // installing tooltip on main logo in application
