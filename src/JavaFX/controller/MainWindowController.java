@@ -3,28 +3,27 @@ package JavaFX.controller;
 import ClientApp.PhaseSynchronizer;
 import ClientApp.User;
 import Interfaces.IControllable;
-import enums.Phase;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.control.Button;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.control.ToggleButton;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
-import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
-import javafx.scene.layout.Background;
 import javafx.scene.layout.VBox;
-import javafx.scene.paint.Color;
-import javafx.stage.Stage;
 import newTrackWindowConstants.DefaultValues;
 import newTrackWindowConstants.ImagesPaths;
+import newTrackWindowConstants.ScreensPaths;
 
 import java.io.IOException;
-import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.Map;
 
 public class MainWindowController implements IControllable {
 
@@ -53,12 +52,25 @@ public class MainWindowController implements IControllable {
     @FXML
     ToggleButton themeButton;   // switches theme
 
-    @FXML
-    VBox sideMenu;              // whole side menu
 
     // functional buttons
     @FXML
     Button addTrackButton;      // loads the addTrack fxml file
+
+    @FXML
+    Button removeTrackButton;   // loads the removeTrack fxml file
+
+    @FXML
+    Button createPlaylistButton;    // opens menu for adding files to a playlist
+
+    @FXML
+    VBox sideMenu;              // whole side menu
+
+    @FXML
+    ScrollPane sideMenuScrollPane;      // container for vbox
+
+    @FXML
+    AnchorPane buildPane;           // this is the element that hold content of app
 
     /* When user is not logged we can see only logging window, the main one is not visible
     When user is logged - logging one is invisible
@@ -70,13 +82,17 @@ public class MainWindowController implements IControllable {
     ScreensContainer superController;
 
     // const
-    ImagesPaths paths = new ImagesPaths();
+    ImagesPaths imagesPaths = new ImagesPaths();
     DefaultValues values = new DefaultValues();
+    ScreensPaths screensPaths = new ScreensPaths();
+
+    private HashMap<String,Node> elements;
 
     public MainWindowController() {
         // warning - constructor must be public
-        setScreenParent(superController);
+        setScreenParent(superController);   // setting screen parent for purposes of general login-main window sych
         phaseSynchronizer = PhaseSynchronizer.getInstance();
+        loadElements();                     // loading all possible screens to this form
     }
 
     @FXML
@@ -100,7 +116,6 @@ public class MainWindowController implements IControllable {
         // add new track button is clicked
         addTrackButton.setOnAction( e -> {
             // switch the content to add new track form
-
         });
 
     }
@@ -164,28 +179,45 @@ public class MainWindowController implements IControllable {
         themeButton.setStyle("-fx-background-color: rgb(245, 245, 235);");
     }
 
-    // adding method for setting other fxmls into main one
-    public void setCenter(String fxmlPath) {
-        FXMLLoader loader = new FXMLLoader(this.getClass().getResource(fxmlPath));
-        // accessing and bundling the resources
-        Parent parent = null;
-        try {
-            parent = loader.load();
-        } catch (IOException error) {
-            error.printStackTrace();
+    public void setElementByName(String name) {
+        // take from map and pass to setElement default function
+    }
+
+    /***
+     * This method loads element from the path provided
+     * @param fxmlPath  path to file .fxml
+     * @return  loaded element of type Parent
+     */
+    public void loadElements() {
+
+        for (HashMap.Entry<String,String> screen : screensPaths.screens.entrySet()) {
+            String name = screen.getKey();
+            String fxmlPath = screen.getValue();
+            FXMLLoader loader = new FXMLLoader(getClass().getResource(fxmlPath));
+            //System.out.println(loader.getLocation().toString());
+            Parent parent = null;
+            try {
+                parent = (Parent) loader.load();
+                System.out.println(name);
+                System.out.println(parent);
+            } catch (Exception e ) {
+                e.printStackTrace();
+            }
+
+            elements.put(name, parent);     // putting pair <name, node> into loaded hash map
         }
 
-        //.setCenter --- adding elements
     }
+
 
     private void formatMenuButtonsExpanded() {
         // formatting buttons in expanded position
         // accessing images
-        Image imageLogOut = new Image(paths.LOGOUT_IMAGE_PATH);
-        Image imageSettings = new Image(paths.SETTINGS_IMAGE_PATH);
-        Image imageStats = new Image(paths.STATS_IMAGE_PATH);
-        Image imageWeb = new Image(paths.WEB_IMAGE_PATH);
-        Image imageRefresh = new Image(paths.REFRESH_IMAGE_PATH);
+        Image imageLogOut = new Image(imagesPaths.LOGOUT_IMAGE_PATH);
+        Image imageSettings = new Image(imagesPaths.SETTINGS_IMAGE_PATH);
+        Image imageStats = new Image(imagesPaths.STATS_IMAGE_PATH);
+        Image imageWeb = new Image(imagesPaths.WEB_IMAGE_PATH);
+        Image imageRefresh = new Image(imagesPaths.REFRESH_IMAGE_PATH);
         // adding them to list of ImageViews
         ImageView logOutButtonContent = new ImageView(imageLogOut);
         ImageView settingsButtonContent = new ImageView(imageSettings);
@@ -220,4 +252,6 @@ public class MainWindowController implements IControllable {
     public void setScreenParent(ScreensContainer superController) {
         this.superController = superController;
     }
+
+
 }

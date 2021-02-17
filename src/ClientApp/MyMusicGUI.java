@@ -29,7 +29,6 @@ public class MyMusicGUI extends Application implements IObserver {
     // constant data for this class
     public static final String MAIN_WINDOW_FXML_PATH = "/FXMLfiles/mainWindowSource.fxml";
     public static final String LOGIN_WINDOW_FXML_PATH = "/FXMLfiles/loginWindowSource.fxml";
-    public static final String ADD_TRACK_MENU_FXML_PATH = "/FXMLfiles/addTrackMenu.fxml";
 
     // names of the windows
     public static final String loginWindowName = "loginWindow";
@@ -107,8 +106,8 @@ public class MyMusicGUI extends Application implements IObserver {
         /*
         Size of the login window is 603 x 676 and should be centered
          */
+        mainContainer.setScreen(loginWindowName);
         this.primaryStage.setTitle("MyMusic - logowanie");      // adding some description
         this.primaryStage.setMaximized(false);
-        mainContainer.setScreen(loginWindowName);
     }
 }
