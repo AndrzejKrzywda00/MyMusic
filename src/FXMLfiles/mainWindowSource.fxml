@@ -21,75 +21,91 @@
 <StackPane maxHeight="864.0" maxWidth="1536.0" prefHeight="864.0" prefWidth="1536.0" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="JavaFX.controller.MainWindowController">
     <SplitPane dividerPositions="0.5" prefHeight="160.0" prefWidth="200.0">
         <AnchorPane fx:id="buildPane" minHeight="0.0" minWidth="0.0" prefHeight="862.0" prefWidth="1190.0" SplitPane.resizableWithParent="false">
-            <Pane id="mainMenuTitle" layoutX="133.0" layoutY="65.0" prefHeight="403.0" prefWidth="1130.0" AnchorPane.leftAnchor="133.0" AnchorPane.rightAnchor="288.0">
-               <ImageView fitHeight="198.0" fitWidth="200.0" layoutX="711.0" layoutY="36.0" pickOnBounds="true" preserveRatio="true">
-                   <Image url="@/img/logoMyMusic.png" />
-               </ImageView>
-                <Label layoutX="74.0" layoutY="-17.0" prefHeight="225.0" prefWidth="487.0" text="Witaj w aplikacji" textAlignment="CENTER">
-                    <font>
-                        <Font name="Arial Bold" size="60.0" />
-                    </font>
-                </Label>
-                <Label layoutX="178.0" layoutY="138.0" text="MyMusic">
-                    <font>
-                        <Font name="Gabriola" size="90.0" />
-                    </font>
-                </Label>
-            <Label layoutX="211.0" layoutY="274.0" prefHeight="63.0" prefWidth="884.0" text="Zacznij odkrywać możliwości aplikacji!">
-               <font>
-                  <Font name="Arial Bold" size="35.0" />
-               </font>
-            </Label>
-            <Line endX="-27.79998779296875" endY="-209.40000915527344" layoutX="663.0" layoutY="229.0" startX="-27.7999267578125" startY="20.399993896484375" strokeWidth="3.0" />
-            </Pane>
-         <Rectangle arcHeight="50.0" arcWidth="50.0" fill="WHITE" height="329.0" layoutX="162.0" layoutY="449.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="2.0" width="258.0" />
-         <ImageView fitHeight="202.0" fitWidth="192.0" layoutX="195.0" layoutY="447.0" pickOnBounds="true" preserveRatio="true">
-            <image>
-               <Image url="@/img/plusSign.png" />
-            </image>
-         </ImageView>
-         <Label layoutX="195.0" layoutY="577.0" prefHeight="198.0" prefWidth="206.0" text="Dodaj nowy&#10;utwór" textAlignment="CENTER">
-            <font>
-               <Font name="Arial Bold" size="35.0" />
-            </font>
-         </Label>
-         <Rectangle arcHeight="50.0" arcWidth="50.0" fill="WHITE" height="329.0" layoutX="504.0" layoutY="449.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="2.0" width="258.0" />
-         <ImageView fitHeight="179.0" fitWidth="240.0" layoutX="539.0" layoutY="453.0" pickOnBounds="true" preserveRatio="true">
-            <image>
-               <Image url="@/img/minusSign.png" />
-            </image>
-         </ImageView>
-         <Label layoutX="587.0" layoutY="603.0" text="Usuń&#10;utwór&#10;z listy" textAlignment="CENTER">
-            <font>
-               <Font name="Arial Bold" size="35.0" />
-            </font>
-         </Label>
-         <Rectangle arcHeight="50.0" arcWidth="50.0" fill="WHITE" height="329.0" layoutX="843.0" layoutY="449.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="2.0" width="258.0" />
-         <ImageView fitHeight="198.0" fitWidth="216.0" layoutX="903.0" layoutY="444.0" pickOnBounds="true" preserveRatio="true">
-            <image>
-               <Image url="@/img/playListSymbol.png" />
-            </image>
-         </ImageView>
-         <Label layoutX="903.0" layoutY="597.0" prefHeight="158.0" prefWidth="150.0" text="Stwórz&#10;nową&#10;playlistę" textAlignment="CENTER">
-            <font>
-               <Font name="Arial Bold" size="35.0" />
-            </font>
-         </Label>
-         <Button fx:id="addTrackButton" layoutX="163.0" layoutY="446.0" mnemonicParsing="false" opacity="0.0" prefHeight="330.0" prefWidth="254.0">
-            <cursor>
-               <Cursor fx:constant="HAND" />
-            </cursor>
-         </Button>
-         <Button fx:id="removeTrackButton" layoutX="505.0" layoutY="448.0" mnemonicParsing="false" opacity="0.0" prefHeight="330.0" prefWidth="254.0">
-            <cursor>
-               <Cursor fx:constant="HAND" />
-            </cursor>
-         </Button>
-         <Button fx:id="createPlaylistButton" layoutX="842.0" layoutY="445.0" mnemonicParsing="false" opacity="0.0" prefHeight="338.0" prefWidth="258.0" text="Button">
-            <cursor>
-               <Cursor fx:constant="HAND" />
-            </cursor>
-         </Button>
+         <Pane prefHeight="862.0" prefWidth="1246.0">
+            <children>
+               <Pane id="createPlaylistPane" layoutX="821.0" layoutY="448.0" prefHeight="329.0" prefWidth="258.0">
+                  <children>
+                     <Rectangle arcHeight="50.0" arcWidth="50.0" fill="WHITE" height="329.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="2.0" width="258.0" />
+                     <Label layoutX="39.0" layoutY="171.0" prefHeight="134.0" prefWidth="192.0" text="Zarządzaj&#10;playlistami" textAlignment="CENTER">
+                        <font>
+                           <Font name="Arial Bold" size="35.0" />
+                        </font>
+                     </Label>
+                      <ImageView fitHeight="198.0" fitWidth="200.0" layoutX="57.0" layoutY="-4.0" pickOnBounds="true" preserveRatio="true">
+                          <image>
+                              <Image url="@/img/playListSymbol.png" />
+                          </image>
+                      </ImageView>
+                     <Button fx:id="createPlaylistButton" layoutX="3.0" layoutY="2.0" mnemonicParsing="false" opacity="0.0" prefHeight="338.0" prefWidth="258.0" text="Button">
+                        <cursor>
+                           <Cursor fx:constant="HAND" />
+                        </cursor>
+                     </Button>
+                  </children>
+               </Pane>
+               <Pane id="removeTrackPane" layoutX="485.0" layoutY="448.0" prefHeight="329.0" prefWidth="258.0">
+                  <children>
+                     <Rectangle arcHeight="50.0" arcWidth="50.0" fill="WHITE" height="329.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="2.0" width="258.0" />
+                     <Label layoutX="41.0" layoutY="169.0" prefHeight="134.0" prefWidth="182.0" text="Przeglądaj&#10;swoje&#10;utwory" textAlignment="CENTER">
+                        <font>
+                           <Font name="Arial Bold" size="35.0" />
+                        </font>
+                     </Label>
+                      <ImageView fitHeight="189.0" fitWidth="258.0" layoutX="31.0" layoutY="19.0" pickOnBounds="true" preserveRatio="true">
+                          <image>
+                              <Image url="@/img/minusSign.png" />
+                          </image>
+                      </ImageView>
+                     <Button fx:id="removeTrackButton" layoutY="1.0" mnemonicParsing="false" opacity="0.0" prefHeight="329.0" prefWidth="254.0">
+                        <cursor>
+                           <Cursor fx:constant="HAND" />
+                        </cursor>
+                     </Button>
+                  </children>
+               </Pane>
+               <Pane id="addTrackPane" layoutX="153.0" layoutY="448.0" prefHeight="330.0" prefWidth="258.0">
+                  <children>
+                     <Rectangle arcHeight="50.0" arcWidth="50.0" fill="WHITE" height="329.0" layoutY="1.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="2.0" width="258.0" />
+                     <Label layoutX="30.0" layoutY="187.0" prefHeight="134.0" prefWidth="208.0" text="Dodaj nowy&#10;utwór" textAlignment="CENTER">
+                        <font>
+                           <Font name="Arial Bold" size="35.0" />
+                        </font>
+                     </Label>
+                      <ImageView fitHeight="198.0" fitWidth="198.0" layoutX="30.0" layoutY="13.0" pickOnBounds="true" preserveRatio="true">
+                          <image>
+                              <Image url="@/img/plusSign.png" />
+                          </image>
+                      </ImageView>
+                     <Button fx:id="addTrackButton" layoutY="1.0" mnemonicParsing="false" opacity="0.0" prefHeight="329.0" prefWidth="254.0">
+                        <cursor>
+                           <Cursor fx:constant="HAND" />
+                        </cursor>
+                     </Button>
+                  </children>
+               </Pane>
+                  <Pane id="mainMenuTitle" layoutX="104.0" layoutY="50.0" prefHeight="353.0" prefWidth="975.0">
+                     <ImageView fitHeight="198.0" fitWidth="200.0" layoutX="711.0" layoutY="36.0" pickOnBounds="true" preserveRatio="true">
+                         <Image url="@/img/logoMyMusic.png" />
+                     </ImageView>
+                      <Label layoutX="74.0" layoutY="-17.0" prefHeight="225.0" prefWidth="487.0" text="Witaj w aplikacji" textAlignment="CENTER">
+                          <font>
+                              <Font name="Arial Bold" size="60.0" />
+                          </font>
+                      </Label>
+                      <Label layoutX="178.0" layoutY="138.0" text="MyMusic">
+                          <font>
+                              <Font name="Gabriola" size="90.0" />
+                          </font>
+                      </Label>
+                  <Label layoutX="211.0" layoutY="274.0" prefHeight="63.0" prefWidth="884.0" text="Zacznij odkrywać możliwości aplikacji!">
+                     <font>
+                        <Font name="Arial Bold" size="35.0" />
+                     </font>
+                  </Label>
+                  <Line endX="-27.79998779296875" endY="-209.40000915527344" layoutX="663.0" layoutY="229.0" startX="-27.7999267578125" startY="20.399993896484375" strokeWidth="3.0" />
+                  </Pane>
+            </children>
+         </Pane>
         </AnchorPane>
       <AnchorPane maxHeight="855.0" maxWidth="274.0" prefHeight="855.0" prefWidth="274.0">
          <children>

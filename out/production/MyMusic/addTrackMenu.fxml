@@ -16,21 +16,20 @@
 <?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 
-<StackPane maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/11.0.2"
-           xmlns:fx="http://javafx.com/fxml/1" fx:controller="JavaFX.controller.AddTrackMenuController">
+<StackPane maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="864.0" prefWidth="1190.0" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="JavaFX.controller.AddTrackMenuController">
    <children>
-      <Pane prefHeight="200.0" prefWidth="200.0">
+      <Pane maxHeight="635.0" maxWidth="794.0" prefHeight="628.0" prefWidth="753.0">
          <children>
-            <Rectangle arcHeight="50.0" arcWidth="50.0" fill="#c5ccd2" height="564.0" layoutX="21.0" layoutY="20.0" stroke="TRANSPARENT" strokeType="INSIDE" width="759.0" />
-            <Label layoutX="37.0" layoutY="34.0" text="Dodaj swój utwór">
+            <Rectangle arcHeight="50.0" arcWidth="50.0" fill="#c5ccd2" height="745.0" layoutX="-178.0" layoutY="-95.0" stroke="TRANSPARENT" strokeType="INSIDE" width="1145.0" />
+            <Label layoutX="-62.0" layoutY="-30.0" text="Dodaj swój utwór">
                <font>
-                  <Font name="Bookshelf Symbol 7" size="46.0" />
+                  <Font name="Bookshelf Symbol 7" size="57.0" />
                </font>
             </Label>
-            <GridPane layoutX="39.0" layoutY="105.0" prefHeight="139.0" prefWidth="610.0">
+            <GridPane layoutX="-62.0" layoutY="40.0" prefHeight="221.0" prefWidth="713.0">
               <columnConstraints>
-                <ColumnConstraints hgrow="SOMETIMES" maxWidth="306.4000244140625" minWidth="10.0" prefWidth="75.39998779296874" />
-                <ColumnConstraints hgrow="SOMETIMES" maxWidth="537.0000183105468" minWidth="10.0" prefWidth="535.4000122070312" />
+                <ColumnConstraints hgrow="SOMETIMES" maxWidth="306.4000244140625" minWidth="10.0" prefWidth="93.00003814697266" />
+                <ColumnConstraints hgrow="SOMETIMES" maxWidth="620.7999588012696" minWidth="10.0" prefWidth="617.5999618530274" />
               </columnConstraints>
               <rowConstraints>
                 <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
@@ -91,7 +90,7 @@
                   </TextField>
                </children>
             </GridPane>
-            <GridPane layoutX="39.0" layoutY="278.0" prefHeight="295.0" prefWidth="610.0">
+            <GridPane layoutX="-61.0" layoutY="304.0" prefHeight="290.0" prefWidth="705.0">
               <columnConstraints>
                   <ColumnConstraints hgrow="SOMETIMES" maxWidth="283.20001220703125" minWidth="10.0" prefWidth="48.99998168945312" />
                 <ColumnConstraints hgrow="SOMETIMES" maxWidth="382.9999694824219" minWidth="10.0" prefWidth="147.4000366210938" />
@@ -166,19 +165,6 @@
                         <Cursor fx:constant="HAND" />
                      </cursor>
                   </Label>
-                  <Line endX="-60.814208984375" startX="-100.0" strokeLineCap="ROUND" strokeWidth="2.0" GridPane.columnIndex="2">
-                     <GridPane.margin>
-                        <Insets left="20.0" top="20.0" />
-                     </GridPane.margin>
-                  </Line>
-                  <Label text=":" GridPane.columnIndex="2">
-                     <GridPane.margin>
-                        <Insets bottom="4.0" left="62.0" />
-                     </GridPane.margin>
-                     <font>
-                        <Font name="System Bold" size="21.0" />
-                     </font>
-                  </Label>
                   <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#b4bbc200" height="46.0" stroke="BLACK" strokeType="INSIDE" width="206.0" GridPane.columnIndex="2" GridPane.rowIndex="3">
                      <cursor>
                         <Cursor fx:constant="DEFAULT" />
@@ -247,14 +233,6 @@
                         <Font size="21.0" />
                      </font>
                   </TextField>
-                  <TextField prefHeight="39.0" prefWidth="53.0" style="-fx-background-color: none;" GridPane.columnIndex="2">
-                     <GridPane.margin>
-                        <Insets left="10.0" right="350.0" />
-                     </GridPane.margin>
-                     <font>
-                        <Font size="16.0" />
-                     </font>
-                  </TextField>
                   <TextField style="-fx-background-color: none;" GridPane.columnIndex="2" GridPane.rowIndex="2">
                      <font>
                         <Font size="21.0" />
@@ -292,18 +270,18 @@
                   <Cursor fx:constant="DEFAULT" />
                </cursor>
             </GridPane>
-            <Line endX="280.4000244140625" endY="-1.52587890625E-5" layoutX="167.0" layoutY="259.0" startX="-127.60000610351562" startY="-1.52587890625E-5" />
-            <Label layoutX="463.0" layoutY="250.0" text="Informacje opcjonalne (kliknij w + aby dodać)">
+            <Line endX="280.4000244140625" endY="-1.52587890625E-5" layoutX="147.0" layoutY="279.0" startX="-198.19998168945312" />
+            <Label layoutX="456.0" layoutY="268.0" text="Informacje opcjonalne (kliknij w + aby dodać)">
                <font>
-                  <Font name="System Bold" size="14.0" />
+                  <Font name="System Bold" size="19.0" />
                </font>
             </Label>
-            <Rectangle arcHeight="80.0" arcWidth="45.0" fill="#00bd42" height="46.0" layoutX="516.0" layoutY="526.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="232.0">
+            <Rectangle arcHeight="80.0" arcWidth="45.0" fill="#00bd42" height="46.0" layoutX="711.0" layoutY="588.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="232.0">
                <cursor>
-                  <Cursor fx:constant="HAND" />
+                  <Cursor fx:constant="DEFAULT" />
                </cursor>
             </Rectangle>
-            <Label layoutX="574.0" layoutY="531.0" prefHeight="37.0" prefWidth="117.0" text="dodaj utwór" textAlignment="CENTER" textFill="WHITE">
+            <Label layoutX="769.0" layoutY="593.0" prefHeight="37.0" prefWidth="117.0" text="dodaj utwór" textAlignment="CENTER" textFill="WHITE">
                <font>
                   <Font name="System Bold" size="20.0" />
                </font>
@@ -313,8 +291,24 @@
             </Label>
             <Button fx:id="pasteURLButton" layoutX="657.0" layoutY="201.0" mnemonicParsing="false" style="-fx-background-color: none;" text="wklej URL">
                <font>
-                  <Font name="System Bold" size="12.0" />
+                  <Font name="System Bold" size="15.0" />
                </font>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </Button>
+            <Rectangle arcHeight="80.0" arcWidth="45.0" fill="RED" height="46.0" layoutX="502.0" layoutY="587.0" stroke="TRANSPARENT" strokeType="INSIDE" width="200.0" />
+            <Label layoutX="573.0" layoutY="588.0" prefHeight="46.0" prefWidth="68.0" text="anuluj" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="20.0" />
+               </font>
+            </Label>
+            <Button fx:id="cancelButton" cancelButton="true" layoutX="502.0" layoutY="587.0" mnemonicParsing="false" opacity="0.0" prefHeight="46.0" prefWidth="200.0" text="Button">
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </Button>
+            <Button fx:id="confirmButton" defaultButton="true" layoutX="712.0" layoutY="586.0" mnemonicParsing="false" opacity="0.0" prefHeight="54.0" prefWidth="232.0" text="Button">
                <cursor>
                   <Cursor fx:constant="HAND" />
                </cursor>

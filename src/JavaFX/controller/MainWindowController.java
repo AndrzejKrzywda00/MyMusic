@@ -11,6 +11,7 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.control.Button;
 import javafx.scene.control.ScrollPane;
+import javafx.scene.control.SplitPane;
 import javafx.scene.control.ToggleButton;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
@@ -20,9 +21,7 @@ import newTrackWindowConstants.DefaultValues;
 import newTrackWindowConstants.ImagesPaths;
 import newTrackWindowConstants.ScreensPaths;
 
-import java.io.IOException;
 import java.util.HashMap;
-import java.util.HashSet;
 import java.util.Map;
 
 public class MainWindowController implements IControllable {
@@ -70,7 +69,7 @@ public class MainWindowController implements IControllable {
     ScrollPane sideMenuScrollPane;      // container for vbox
 
     @FXML
-    AnchorPane buildPane;           // this is the element that hold content of app
+    AnchorPane buildPane;                // main container of the app
 
     /* When user is not logged we can see only logging window, the main one is not visible
     When user is logged - logging one is invisible
@@ -86,13 +85,19 @@ public class MainWindowController implements IControllable {
     DefaultValues values = new DefaultValues();
     ScreensPaths screensPaths = new ScreensPaths();
 
-    private HashMap<String,Node> elements;
+    // screens to be loaded with their names
+    private HashMap<String,Node> elements = new HashMap<String, Node>();
+    private Node mainContent;
 
     public MainWindowController() {
-        // warning - constructor must be public
-        setScreenParent(superController);   // setting screen parent for purposes of general login-main window sych
+
+        // setting screen parent for purposes of general login-main window sych
+        setScreenParent(superController);
         phaseSynchronizer = PhaseSynchronizer.getInstance();
-        loadElements();                     // loading all possible screens to this form
+
+        // [ screen1 ], [ screen2 ], [ screen3 ], ...
+        // loading all possible screens to this form
+        loadScreens();
     }
 
     @FXML
@@ -101,6 +106,13 @@ public class MainWindowController implements IControllable {
         paintButtonsDefault();
         formatMenuButtonsExpanded();
 
+        // saving main screen
+        try {
+            mainContent = buildPane.getChildren().get(0);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
         EventHandler<ActionEvent> clickHandler = new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent event) {
@@ -108,6 +120,9 @@ public class MainWindowController implements IControllable {
                 if (event.getSource() == logOutButton) {
                     phaseSynchronizer.setNotLoggedPhase();
                     phaseSynchronizer.notifyObservers();
+
+                    // reseting the main content
+                    resetScreen();
                 }
             }
         };
@@ -116,6 +131,12 @@ public class MainWindowController implements IControllable {
         // add new track button is clicked
         addTrackButton.setOnAction( e -> {
             // switch the content to add new track form
+            setScreen(screensPaths.AddNewTrackScreen);
+        });
+
+        // remove track button is clicked
+        removeTrackButton.setOnAction( e -> {
+            setScreen(screensPaths.TrackListScreen);
         });
 
     }
@@ -179,8 +200,22 @@ public class MainWindowController implements IControllable {
         themeButton.setStyle("-fx-background-color: rgb(245, 245, 235);");
     }
 
-    public void setElementByName(String name) {
-        // take from map and pass to setElement default function
+    /***
+     * Displays the demanded screen on top
+     * @param name of the screen to be displayed
+     */
+    private void setScreen(String name) {
+
+        if (elements.containsKey(name)) {
+            Node screen = elements.get(name);
+            if(!buildPane.getChildren().isEmpty()) {
+                buildPane.getChildren().remove(0);
+                buildPane.getChildren().add(0, screen);
+            }
+            else  {
+                buildPane.getChildren().add(screen);
+            }
+        }
     }
 
     /***
@@ -188,25 +223,32 @@ public class MainWindowController implements IControllable {
      * @param fxmlPath  path to file .fxml
      * @return  loaded element of type Parent
      */
-    public void loadElements() {
+    private void loadScreens() {
 
-        for (HashMap.Entry<String,String> screen : screensPaths.screens.entrySet()) {
-            String name = screen.getKey();
-            String fxmlPath = screen.getValue();
+        for (Map.Entry<String,String> screen : screensPaths.screens.entrySet()) {
+            String name = screen.getKey();          // name of screen
+            String fxmlPath = screen.getValue();    // value - path to fxml
             FXMLLoader loader = new FXMLLoader(getClass().getResource(fxmlPath));
-            //System.out.println(loader.getLocation().toString());
             Parent parent = null;
             try {
                 parent = (Parent) loader.load();
-                System.out.println(name);
-                System.out.println(parent);
             } catch (Exception e ) {
                 e.printStackTrace();
             }
-
-            elements.put(name, parent);     // putting pair <name, node> into loaded hash map
+            elements.put(name, parent);             // putting pair <name, node> into loaded hash map
         }
+    }
 
+    private void resetScreen() {
+        if (mainContent != null) {
+            if (buildPane.getChildren() != null) {
+                buildPane.getChildren().remove(0);
+                buildPane.getChildren().add(mainContent);
+            }
+            else {
+                buildPane.getChildren().add(mainContent);
+            }
+        }
     }
 
 
@@ -252,6 +294,5 @@ public class MainWindowController implements IControllable {
     public void setScreenParent(ScreensContainer superController) {
         this.superController = superController;
     }
-
 
 }

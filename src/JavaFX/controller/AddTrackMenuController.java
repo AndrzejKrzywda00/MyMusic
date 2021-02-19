@@ -73,6 +73,13 @@ public class AddTrackMenuController implements IControllable {
     @FXML
     TextField URLTextField;
 
+    // end
+    @FXML
+    Button cancelButton;
+
+    @FXML
+    Button confirmButton;
+
     // methods
 
     @FXML
@@ -196,6 +203,14 @@ public class AddTrackMenuController implements IControllable {
         pasteURLButton.setOnAction( e -> {
             pasteURLToTextField();
             System.out.println(clipboardContent.getUrl());
+        });
+
+        confirmButton.setOnAction( e -> {
+            // clear the fields
+        });
+
+        cancelButton.setOnAction( e -> {
+            // go back to main
         });
     }
 
