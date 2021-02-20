@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.text.Font?>
+
+
+<StackPane maxHeight="800.0" maxWidth="-Infinity" prefHeight="700.0" prefWidth="110.0" style="-fx-background-color: white;" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/15.0.1">
+   <children>
+      <Pane maxHeight="110.0" maxWidth="110.0" prefHeight="355.0" prefWidth="110.0" StackPane.alignment="TOP_LEFT">
+         <StackPane.margin>
+            <Insets top="30.0" />
+         </StackPane.margin>
+         <children>
+            <ImageView fitHeight="50.0" fitWidth="45.0" layoutX="35.0" layoutY="5.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../res/img/openMenuIcon.png" />
+               </image>
+            </ImageView>
+            <Label layoutX="32.0" layoutY="63.0" text="utwórz&#10;menu" textAlignment="CENTER">
+               <font>
+                  <Font name="Arial Bold" size="14.0" />
+               </font>
+            </Label>
+            <Button fx:id="expandMenuButton" layoutX="-1.0" layoutY="1.0" mnemonicParsing="false" opacity="0.0" prefHeight="110.0" prefWidth="110.0" text="Button">
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </Button>
+         </children>
+         <cursor>
+            <Cursor fx:constant="DEFAULT" />
+         </cursor>
+      </Pane>
+   </children>
+</StackPane>

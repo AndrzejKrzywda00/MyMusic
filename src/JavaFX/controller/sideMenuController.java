@@ -2,6 +2,7 @@ package JavaFX.controller;
 
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.control.ToggleButton;
 
 public class sideMenuController {
@@ -27,6 +28,13 @@ public class sideMenuController {
 
     @FXML
     ToggleButton themeButton;   // switches theme
+
+    @FXML
+    Label userRealNameLabel;    // choosen name in registration
+
+    @FXML
+    Label userNameLabel;        // username used in registration
+
 
     void initialize() {
 
