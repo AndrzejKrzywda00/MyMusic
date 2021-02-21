@@ -14,4 +14,9 @@ public class ImagesPaths {
     public static final String STATS_IMAGE_PATH = "/img/statsIcon.png";
     public static final String WEB_IMAGE_PATH = "/img/webIcon.png";
     public static final String REFRESH_IMAGE_PATH = "/img/refreshIcon.png";
+    public static final String INFO_IMAGE_PATH = "/img/infoIcon.png";
+
+    // starts
+    public static final String ACTIVE_STAR_IMAGE_PATH = "/img/starNotMarkedIcon.png";
+    public static final String NOT_ACTIVE_STAR_IMAGE_PATH = "/img/starMarkedIcon.png";
 }

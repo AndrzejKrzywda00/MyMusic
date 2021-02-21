@@ -10,8 +10,7 @@
 <?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.text.Font?>
 
-
-<StackPane maxHeight="800.0" maxWidth="-Infinity" prefHeight="700.0" prefWidth="110.0" style="-fx-background-color: white;" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/15.0.1">
+<StackPane maxHeight="800.0" maxWidth="-Infinity" prefHeight="700.0" prefWidth="110.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="JavaFX.controller.sideMenuHiddenController">
    <children>
       <Pane maxHeight="110.0" maxWidth="110.0" prefHeight="355.0" prefWidth="110.0" StackPane.alignment="TOP_LEFT">
          <StackPane.margin>

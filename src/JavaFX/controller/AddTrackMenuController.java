@@ -5,19 +5,24 @@ import javafx.animation.RotateTransition;
 import javafx.fxml.FXML;
 import javafx.geometry.Insets;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.Clipboard;
 import javafx.scene.input.ClipboardContent;
+import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.Pane;
 import javafx.scene.shape.Circle;
 import javafx.scene.transform.Rotate;
+import javafx.stage.FileChooser;
 import javafx.util.Duration;
 import newTrackWindowConstants.DefaultValues;
 import newTrackWindowConstants.ImagesConstants;
 import newTrackWindowConstants.ImagesPaths;
 
 import javafx.event.ActionEvent;
+
 import java.util.ArrayList;
 
 public class AddTrackMenuController implements IControllable {
@@ -39,11 +44,28 @@ public class AddTrackMenuController implements IControllable {
     // this list cotains values of all plus buttons to remember in which state the animation is
     // for false "(+)" needs to go 90 degrees to the left
     // for true "(+)" needs to go 90 degrees to the right
+    //
+    // for false - content is a bit grey
+    // for true - content is normal
     ArrayList<Boolean> rotationCache = new ArrayList<Boolean>(imagesConstants.HOW_MANY_IMAGES);
 
     // handling pasting usting Clipboard
     private final Clipboard clipboard = Clipboard.getSystemClipboard();
     private final ClipboardContent clipboardContent = new ClipboardContent();
+
+    ArrayList<ImageView> darkStarImages = new ArrayList<>();    // contains of default star images
+    ArrayList<ImageView> lightStarImages = new ArrayList<>();   // contains of actibe star images
+
+    // instance of file chooser
+    FileChooser fileChooser = new FileChooser();
+
+    // data to be put in a proper Track object
+    private int howManyStarsChoosen = 0;
+
+
+    /*
+    Supporive objects for creating proper image object
+     */
 
     /*
     These are buttons that have to open fields for optional parameters
@@ -68,20 +90,52 @@ public class AddTrackMenuController implements IControllable {
     @FXML
     Button pasteURLButton;
 
-    // TextFields
+    // i - info
+    @FXML
+    Button timeInfoButton;
 
+    // opens the system window to choose the path to image
+    @FXML
+    Button chooseThumbnailButton;
+
+    // label for short information text
+    @FXML
+    Label timeInfoLabel;
+
+    // pasting url
     @FXML
     TextField URLTextField;
 
-    // end
+    // ending the process
     @FXML
     Button cancelButton;
 
     @FXML
     Button confirmButton;
 
-    // methods
+    // stars in VBox to set rating
+    @FXML
+    Button firstStar;
 
+    @FXML
+    Button secondStar;
+
+    @FXML
+    Button thirdStar;
+
+    @FXML
+    Button fourthStar;
+
+    @FXML
+    Button fifthStar;
+
+    @FXML
+    Button exitButton;
+
+    @FXML
+    Pane addedTrackConfirmPane;
+
+    // methods
     @FXML
     public void plusButtonClicked(ActionEvent event) {
 
@@ -188,6 +242,108 @@ public class AddTrackMenuController implements IControllable {
         }
     }
 
+    private void paintButtons(int index) {
+        if (index == 1) {
+            firstStar.setGraphic(lightStarImages.get(0));
+            firstStar.setPadding(Insets.EMPTY);
+
+            secondStar.setGraphic(darkStarImages.get(1));
+            secondStar.setPadding(Insets.EMPTY);
+
+            thirdStar.setGraphic(darkStarImages.get(2));
+            thirdStar.setPadding(Insets.EMPTY);
+
+            fourthStar.setGraphic(darkStarImages.get(3));
+            fourthStar.setPadding(Insets.EMPTY);
+
+            fifthStar.setGraphic(darkStarImages.get(4));
+            fifthStar.setPadding(Insets.EMPTY);
+        }
+        if (index == 2) {
+            firstStar.setGraphic(lightStarImages.get(0));
+            firstStar.setPadding(Insets.EMPTY);
+
+            secondStar.setGraphic(lightStarImages.get(1));
+            secondStar.setPadding(Insets.EMPTY);
+
+            thirdStar.setGraphic(darkStarImages.get(2));
+            thirdStar.setPadding(Insets.EMPTY);
+
+            fourthStar.setGraphic(darkStarImages.get(3));
+            fourthStar.setPadding(Insets.EMPTY);
+
+            fifthStar.setGraphic(darkStarImages.get(4));
+            fifthStar.setPadding(Insets.EMPTY);
+        }
+        if (index == 3) {
+            firstStar.setGraphic(lightStarImages.get(0));
+            firstStar.setPadding(Insets.EMPTY);
+
+            secondStar.setGraphic(lightStarImages.get(1));
+            secondStar.setPadding(Insets.EMPTY);
+
+            thirdStar.setGraphic(lightStarImages.get(2));
+            thirdStar.setPadding(Insets.EMPTY);
+
+            fourthStar.setGraphic(darkStarImages.get(3));
+            fourthStar.setPadding(Insets.EMPTY);
+
+            fifthStar.setGraphic(darkStarImages.get(4));
+            fifthStar.setPadding(Insets.EMPTY);
+        }
+        if (index == 4) {
+            firstStar.setGraphic(lightStarImages.get(0));
+            firstStar.setPadding(Insets.EMPTY);
+
+            secondStar.setGraphic(lightStarImages.get(1));
+            secondStar.setPadding(Insets.EMPTY);
+
+            thirdStar.setGraphic(lightStarImages.get(2));
+            thirdStar.setPadding(Insets.EMPTY);
+
+            fourthStar.setGraphic(lightStarImages.get(3));
+            fourthStar.setPadding(Insets.EMPTY);
+
+            fifthStar.setGraphic(darkStarImages.get(4));
+            fifthStar.setPadding(Insets.EMPTY);
+
+        }
+        if(index == 5) {
+            firstStar.setGraphic(lightStarImages.get(0));
+            firstStar.setPadding(Insets.EMPTY);
+
+            secondStar.setGraphic(lightStarImages.get(1));
+            secondStar.setPadding(Insets.EMPTY);
+
+            thirdStar.setGraphic(lightStarImages.get(2));
+            thirdStar.setPadding(Insets.EMPTY);
+
+            fourthStar.setGraphic(lightStarImages.get(3));
+            fourthStar.setPadding(Insets.EMPTY);
+
+            fifthStar.setGraphic(lightStarImages.get(4));
+            fifthStar.setPadding(Insets.EMPTY);
+        }
+    }
+
+    @FXML
+    private void formatStarsDefault() {
+        firstStar.setGraphic(darkStarImages.get(0));
+        firstStar.setPadding(Insets.EMPTY);
+
+        secondStar.setGraphic(darkStarImages.get(1));
+        secondStar.setPadding(Insets.EMPTY);
+
+        thirdStar.setGraphic(darkStarImages.get(2));
+        thirdStar.setPadding(Insets.EMPTY);
+
+        fourthStar.setGraphic(darkStarImages.get(3));
+        fourthStar.setPadding(Insets.EMPTY);
+
+        fifthStar.setGraphic(darkStarImages.get(4));
+        fifthStar.setPadding(Insets.EMPTY);
+    }
+
     // constructor
     public AddTrackMenuController() {
         populateRotationCache();
@@ -195,10 +351,17 @@ public class AddTrackMenuController implements IControllable {
 
     // initalization
     public void initialize() {
+
         // turning on graphical configuration
         // padding, displaying images, setting shape for buttons etc...
         setPlusButtonsConfiguration();
         setPasteURLButtonConfiguration();
+
+        // setting data of info button attatched to choosing time of track
+        formatInfoButton();
+
+        // setting data of stars buttons
+        formatStarsDefault();
 
         pasteURLButton.setOnAction( e -> {
             pasteURLToTextField();
@@ -206,12 +369,51 @@ public class AddTrackMenuController implements IControllable {
         });
 
         confirmButton.setOnAction( e -> {
-            // clear the fields
+            addedTrackConfirmPane.setOpacity(1);
         });
 
         cancelButton.setOnAction( e -> {
             // go back to main
         });
+
+        timeInfoButton.setOnAction( e -> {
+            timeInfoLabel.setOpacity(1.0);  // is fully shown
+        });
+
+        firstStar.setOnAction( e -> {
+            howManyStarsChoosen = 1;
+            paintButtons(howManyStarsChoosen);
+        });
+
+        secondStar.setOnAction( e -> {
+            howManyStarsChoosen = 2;
+            paintButtons(howManyStarsChoosen);
+        });
+
+        thirdStar.setOnAction( e -> {
+            howManyStarsChoosen = 3;
+            paintButtons(howManyStarsChoosen);
+        });
+
+        fourthStar.setOnAction( e -> {
+            howManyStarsChoosen = 4;
+            paintButtons(howManyStarsChoosen);
+        });
+
+        fifthStar.setOnAction( e -> {
+            howManyStarsChoosen = 5;
+            paintButtons(howManyStarsChoosen);
+        });
+
+        // choosing thumbnail image
+        chooseThumbnailButton.setOnAction( e -> {
+            showFileChooser();
+        });
+    }
+
+    private void showFileChooser() {
+        fileChooser.setTitle("Wybierz miniaturkę do utworu");
+        fileChooser.showOpenDialog(this.superContainer.getChildren().get(0).getScene().getWindow());
     }
 
     /***
@@ -232,7 +434,7 @@ public class AddTrackMenuController implements IControllable {
         // --------
 
         // zero step is to create local versions of images for each button
-        populateImagesList();
+        populateImagesLists();
 
         // first we need to properly format the images
         formatPlusButtonsImages();
@@ -269,13 +471,32 @@ public class AddTrackMenuController implements IControllable {
      * This function populates list of ImageView objects with concrete .png file
      * This file is set to be plus on dark background
      */
-    private void populateImagesList() {
+    private void populateImagesLists() {
 
         for ( int i=0; i<imagesConstants.HOW_MANY_IMAGES; i++ ) {
             Image plus = new Image(imagesContent.PLUS_IMAGE_PATH);
             ImageView plusContent = new ImageView(plus);
             plusImages.add(plusContent);
         }
+
+        // non active stars : * * * * *
+        for ( int i=0; i<5; i++ ) {
+            Image darkBlue = new Image(imagesContent.NOT_ACTIVE_STAR_IMAGE_PATH);
+            ImageView darkBlueStar = new ImageView(darkBlue);
+            darkBlueStar.setFitWidth(40);
+            darkBlueStar.setFitHeight(40);
+            darkStarImages.add(darkBlueStar);
+        }
+
+        // active stars - lighter in color : * * * * *
+        for ( int i=0; i<5; i++ ) {
+            Image lightBlue = new Image(imagesContent.ACTIVE_STAR_IMAGE_PATH);
+            ImageView lightBlueStar = new ImageView(lightBlue);
+            lightBlueStar.setFitWidth(40);
+            lightBlueStar.setFitHeight(40);
+            lightStarImages.add(lightBlueStar);
+        }
+
     }
 
     /***
@@ -314,6 +535,13 @@ public class AddTrackMenuController implements IControllable {
         pasteURLButton.setPadding(Insets.EMPTY);
     }
 
+    private void formatInfoButton() {
+        Image info = new Image(imagesContent.INFO_IMAGE_PATH);
+        ImageView infoImage = new ImageView(info);
+        infoImage.setFitHeight(35);
+        infoImage.setFitWidth(35);
+        timeInfoButton.setGraphic(infoImage);
+    }
 
     private void pasteURLToTextField() {
         URLTextField.setText(clipboardContent.getString());

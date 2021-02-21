@@ -112,7 +112,7 @@ public class ScreensContainer extends StackPane {
         }
     }
 
-    public Boolean uloadScreen(String name) {
+    public Boolean unloadScreen(String name) {
         if (screens.remove(name) == null) {     // both doing the operation and checking if successfull
             System.out.println("Screen didn't exist");
             return false;

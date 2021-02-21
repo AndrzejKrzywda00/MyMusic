@@ -32,26 +32,6 @@ public class MainWindowController implements IControllable {
     All functionality related to data sholud be held in separate classes
      */
 
-    // properties from .fxml file
-    @FXML
-    Button logOutButton;    // logs out user
-
-    @FXML
-    Button settingsButton;  // shows menu of settings
-
-    @FXML
-    Button statsButton;     // shows stats of user
-
-    @FXML
-    Button infoButton;      // directs to my page andrzejkrzywda.pl to show information or/and to github
-
-    @FXML
-    Button refreshButton;      // for now i don't know what to put there
-
-    @FXML
-    ToggleButton themeButton;   // switches theme
-
-
     // functional buttons
     @FXML
     Button addTrackButton;      // loads the addTrack fxml file
@@ -61,9 +41,6 @@ public class MainWindowController implements IControllable {
 
     @FXML
     Button createPlaylistButton;    // opens menu for adding files to a playlist
-
-    @FXML
-    VBox sideMenu;              // whole side menu
 
     @FXML
     ScrollPane sideMenuScrollPane;      // container for vbox
@@ -102,9 +79,6 @@ public class MainWindowController implements IControllable {
 
     @FXML
     void initialize() {
-        // first formatting buttons
-        paintButtonsDefault();
-        formatMenuButtonsExpanded();
 
         // saving main screen
         try {
@@ -112,21 +86,6 @@ public class MainWindowController implements IControllable {
         } catch (Exception e) {
             e.printStackTrace();
         }
-
-        EventHandler<ActionEvent> clickHandler = new EventHandler<ActionEvent>() {
-            @Override
-            public void handle(ActionEvent event) {
-                // identify the source and make apprioprate reaction
-                if (event.getSource() == logOutButton) {
-                    phaseSynchronizer.setNotLoggedPhase();
-                    phaseSynchronizer.notifyObservers();
-
-                    // reseting the main content
-                    resetScreen();
-                }
-            }
-        };
-        logOutButton.addEventHandler(ActionEvent.ACTION, clickHandler);
 
         // add new track button is clicked
         addTrackButton.setOnAction( e -> {
@@ -139,65 +98,6 @@ public class MainWindowController implements IControllable {
             setScreen(screensPaths.TrackListScreen);
         });
 
-    }
-
-    @FXML
-    void logOutEntered() {
-        logOutButton.setStyle("-fx-background-color: rgb(216, 217, 198);");
-    }
-
-    @FXML
-    void logOutExited() {
-        logOutButton.setStyle("-fx-background-color: rgb(245, 245, 235);");
-    }
-
-    @FXML
-    void settingsEntered() {
-        settingsButton.setStyle("-fx-background-color: rgb(216, 217, 198);");
-    }
-
-    @FXML
-    void settingsExited() {
-        settingsButton.setStyle("-fx-background-color: rgb(245, 245, 235);");
-    }
-
-    @FXML
-    void statsEntered() {
-        statsButton.setStyle("-fx-background-color: rgb(216, 217, 198);");
-    }
-
-    @FXML
-    void statsExited() {
-        statsButton.setStyle("-fx-background-color: rgb(245, 245, 235);");
-    }
-
-    @FXML
-    void infoEntered() {
-        infoButton.setStyle("-fx-background-color: rgb(216, 217, 198);");
-    }
-
-    @FXML
-    void infoExited() {
-        infoButton.setStyle("-fx-background-color: rgb(245, 245, 235);");
-    }
-
-    @FXML
-    void refreshEntered() {
-        refreshButton.setStyle("-fx-background-color: rgb(216, 217, 198);");
-    }
-
-    @FXML
-    void refreshExited() {
-        refreshButton.setStyle("-fx-background-color: rgb(245, 245, 235);");
-    }
-
-    private void paintButtonsDefault() {
-        logOutButton.setStyle("-fx-background-color: rgb(245, 245, 235);");
-        settingsButton.setStyle("-fx-background-color: rgb(245, 245, 235);");
-        statsButton.setStyle("-fx-background-color: rgb(245, 245, 235);");
-        infoButton.setStyle("-fx-background-color: rgb(245, 245, 235);");
-        refreshButton.setStyle("-fx-background-color: rgb(245, 245, 235);");
-        themeButton.setStyle("-fx-background-color: rgb(245, 245, 235);");
     }
 
     /***
@@ -249,44 +149,6 @@ public class MainWindowController implements IControllable {
                 buildPane.getChildren().add(mainContent);
             }
         }
-    }
-
-
-    private void formatMenuButtonsExpanded() {
-        // formatting buttons in expanded position
-        // accessing images
-        Image imageLogOut = new Image(imagesPaths.LOGOUT_IMAGE_PATH);
-        Image imageSettings = new Image(imagesPaths.SETTINGS_IMAGE_PATH);
-        Image imageStats = new Image(imagesPaths.STATS_IMAGE_PATH);
-        Image imageWeb = new Image(imagesPaths.WEB_IMAGE_PATH);
-        Image imageRefresh = new Image(imagesPaths.REFRESH_IMAGE_PATH);
-        // adding them to list of ImageViews
-        ImageView logOutButtonContent = new ImageView(imageLogOut);
-        ImageView settingsButtonContent = new ImageView(imageSettings);
-        ImageView statsButtonContent = new ImageView(imageStats);
-        ImageView infoButtonContent = new ImageView(imageWeb);
-        ImageView refreshButtonContent = new ImageView(imageRefresh);
-
-        logOutButtonContent.setFitWidth(40);
-        logOutButtonContent.setFitHeight(40);
-
-        settingsButtonContent.setFitHeight(40);
-        settingsButtonContent.setFitWidth(40);
-
-        statsButtonContent.setFitWidth(40);
-        statsButtonContent.setFitHeight(40);
-
-        infoButtonContent.setFitHeight(35);
-        infoButtonContent.setFitWidth(35);
-
-        refreshButtonContent.setFitWidth(40);
-        refreshButtonContent.setFitHeight(40);
-
-        logOutButton.setGraphic(logOutButtonContent);
-        settingsButton.setGraphic(settingsButtonContent);
-        statsButton.setGraphic(statsButtonContent);
-        infoButton.setGraphic(infoButtonContent);
-        refreshButton.setGraphic(refreshButtonContent);
     }
 
     // from IControllable

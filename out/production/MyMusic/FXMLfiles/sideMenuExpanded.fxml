@@ -13,7 +13,7 @@
 <?import javafx.scene.shape.Line?>
 <?import javafx.scene.text.Font?>
 
-<StackPane maxHeight="-Infinity" maxWidth="268.0" prefHeight="700.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="JavaFX.controller.sideMenuController">
+<StackPane maxHeight="-Infinity" maxWidth="268.0" prefHeight="700.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="JavaFX.controller.sideMenuExpandedController">
     <!-- TO DO -->
     <VBox fx:id="sideMenu" maxHeight="700.0" maxWidth="268.0" prefHeight="700.0" prefWidth="519.0" style="-fx-background-color: white;">
         <children>
