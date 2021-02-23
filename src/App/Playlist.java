@@ -3,16 +3,17 @@ package App;
 import Interfaces.ITextSerializeable;
 
 import java.util.ArrayList;
+import java.util.Map;
 
 public class Playlist implements ITextSerializeable {
     
     /* this class has an amount of tracks to be grupped by some criteria */
-    
+
     // properties
-    private String name;                // holds name of playlist
-    private String description;         // holds description of playlist
-    private ArrayList<Track> tracks;    // holds all added tracks
-    private ID uniqueID;                // is the unique id of the playlist
+    private String name;                    // holds name of playlist
+    private String description;             // holds description of playlist
+    private ArrayList<Track> tracks;        // holds all added tracks
+    private ID uniqueID;                    // is the unique id of the playlist
     
     // constructor
     public Playlist() {
@@ -52,6 +53,18 @@ public class Playlist implements ITextSerializeable {
     public String serialize() {
         StringBuilder output = new StringBuilder();
         return output.toString();
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public void setUniqueID(ID uniqueID) {
+        this.uniqueID = uniqueID;
     }
     
 }
