@@ -22,7 +22,7 @@
       <Pane maxHeight="635.0" maxWidth="794.0" prefHeight="628.0" prefWidth="753.0">
          <children>
             <Rectangle arcHeight="50.0" arcWidth="50.0" fill="#c5ccd2" height="745.0" layoutX="-196.0" layoutY="-95.0" stroke="TRANSPARENT" strokeType="INSIDE" width="1173.0" />
-            <Label layoutX="-24.0" layoutY="-34.0" text="Dodaj swój utwór">
+            <Label layoutX="-33.0" layoutY="-30.0" text="Dodaj swój utwór">
                <font>
                   <Font name="Bookshelf Symbol 7" size="57.0" />
                </font>
