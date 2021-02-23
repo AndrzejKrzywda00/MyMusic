@@ -13,6 +13,8 @@ public class DefaultValues {
     public static final String DEFAULT_FORMAT = "no format added";
     public static final Rating DEFAULT_RATING = Rating.NotInitalized;
     public static final String DEFAULT_DESCRIPTION = "a music file";
+    public static final String DEFAULT_THUMBNAIL_LINK = "generic thumbnail";
+    public static final String DEFAULT_TRACK_LINK = "no link added";
 
     // this probably won't work - i was right - it crashes
     //public static final Image DEFAULT_IMAGE = new Image("an imput stream to file");

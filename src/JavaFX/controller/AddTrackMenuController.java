@@ -1,5 +1,7 @@
 package JavaFX.controller;
 
+import App.Track;
+import App.Utils.TrackBuilder;
 import Interfaces.IControllable;
 import javafx.animation.RotateTransition;
 import javafx.fxml.FXML;
@@ -60,9 +62,9 @@ public class AddTrackMenuController implements IControllable {
     FileChooser fileChooser = new FileChooser();
 
     // data to be put in a proper Track object
+
     private int howManyStarsChoosen = 0;
-    private int title;
-    private
+    private String thumbnailLink;
 
     /*
     These are buttons that have to open fields for optional parameters
@@ -99,9 +101,26 @@ public class AddTrackMenuController implements IControllable {
     @FXML
     Label timeInfoLabel;
 
-    // pasting url
+    // textfields
     @FXML
-    TextField URLTextField;
+    TextField titleField;
+
+    @FXML
+    TextField authorField;
+
+    @FXML
+    TextField URLField;
+
+    @FXML
+    TextField timeField;
+
+    @FXML
+    TextField formatField;
+
+    @FXML
+    TextField descriptionField;
+    // end of textfields
+
 
     // ending the process
     @FXML
@@ -109,6 +128,7 @@ public class AddTrackMenuController implements IControllable {
 
     @FXML
     Button confirmButton;
+
 
     // stars in VBox to set rating
     @FXML
@@ -366,6 +386,22 @@ public class AddTrackMenuController implements IControllable {
         });
 
         confirmButton.setOnAction( e -> {
+            // create object -> pass it into connection
+            TrackBuilder builder = new TrackBuilder();
+
+            builder.setTitle(titleField.getText())
+                    .setAuthor(authorField.getText())
+                    .setURL(URLField.getText())
+                    .setLength(timeField.getText())
+                    .setFormat(formatField.getText())
+                    .setRating(howManyStarsChoosen)
+                    .setDescription(descriptionField.getText())
+                    .setThumbnail(thumbnailLink);
+
+            Track track = builder.getTrack();
+            track.generateSource();
+            System.out.println(track.serialize());
+
             addedTrackConfirmPane.setOpacity(1);
         });
 
@@ -541,7 +577,7 @@ public class AddTrackMenuController implements IControllable {
     }
 
     private void pasteURLToTextField() {
-        URLTextField.setText(clipboardContent.getString());
+        URLField.setText(clipboardContent.getString());
     }
 
     // from Interface IControllable
@@ -554,6 +590,6 @@ public class AddTrackMenuController implements IControllable {
         // does the validation of the data
     }
 
-    // TODO -- not-active state of fields, responsiveness, time setter
+    // TODO -- not-active state of fields, time setter
 
 }

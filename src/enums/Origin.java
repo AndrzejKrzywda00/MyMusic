@@ -8,7 +8,7 @@ public enum Origin implements ITextSerializeable {
     // for example file added via built-in creator will have different origin than added via archivising youtube playlist
 
     // origins
-    ManualAddition(1,"manual"),
+    ManualAddition(1,"manual addition"),
     ManualArchiving(2,"manual archiving"),
     AutomaticArchiving(3,"automatic archiving"),
 
@@ -31,7 +31,7 @@ public enum Origin implements ITextSerializeable {
 
     public String serialize() {
         StringBuilder output = new StringBuilder();
-        output.append(index);
+        output.append(origin);
         output.append(";");
         return output.toString();
     }

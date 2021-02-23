@@ -1,8 +1,9 @@
 package App;
 
+import Interfaces.ITextSerializeable;
 import enums.Type;
 
-public class Source {
+public class Source implements ITextSerializeable {
 
     // Holds all information about source of the file.
 
@@ -47,5 +48,18 @@ public class Source {
 
     public void setLinkActivity(Boolean isActive) {
         this.isActive = isActive;
+    }
+
+    public String serialize() {
+        StringBuilder output = new StringBuilder();
+
+        output.append(link);
+        output.append(";");
+        output.append(type);
+        output.append(";");
+        output.append(isActive);
+        output.append(";");
+
+        return output.toString();
     }
 }

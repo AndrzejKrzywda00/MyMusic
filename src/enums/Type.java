@@ -14,7 +14,10 @@ public enum Type {
     LocalPath(5,"localpath"),
 
     // other - for special situations
-    Other(6,"other");
+    Other(6,"other"),
+
+    // problem
+    NoSuchType(7,"no such type");
 
     public final int index;
     public final String description;

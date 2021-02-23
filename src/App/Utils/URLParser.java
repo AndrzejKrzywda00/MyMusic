@@ -12,17 +12,18 @@ public class URLParser {
     }
 
     public Type parse(String URL) {
-        String[] beginning = URL.split(":",1);
+        String[] beginning = URL.split(":",2);
         if (beginning[0] != null) {
-            if(beginning[0].length() == 1) {
+            if (beginning[0].length() == 1) {
                 // "C://users/akrzy/documents/track.mp3
                 return Type.LocalPath;
             }
-            if(beginning[0].length() == 5 || beginning[0].length() == 6) {
+            if (beginning[0].length() == 5 || beginning[0].length() == 6) {
                 // "http://www.youtube.pl"
                 // "https://www.spotify.open.pl"
-                if(beginning[1] != null) {
-                    String[] parts = beginning[0].split(".",2);
+                if (beginning[1] != null) {
+                    String[] parts = beginning[1].split("\\.",3);
+
                     String siteName = parts[1];
 
                     switch(siteName) {
@@ -41,7 +42,7 @@ public class URLParser {
                 }
             }
         }
-        return null;
+        return Type.NoSuchType;
     }
 
 }

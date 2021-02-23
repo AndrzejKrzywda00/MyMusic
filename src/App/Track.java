@@ -7,6 +7,10 @@ import java.util.Date;
 import App.Utils.URLParser;
 import Interfaces.ITextSerializeable;
 import enums.*;
+import javafx.scene.layout.Pane;
+import newTrackWindowConstants.DefaultValues;
+
+import javax.print.attribute.standard.MediaSize;
 
 public class Track implements ITextSerializeable {
 
@@ -22,7 +26,7 @@ public class Track implements ITextSerializeable {
     private String format;          // Format of music file for example ".mp3" or ".wav"
     private Rating rating;          // Rating added by user of the app
     private String description;     // description of the track added by user
-    private String thumbnail;       // just the thumbnail
+    private String thumbnail;       // local link to the the thumbnail
 
     // added automatically -- no interaction with user
     private ID uniqueID;            // unique ID added when a track is archived or manually added
@@ -31,6 +35,16 @@ public class Track implements ITextSerializeable {
     private Source source;          // source tells where to look for the actual track
 
     public Track() {
+        // default values
+        DefaultValues defaultValues = new DefaultValues();
+
+        length = defaultValues.DEFAULT_LENGTH_IN_SECONDS;
+        format = defaultValues.DEFAULT_FORMAT;
+        rating = defaultValues.DEFAULT_RATING;
+        description = defaultValues.DEFAULT_DESCRIPTION;
+        thumbnail = defaultValues.DEFAULT_THUMBNAIL_LINK;
+        URL = defaultValues.DEFAULT_TRACK_LINK;
+
         // empty constructor for Builder
         uniqueID = new ID();
 
@@ -43,15 +57,15 @@ public class Track implements ITextSerializeable {
         origin = Origin.ManualAddition; // for now it's hard coded
     }
 
-    public boolean generateSource(String URL) {
+    // this should be changed -- it not elegant
+    public void generateSource() {
         URLParser parser = new URLParser();
         Type output = parser.parse(URL);
         if (output != null) {
             Source newSource = new Source(URL, output, true);
             source = newSource;
-            return true;
+            return;
         }
-        return false;
     }
 
     public String serialize() {
@@ -60,8 +74,7 @@ public class Track implements ITextSerializeable {
 
         output.append(title);
         output.append(";");
-        output.append(source);
-        output.append(";");
+        output.append(source.serialize());
         output.append(author);
         output.append(";");
 
@@ -73,9 +86,9 @@ public class Track implements ITextSerializeable {
         output.append(description);
         output.append(";");
 
-        //questionable
-        //output.append(thumbnail);
-        //output.append(";");
+
+        output.append(thumbnail);
+        output.append(";");
 
         output.append(uniqueID.serialize());
         output.append(addedDate);
@@ -87,6 +100,10 @@ public class Track implements ITextSerializeable {
 
     public boolean isFinished() {
         return false;
+    }
+
+    public String getThumbnail() {
+        return thumbnail;
     }
 
     public void setTitle(String title) {

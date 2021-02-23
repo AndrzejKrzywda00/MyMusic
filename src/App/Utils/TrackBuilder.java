@@ -42,14 +42,18 @@ public class TrackBuilder {
     }
 
     public TrackBuilder setLength(String length) {
+
+        // to be corrected yet
+
         int output = 0;
         // length is string in format hh:mm:ss
         // so first it needs to be parsed
         // we are guaranteed here that it isn't empty string
         String[] sections = length.split(":",2);
-        int[] timeSections  = new int[3];
-        for( int i=0; i<3; i++ ) {
-            if (sections[i] == null) {
+
+        int[] timeSections = new int[3];
+        for( int i=0; i<sections.length; i++ ) {
+            if (sections[i] == "") {
                 timeSections[i] = 0;
             }
             else {
@@ -65,7 +69,7 @@ public class TrackBuilder {
         if (timeSections[1] <= 60 && timeSections[2] <= 60) {
             output = timeSections[0] * 3600 + timeSections[1] * 60 + timeSections[2];
         }
-        if ( output > 0) {
+        if (output > 0) {
             track.setLength(output);
         }
         return this;
@@ -94,10 +98,14 @@ public class TrackBuilder {
     }
 
     public TrackBuilder setThumbnail(String thumbnail) {
-        if(thumbnail.length() <= 3 * textLimit) {
+        if(thumbnail != null && thumbnail.length() <= 3 * textLimit) {
             track.setThumbnail(thumbnail);
         }
         return this;
+    }
+
+    public Track getTrack() {
+        return this.track;
     }
 
 }
