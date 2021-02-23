@@ -61,11 +61,8 @@ public class AddTrackMenuController implements IControllable {
 
     // data to be put in a proper Track object
     private int howManyStarsChoosen = 0;
-
-
-    /*
-    Supporive objects for creating proper image object
-     */
+    private int title;
+    private
 
     /*
     These are buttons that have to open fields for optional parameters
@@ -551,6 +548,10 @@ public class AddTrackMenuController implements IControllable {
     @Override
     public void setScreenParent(ScreensContainer superContainer) {
         this.superContainer = superContainer;
+    }
+
+    private void validate() {
+        // does the validation of the data
     }
 
     // TODO -- not-active state of fields, responsiveness, time setter

@@ -1,7 +1,6 @@
-package ClientApp;
+package App;
 
 import Interfaces.ITextSerializeable;
-import javafx.scene.image.Image;
 
 import java.util.ArrayList;
 
@@ -41,10 +40,10 @@ public class Playlist implements ITextSerializeable {
      *
      * @return  Returns list of thumbnails of all tracks in playlist OR null if there is no tracks on playlist
      */
-    public ArrayList<Image> getTracksThumbnails() {
-        ArrayList<Image> thumbnails = null;
+    public ArrayList<String> getTracksThumbnails() {
+        ArrayList<String> thumbnails = null;
         for( Track track : tracks ) {
-            Image thumbnail = track.getThumbnail();
+            String thumbnail = track.getThumbnail();
             thumbnails.add(thumbnail);
         }
         return thumbnails;

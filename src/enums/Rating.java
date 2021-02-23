@@ -7,23 +7,32 @@ public enum Rating implements ITextSerializeable {
     // Implements simple rating in range from 1 to 10.
     // In my app will be shown as stars
 
-    // TODO -- make this enum for SURE!
     // ratings
-    OneStar(1,"one star"),
-    TwoStars(2,"two stars"),
-    ThreeStars(3,"three stars"),
-    FourStars(4,"four stars"),
-    FiveStars(5,"five stars"),
+    OneStar(1),
+    TwoStars(2),
+    ThreeStars(3),
+    FourStars(4),
+    FiveStars(5),
 
     // when not added by user -- default version
-    NotInitalized(0,"not initialized");
+    NotInitalized(0);
 
     private int howManyStars;
-    private String description;
 
-    Rating(int howManyStars, String description) {
+    Rating(int howManyStars) {
         this.howManyStars = howManyStars;
-        this.description = description;
+    }
+
+    public static Rating getRating(int value) {
+        switch (value) {
+            case 0 : return NotInitalized;
+            case 1 : return OneStar;
+            case 2 : return TwoStars;
+            case 3 : return ThreeStars;
+            case 4 : return FourStars;
+            case 5 : return FiveStars;
+        }
+        return null;
     }
 
     public String serialize() {

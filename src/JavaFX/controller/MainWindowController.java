@@ -1,22 +1,15 @@
 package JavaFX.controller;
 
-import ClientApp.PhaseSynchronizer;
-import ClientApp.User;
+import App.PhaseSynchronizer;
+import App.User;
 import Interfaces.IControllable;
-import javafx.event.ActionEvent;
-import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.control.Button;
 import javafx.scene.control.ScrollPane;
-import javafx.scene.control.SplitPane;
-import javafx.scene.control.ToggleButton;
-import javafx.scene.image.Image;
-import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
-import javafx.scene.layout.VBox;
 import newTrackWindowConstants.DefaultValues;
 import newTrackWindowConstants.ImagesPaths;
 import newTrackWindowConstants.ScreensPaths;

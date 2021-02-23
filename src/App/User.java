@@ -1,4 +1,4 @@
-package ClientApp;
+package App;
 
 import Interfaces.ITextSerializeable;
 import javafx.scene.image.Image;

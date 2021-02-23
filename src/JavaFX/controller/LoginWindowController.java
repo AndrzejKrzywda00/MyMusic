@@ -1,8 +1,8 @@
 package JavaFX.controller;
 
 //import com.sun.javafx.geom.Rectangle;
-import ClientApp.DataContent.LoginContent;
-import ClientApp.PhaseSynchronizer;
+import App.DataContent.LoginContent;
+import App.PhaseSynchronizer;
 import Interfaces.IControllable;
 import LoginWindowConstants.LoginElementsColors;
 import LoginWindowConstants.LoginStrings;

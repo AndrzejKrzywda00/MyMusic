@@ -1,7 +1,7 @@
-package ClientApp.DataContent;
+package App.DataContent;
 
-import ClientApp.Playlist;
-import ClientApp.Track;
+import App.Playlist;
+import App.Track;
 import Interfaces.ITextSerializeable;
 
 import java.util.List;

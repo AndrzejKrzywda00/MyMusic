@@ -1,4 +1,4 @@
-package ClientApp;
+package App;
 
 import enums.Type;
 

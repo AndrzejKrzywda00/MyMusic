@@ -5,18 +5,15 @@ Date : February 2021
 Release : 1.0.0
  */
 
-package ClientApp;
+package App;
 
-import Interfaces.IObservable;
 import Interfaces.IObserver;
 import JavaFX.controller.ScreensContainer;
 import enums.Phase;
 import javafx.application.Application;
-import javafx.geometry.Rectangle2D;
 import javafx.scene.Group;
 import javafx.scene.Scene;
 import javafx.scene.image.Image;
-import javafx.stage.Screen;
 import javafx.stage.Stage;
 
 public class MyMusicGUI extends Application implements IObserver {

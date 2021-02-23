@@ -1,9 +1,8 @@
-package ClientApp;
+package App;
 
 import Interfaces.IObservable;
 import Interfaces.IObserver;
 import enums.Phase;
-import javafx.stage.Stage;
 
 import java.util.ArrayList;
 
