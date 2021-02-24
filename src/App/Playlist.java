@@ -1,6 +1,7 @@
 package App;
 
 import Interfaces.ITextSerializeable;
+import enums.Rating;
 
 import java.util.ArrayList;
 import java.util.Map;
@@ -11,9 +12,13 @@ public class Playlist implements ITextSerializeable {
 
     // properties
     private String name;                    // holds name of playlist
+    private ArrayList<String> authors;      // list of authors that contribute to this playlist
+    private Rating rating;                  // same rating modeling as in track
+    private String addedDate;               // holds date of adding certain playlist
     private String description;             // holds description of playlist
     private ArrayList<Track> tracks;        // holds all added tracks
     private ID uniqueID;                    // is the unique id of the playlist
+    private int length;                     // summary length of all tracks
     
     // constructor
     public Playlist() {
