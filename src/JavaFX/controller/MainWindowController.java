@@ -84,8 +84,7 @@ public class MainWindowController implements IControllable, IObserver {
 
         // side screen is loaded by default
         setSideScreen(screensPaths.SideMenuExpanded);
-        superController.getController(screensPaths.SideMenuExpanded);
-
+        //superController.getController(screensPaths.SideMenuExpanded);
 
         // add new track button is clicked
         addTrackButton.setOnAction( e -> {
