@@ -35,6 +35,7 @@ public final class PhaseSynchronizer implements IObservable {
      */
     public void setLoggedPhase() {
         this.phase = Phase.Logged;
+        notifyObservers();
     }
 
     /***
@@ -42,6 +43,7 @@ public final class PhaseSynchronizer implements IObservable {
      */
     public void setNotLoggedPhase() {
         this.phase = Phase.NotLogged;
+        notifyObservers();
     }
 
     // phase getter

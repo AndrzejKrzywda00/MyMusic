@@ -1,6 +1,7 @@
 package JavaFX.controller;
 
 import Interfaces.IControllable;
+import Interfaces.IObservable;
 import MyExceptions.ScreenNotLoadedException;
 import javafx.animation.KeyFrame;
 import javafx.animation.KeyValue;
@@ -31,6 +32,7 @@ public class ScreensContainer extends StackPane {
     "add new track screen" : AddTrackMenu.fxml
      */
     private HashMap<String, Node> screens = new HashMap<String, Node>();
+    private HashMap<String, IControllable> controllers = new HashMap<>();
 
     public ScreensContainer() {
         super();    // starting the StackPane
@@ -64,7 +66,8 @@ public class ScreensContainer extends StackPane {
             Parent loadScreen = (Parent) loader.load();
             IControllable localController = (IControllable) loader.getController();
             localController.setScreenParent(this);  // letting know controller of the new window that this class is a parent
-            addScreen(name, loadScreen);        // adding a new screen to collection
+            addController(name, localController);   // passing a controller to a list
+            addScreen(name, loadScreen);            // adding a new screen to collection
             return true;
         } catch (IOException e) {
             System.out.println(e.getMessage());
@@ -76,7 +79,7 @@ public class ScreensContainer extends StackPane {
      *
      * @param name Takes the name - id of the screen we want to load
      * @return  true if screen has been set successfully, false otherwise
-     * @throws ScreenNotLoadedException when screen hasn't been loaded prevously
+     * @throws ScreenNotLoadedException when screen hasn't been loaded previously
      */
     public Boolean setScreen(final String name) {
         if (screens.get(name) != null) {                        // there exist such screen loaded
@@ -120,6 +123,14 @@ public class ScreensContainer extends StackPane {
         else {
             return true;
         }
+    }
+
+    public void addController(String name, IControllable controller) {
+        controllers.put(name, controller);
+    }
+
+    public IControllable getController(String name) {
+        return controllers.get(name);
     }
 
 }

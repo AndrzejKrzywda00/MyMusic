@@ -3,6 +3,7 @@ package JavaFX.controller;
 import App.PhaseSynchronizer;
 import App.User;
 import Interfaces.IControllable;
+import Interfaces.IObserver;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
@@ -10,6 +11,7 @@ import javafx.scene.Parent;
 import javafx.scene.control.Button;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.Pane;
 import newTrackWindowConstants.DefaultValues;
 import newTrackWindowConstants.ImagesPaths;
 import newTrackWindowConstants.ScreensPaths;
@@ -17,7 +19,7 @@ import newTrackWindowConstants.ScreensPaths;
 import java.util.HashMap;
 import java.util.Map;
 
-public class MainWindowController implements IControllable {
+public class MainWindowController implements IControllable, IObserver {
 
     /* This class is the controller of the main widow of the application
     It sholud only manage graphic elements and take data from forms
@@ -27,19 +29,19 @@ public class MainWindowController implements IControllable {
 
     // functional buttons
     @FXML
-    Button addTrackButton;      // loads the addTrack fxml file
+    Button addTrackButton;              // loads the addTrack fxml file
 
     @FXML
-    Button removeTrackButton;   // loads the removeTrack fxml file
+    Button removeTrackButton;           // loads the removeTrack fxml file
 
     @FXML
-    Button createPlaylistButton;    // opens menu for adding files to a playlist
+    Button createPlaylistButton;        // opens menu for adding files to a playlist
 
     @FXML
-    ScrollPane sideMenuScrollPane;      // container for vbox
+    AnchorPane buildPane;               // main container of the app
 
     @FXML
-    AnchorPane buildPane;                // main container of the app
+    Pane sideMenuBuildPane;             // container for side menus - hidden and expanded
 
     /* When user is not logged we can see only logging window, the main one is not visible
     When user is logged - logging one is invisible
@@ -80,6 +82,11 @@ public class MainWindowController implements IControllable {
             e.printStackTrace();
         }
 
+        // side screen is loaded by default
+        setSideScreen(screensPaths.SideMenuExpanded);
+        superController.getController(screensPaths.SideMenuExpanded);
+
+
         // add new track button is clicked
         addTrackButton.setOnAction( e -> {
             // switch the content to add new track form
@@ -90,7 +97,6 @@ public class MainWindowController implements IControllable {
         removeTrackButton.setOnAction( e -> {
             setScreen(screensPaths.TrackListScreen);
         });
-
     }
 
     /***
@@ -132,6 +138,19 @@ public class MainWindowController implements IControllable {
         }
     }
 
+    private void setSideScreen(String name) {
+        if (elements.containsKey(name)) {
+            Node sideScreen = elements.get(name);
+            if (!sideMenuBuildPane.getChildren().isEmpty()) {
+                sideMenuBuildPane.getChildren().remove(0);
+                sideMenuBuildPane.getChildren().add(sideScreen);
+            }
+            else {
+                sideMenuBuildPane.getChildren().add(sideScreen);
+            }
+        }
+    }
+
     private void resetScreen() {
         if (mainContent != null) {
             if (buildPane.getChildren() != null) {
@@ -150,4 +169,9 @@ public class MainWindowController implements IControllable {
         this.superController = superController;
     }
 
+    @Override
+    public void update() {
+        // it's connected to taking data from sideMenu
+        setSideScreen(screensPaths.SideMenuHidden);
+    }
 }

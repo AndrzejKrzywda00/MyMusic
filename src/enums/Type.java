@@ -31,5 +31,9 @@ public enum Type {
         this.index = index;
         this.description = description;
     }
+
+    public String toString() {
+        return description;
+    }
     
 }

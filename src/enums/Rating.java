@@ -41,4 +41,8 @@ public enum Rating implements ITextSerializeable {
         output.append(";");
         return output.toString();
     }
+
+    public int getValue() {
+        return howManyStars;
+    }
 }

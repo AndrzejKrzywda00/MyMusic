@@ -137,5 +137,51 @@ public class Track implements ITextSerializeable {
     public void setThumbnail(String thumbnail) {
         this.thumbnail = thumbnail;
     }
+
+    public String getTitle() {
+        return title;
+    }
+
+    public String getAuthor() {
+        return author;
+    }
+
+    public String getURL() {
+        return URL;
+    }
+
+    public int getLength() {
+        return length;
+    }
+
+    public String getFormat() {
+        return format;
+    }
+
+    public Rating getRating() {
+        return rating;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public String getAddedDate() {
+        return addedDate;
+    }
+
+    public Source getSource() {
+        return source;
+    }
+
+    public String getLengthInString() {
+        String output;
+        int hours = (length / 3600);
+        int minutes = (length - 3600 * hours) / 60;
+        int seconds = length - hours * 3600 - minutes * 60;
+        output = Integer.toString(hours) + ":" + Integer.toString(minutes) + ":" + Integer.toString(seconds);
+        return output;
+    }
+
 }
 

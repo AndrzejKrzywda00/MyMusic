@@ -1,5 +1,8 @@
 package JavaFX.controller;
 
+import javafx.beans.Observable;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.scene.Group;
 import javafx.scene.Node;
@@ -7,6 +10,9 @@ import javafx.scene.control.Button;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.ToggleButton;
+import models.TrackModel;
+
+import static javafx.collections.FXCollections.observableArrayList;
 
 public class TracksListController {
 
@@ -75,6 +81,9 @@ public class TracksListController {
     // a group for columns to format them
     private Group topButtons;
 
+    // list to have all tracks
+    ObservableList<TrackModel> tracks = observableArrayList();
+
     public void initialize() {
         // show only tracks
         showTracksButton.setOnAction( e -> {
@@ -102,7 +111,13 @@ public class TracksListController {
         });
     }
 
+    public void importTracks() {
+        // calls the right elements to import tracks from database
+    }
 
+    public void addTrack(TrackModel track) {
+
+    }
 
 
 

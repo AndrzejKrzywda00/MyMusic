@@ -14,14 +14,15 @@ public class TableImage {
 
     private ImageView image;
 
-    public TableImage(ImageView image) {
-        this.image = image;
+    public TableImage() {
+
     }
 
     // loading data from file
-    public void loadImage(String URL) {
+    public TableImage loadImage(String URL) {
         Image content = new Image(URL);
         image = new ImageView(content);
+        return this;
     }
 
     public ImageView getImage() {

@@ -19,7 +19,7 @@
          <children>
             <ImageView fitHeight="50.0" fitWidth="45.0" layoutX="35.0" layoutY="5.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../../res/img/openMenuIcon.png" />
+                  <Image url="@/img/openMenuIcon.png" />
                </image>
             </ImageView>
             <Label layoutX="32.0" layoutY="63.0" text="utwórz&#10;menu" textAlignment="CENTER">

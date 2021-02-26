@@ -62,4 +62,8 @@ public class Source implements ITextSerializeable {
 
         return output.toString();
     }
+
+    public String toString() {
+        return type.toString();
+    }
 }
