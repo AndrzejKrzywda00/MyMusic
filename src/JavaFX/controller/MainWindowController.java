@@ -58,7 +58,7 @@ public class MainWindowController implements IControllable, IObserver {
     ScreensPaths screensPaths = new ScreensPaths();
 
     // screens to be loaded with their names
-    private HashMap<String,Node> elements = new HashMap<String, Node>();
+    private HashMap<String, Node> elements = new HashMap<String, Node>();
     private Node mainContent;
 
     public MainWindowController() {
@@ -84,7 +84,6 @@ public class MainWindowController implements IControllable, IObserver {
 
         // side screen is loaded by default
         setSideScreen(screensPaths.SideMenuExpanded);
-        //superController.getController(screensPaths.SideMenuExpanded);
 
         // add new track button is clicked
         addTrackButton.setOnAction( e -> {
@@ -95,6 +94,10 @@ public class MainWindowController implements IControllable, IObserver {
         // remove track button is clicked
         removeTrackButton.setOnAction( e -> {
             setScreen(screensPaths.TrackListScreen);
+        });
+
+        createPlaylistButton.setOnAction( e -> {
+            setScreen(screensPaths.PlaylistScreen);
         });
     }
 

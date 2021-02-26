@@ -1,6 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.BorderPane?>
@@ -9,10 +15,10 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 
-
-<StackPane maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="864.0" prefWidth="1250.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/15.0.1">
+<StackPane maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="864.0" prefWidth="1250.0" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1">
    <children>
       <BorderPane prefHeight="200.0" prefWidth="200.0">
          <top>
@@ -20,9 +26,14 @@
                <children>
                   <Pane layoutX="246.0" prefHeight="199.0" prefWidth="719.0">
                      <children>
-                        <Label layoutX="14.0" layoutY="51.0" text="Dodaj swoją playlistę">
+                        <Label layoutX="-23.0" layoutY="49.0" text="Dodaj swoją playlistę">
                            <font>
-                              <Font name="Arial" size="67.0" />
+                              <Font name="Georgia" size="67.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="-23.0" layoutY="147.0" text="Aby dodać utwór, przeciągnij wybraną pozycję z górnej tabelki do dolnej">
+                           <font>
+                              <Font size="20.0" />
                            </font>
                         </Label>
                      </children>
@@ -31,7 +42,7 @@
                      <children>
                         <ImageView fitHeight="109.0" fitWidth="106.0" layoutX="45.0" layoutY="31.0" pickOnBounds="true" preserveRatio="true">
                            <image>
-                              <Image url="@../../res/img/logoMyMusic.png" />
+                              <Image url="@/img/logoMyMusic.png" />
                            </image>
                         </ImageView>
                         <Label layoutX="54.0" layoutY="148.0" text="MyMusic">
@@ -41,6 +52,7 @@
                         </Label>
                      </children>
                   </Pane>
+                  <Button layoutX="1044.0" layoutY="121.0" mnemonicParsing="false" prefHeight="46.0" prefWidth="140.0" text="Dodaj playlistę" />
                </children>
             </Pane>
          </top>
@@ -56,7 +68,7 @@
          <center>
             <Pane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
                <children>
-                  <GridPane layoutX="33.0" layoutY="20.0" prefHeight="240.0" prefWidth="498.0">
+                  <GridPane layoutX="54.0" layoutY="20.0" prefHeight="225.0" prefWidth="483.0">
                     <columnConstraints>
                       <ColumnConstraints hgrow="SOMETIMES" maxWidth="243.39996337890625" minWidth="10.0" prefWidth="152.19993591308594" />
                       <ColumnConstraints hgrow="SOMETIMES" maxWidth="345.80006408691406" minWidth="10.0" prefWidth="345.80006408691406" />
@@ -82,8 +94,62 @@
                               <Font name="System Bold" size="26.0" />
                            </font>
                         </Label>
+                        <Rectangle arcHeight="80.0" arcWidth="45.0" fill="#d0dbe5" height="50.0" stroke="BLACK" strokeType="INSIDE" width="322.0" GridPane.columnIndex="1" />
+                        <Rectangle arcHeight="80.0" arcWidth="45.0" fill="#d0dbe5" height="50.0" stroke="BLACK" strokeType="INSIDE" width="322.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                        <TextField prefHeight="47.0" prefWidth="333.0" style="-fx-background-color: none;" GridPane.columnIndex="1">
+                           <opaqueInsets>
+                              <Insets />
+                           </opaqueInsets>
+                           <GridPane.margin>
+                              <Insets left="10.0" right="20.0" />
+                           </GridPane.margin>
+                           <font>
+                              <Font size="21.0" />
+                           </font>
+                        </TextField>
+                        <TextField prefHeight="47.0" prefWidth="333.0" style="-fx-background-color: none;" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                           <opaqueInsets>
+                              <Insets />
+                           </opaqueInsets>
+                           <GridPane.margin>
+                              <Insets left="10.0" right="20.0" />
+                           </GridPane.margin>
+                           <font>
+                              <Font size="21.0" />
+                           </font>
+                        </TextField>
+                        <Label text="Wybierz plik ..." GridPane.columnIndex="1" GridPane.rowIndex="2">
+                           <opaqueInsets>
+                              <Insets />
+                           </opaqueInsets>
+                           <GridPane.margin>
+                              <Insets left="50.0" />
+                           </GridPane.margin>
+                           <font>
+                              <Font size="21.0" />
+                           </font>
+                        </Label>
+                        <Button mnemonicParsing="false" opacity="0.0" prefHeight="36.0" prefWidth="192.0" text="Button" GridPane.columnIndex="1" GridPane.rowIndex="2">
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
+                        </Button>
                      </children>
                   </GridPane>
+                  <TableView layoutX="59.0" layoutY="275.0" prefHeight="320.0" prefWidth="508.0" style="-fx-background-color: rgb(141, 184, 252);">
+                    <columns>
+                      <TableColumn prefWidth="75.0" text="C1" />
+                      <TableColumn prefWidth="75.0" text="C2" />
+                    </columns>
+                  </TableView>
+                  <TableView layoutX="613.0" layoutY="63.0" prefHeight="527.0" prefWidth="513.0">
+                    <columns>
+                      <TableColumn prefWidth="75.0" text="C1" />
+                      <TableColumn prefWidth="75.0" text="C2" />
+                    </columns>
+                  </TableView>
+                  <Label layoutX="613.0" layoutY="42.0" text="Utwory" />
+                  <Label layoutX="59.0" layoutY="258.0" text="Zawartość playlisty" />
                </children>
             </Pane>
          </center>

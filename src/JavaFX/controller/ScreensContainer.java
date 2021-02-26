@@ -32,7 +32,6 @@ public class ScreensContainer extends StackPane {
     "add new track screen" : AddTrackMenu.fxml
      */
     private HashMap<String, Node> screens = new HashMap<String, Node>();
-    private HashMap<String, IControllable> controllers = new HashMap<>();
 
     public ScreensContainer() {
         super();    // starting the StackPane
@@ -66,7 +65,6 @@ public class ScreensContainer extends StackPane {
             Parent loadScreen = (Parent) loader.load();
             IControllable localController = (IControllable) loader.getController();
             localController.setScreenParent(this);  // letting know controller of the new window that this class is a parent
-            addController(name, localController);   // passing a controller to a list
             addScreen(name, loadScreen);            // adding a new screen to collection
             return true;
         } catch (IOException e) {
@@ -123,14 +121,6 @@ public class ScreensContainer extends StackPane {
         else {
             return true;
         }
-    }
-
-    public void addController(String name, IControllable controller) {
-        controllers.put(name, controller);
-    }
-
-    public IControllable getController(String name) {
-        return controllers.get(name);
     }
 
 }
