@@ -18,7 +18,7 @@
 <?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 
-<StackPane maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="864.0" prefWidth="1250.0" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<StackPane maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="864.0" prefWidth="1250.0" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="JavaFX.controller.PlaylistsMenuController">
    <children>
       <BorderPane prefHeight="200.0" prefWidth="200.0">
          <top>
@@ -52,7 +52,22 @@
                         </Label>
                      </children>
                   </Pane>
-                  <Button layoutX="1044.0" layoutY="121.0" mnemonicParsing="false" prefHeight="46.0" prefWidth="140.0" text="Dodaj playlistę" />
+                  <Button fx:id="confirmButton" layoutX="1080.0" layoutY="132.0" mnemonicParsing="false" prefHeight="46.0" prefWidth="140.0" style="-fx-background-radius: 20; -fx-background-color: rgb(2, 222, 61);" text="Dodaj playlistę">
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                     <font>
+                        <Font name="System Bold" size="15.0" />
+                     </font>
+                  </Button>
+                  <Button fx:id="cancelButton" layoutX="915.0" layoutY="132.0" mnemonicParsing="false" prefHeight="46.0" prefWidth="140.0" style="-fx-background-radius: 20; -fx-background-color: red;" text="Anuluj">
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                     <font>
+                        <Font name="System Bold" size="15.0" />
+                     </font>
+                  </Button>
                </children>
             </Pane>
          </top>
@@ -96,7 +111,7 @@
                         </Label>
                         <Rectangle arcHeight="80.0" arcWidth="45.0" fill="#d0dbe5" height="50.0" stroke="BLACK" strokeType="INSIDE" width="322.0" GridPane.columnIndex="1" />
                         <Rectangle arcHeight="80.0" arcWidth="45.0" fill="#d0dbe5" height="50.0" stroke="BLACK" strokeType="INSIDE" width="322.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-                        <TextField prefHeight="47.0" prefWidth="333.0" style="-fx-background-color: none;" GridPane.columnIndex="1">
+                        <TextField fx:id="titleTextField" prefHeight="47.0" prefWidth="333.0" style="-fx-background-color: none;" GridPane.columnIndex="1">
                            <opaqueInsets>
                               <Insets />
                            </opaqueInsets>
@@ -107,7 +122,7 @@
                               <Font size="21.0" />
                            </font>
                         </TextField>
-                        <TextField prefHeight="47.0" prefWidth="333.0" style="-fx-background-color: none;" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                        <TextField fx:id="descriptionTextField" prefHeight="47.0" prefWidth="333.0" style="-fx-background-color: none;" GridPane.columnIndex="1" GridPane.rowIndex="1">
                            <opaqueInsets>
                               <Insets />
                            </opaqueInsets>
@@ -129,7 +144,7 @@
                               <Font size="21.0" />
                            </font>
                         </Label>
-                        <Button mnemonicParsing="false" opacity="0.0" prefHeight="36.0" prefWidth="192.0" text="Button" GridPane.columnIndex="1" GridPane.rowIndex="2">
+                        <Button fx:id="addThumbnailButton" mnemonicParsing="false" opacity="0.0" prefHeight="36.0" prefWidth="192.0" text="Button" GridPane.columnIndex="1" GridPane.rowIndex="2">
                            <cursor>
                               <Cursor fx:constant="HAND" />
                            </cursor>
