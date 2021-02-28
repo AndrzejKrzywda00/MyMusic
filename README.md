@@ -4,6 +4,7 @@ It provides user with clean, easy-to use GUI that allows to archive any music tr
 It especially useful for youtube playlists, and tracks that tend to go private
 
 Here is logging window
+![image](C:\Users\akrzy\OneDrive\Pictures\Projekty Graficzne\loginWindow.png)
 
 The main window of application
 
