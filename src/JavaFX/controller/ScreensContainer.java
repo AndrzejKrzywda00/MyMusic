@@ -123,4 +123,9 @@ public class ScreensContainer extends StackPane {
         }
     }
 
+    public void modifyMainScreen() {
+
+    }
+
+
 }

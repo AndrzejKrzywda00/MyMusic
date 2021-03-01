@@ -6,6 +6,10 @@ import javafx.scene.control.TextField;
 
 public class PlaylistsMenuController {
 
+    /*
+    This is a controller class for a playlists menu
+     */
+
     @FXML
     TextField titleTextField;
 
@@ -20,7 +24,6 @@ public class PlaylistsMenuController {
 
     @FXML
     Button confirmButton;
-
 
     public void initialize() {
 

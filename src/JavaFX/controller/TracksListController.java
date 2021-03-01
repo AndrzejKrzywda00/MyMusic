@@ -71,6 +71,9 @@ public class TracksListController {
     @FXML
     TableColumn linkColumn;
 
+    @FXML
+    Button exitButton;
+
     // properties
     // this many records can be held in memory at once
     private static final int tableCapacity = 200;
