@@ -7,10 +7,12 @@ Here is logging window
 [!alt text](loginWindow.png)
 
 The main window of application
-[!alt-text](mainWindow.png)
+[!alt text](mainWindow.png)
 
 Adding a single track to a list
+[!alt text](addTrackWindow.png)
 
 Adding a whole playlist to a list
 
 Browsing your saved tracks
+[!alt text](tracksListWindow.png)
