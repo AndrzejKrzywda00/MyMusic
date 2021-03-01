@@ -7,6 +7,7 @@ Here is logging window
 [!alt text](loginWindow.png)
 
 The main window of application
+[!alt-text](mainWindow.png)
 
 Adding a single track to a list
 
