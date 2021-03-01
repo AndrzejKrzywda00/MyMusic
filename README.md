@@ -13,6 +13,7 @@ Adding a single track to a list
 [!alt text](addTrackWindow.png)
 
 Adding a whole playlist to a list
+[!alt text](addPlaylistWindow.png)
 
 Browsing your saved tracks
 [!alt text](tracksListWindow.png)
