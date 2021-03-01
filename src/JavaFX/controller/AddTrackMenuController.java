@@ -30,10 +30,11 @@ import java.util.ArrayList;
 public class AddTrackMenuController implements IControllable {
 
     // This clas is the controller of the menu that adds a new track
-    // WARNING - you can have cosillion here of two controllers when adding this to mainWindow.fxml
 
     // parent container of this class
     ScreensContainer superContainer;
+
+    ApplicationController windowsMediator = ApplicationController.getInstance();
 
     // important content classes instances
     ImagesPaths imagesContent = new ImagesPaths();
@@ -147,7 +148,7 @@ public class AddTrackMenuController implements IControllable {
     Button fifthStar;
 
     @FXML
-    Button exitButton;
+    Button exitButton;  // return to main window
 
     @FXML
     Pane addedTrackConfirmPane;
@@ -230,7 +231,7 @@ public class AddTrackMenuController implements IControllable {
             // animate the fields
             // animate the button
             if ( rotationCache.get(3) == false ) {
-                rotate90degreesClockwise.setNode(plusRatingButton);       // normal rotation
+                rotate90degreesClockwise.setNode(plusRatingButton);            // normal rotation
                 rotationCache.set(3,true);                                     // now cache will remeber the state
                 rotate90degreesClockwise.play();
             }
@@ -369,6 +370,8 @@ public class AddTrackMenuController implements IControllable {
     // initalization
     public void initialize() {
 
+        windowsMediator.registerAddNewTrackController(this);
+
         // turning on graphical configuration
         // padding, displaying images, setting shape for buttons etc...
         setPlusButtonsConfiguration();
@@ -400,7 +403,6 @@ public class AddTrackMenuController implements IControllable {
 
             Track track = builder.getTrack();
             track.generateSource();
-            System.out.println(track.serialize());
 
             addedTrackConfirmPane.setOpacity(1);
         });
@@ -441,6 +443,10 @@ public class AddTrackMenuController implements IControllable {
         // choosing thumbnail image
         chooseThumbnailButton.setOnAction( e -> {
             showFileChooser();
+        });
+
+        exitButton.setOnAction( e -> {
+            windowsMediator.mainWindowSetToDefault();
         });
     }
 

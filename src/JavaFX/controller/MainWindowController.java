@@ -3,13 +3,11 @@ package JavaFX.controller;
 import App.PhaseSynchronizer;
 import App.User;
 import Interfaces.IControllable;
-import Interfaces.IObserver;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.control.Button;
-import javafx.scene.control.ScrollPane;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
 import newTrackWindowConstants.DefaultValues;
@@ -19,7 +17,7 @@ import newTrackWindowConstants.ScreensPaths;
 import java.util.HashMap;
 import java.util.Map;
 
-public class MainWindowController implements IControllable, IObserver {
+public class MainWindowController implements IControllable {
 
     /* This class is the controller of the main widow of the application
     It sholud only manage graphic elements and take data from forms
@@ -46,6 +44,7 @@ public class MainWindowController implements IControllable, IObserver {
     /* When user is not logged we can see only logging window, the main one is not visible
     When user is logged - logging one is invisible
      */
+    private ApplicationController windowsMediator;        // class responsible for coummunication between separate controllers
     private PhaseSynchronizer phaseSynchronizer;        // has two states - user is logged or user is not logged
     private User user;                                  // this is user set to this instance of application
 
@@ -67,6 +66,8 @@ public class MainWindowController implements IControllable, IObserver {
         setScreenParent(superController);
         phaseSynchronizer = PhaseSynchronizer.getInstance();
 
+        windowsMediator = ApplicationController.getInstance();    // getting instance
+
         // [ screen1 ], [ screen2 ], [ screen3 ], ...
         // loading all possible screens to this form
         loadScreens();
@@ -74,6 +75,8 @@ public class MainWindowController implements IControllable, IObserver {
 
     @FXML
     void initialize() {
+
+        windowsMediator.registerMainWindowController(this);       // registering myself to call my methods
 
         // saving main screen
         try {
@@ -153,11 +156,18 @@ public class MainWindowController implements IControllable, IObserver {
         }
     }
 
-    private void resetScreen() {
+    public void expandSideMenu() {
+        setSideScreen(screensPaths.SideMenuExpanded);
+    }
+
+    public void hideSideMenu() {
+        setSideScreen(screensPaths.SideMenuHidden);
+    }
+
+    public void resetScreen() {
         if (mainContent != null) {
-            if (buildPane.getChildren() != null) {
-                buildPane.getChildren().remove(0);
-                buildPane.getChildren().add(mainContent);
+            if (!buildPane.getChildren().isEmpty()) {
+                buildPane.getChildren().set(0, mainContent);
             }
             else {
                 buildPane.getChildren().add(mainContent);
@@ -171,10 +181,4 @@ public class MainWindowController implements IControllable, IObserver {
         this.superController = superController;
     }
 
-    // from IObserver - observer pattern
-    @Override
-    public void update() {
-        // it's connected to taking data from sideMenu
-        setSideScreen(screensPaths.SideMenuHidden);
-    }
 }

@@ -22,6 +22,9 @@ public class sideMenuExpandedController {
     // synchronization for changing stages
     PhaseSynchronizer phaseSynchronizer = PhaseSynchronizer.getInstance();
 
+    // instance of windowsMediator
+    ApplicationController windowsMediator = ApplicationController.getInstance();
+
     // observer pattern implemetation list
     ArrayList<IObserver> subscribers = new ArrayList<>();
 
@@ -56,6 +59,11 @@ public class sideMenuExpandedController {
     @FXML
     Button wrapMenuButton;      // topmost button to wrap the side menu
 
+    public sideMenuExpandedController() {
+        windowsMediator.registerSideMenuExpandedController(this);
+    }
+
+
     public void initialize() {
 
         formatMenuButtons();
@@ -63,6 +71,10 @@ public class sideMenuExpandedController {
 
         logOutButton.setOnAction( e -> {
             phaseSynchronizer.setNotLoggedPhase();  // makes the deal work
+        });
+
+        wrapMenuButton.setOnAction( e -> {
+            windowsMediator.wrapSideMenu();
         });
 
     }
@@ -187,4 +199,5 @@ public class sideMenuExpandedController {
         themeButton.setGraphic(modeButtonContent);
         wrapMenuButton.setGraphic(wrapMenuContent);
     }
+
 }

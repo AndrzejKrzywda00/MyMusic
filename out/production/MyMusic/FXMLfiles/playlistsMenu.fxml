@@ -68,6 +68,20 @@
                         <Font name="System Bold" size="15.0" />
                      </font>
                   </Button>
+                  <ImageView fitHeight="82.0" fitWidth="54.0" layoutX="985.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@/img/openMenuIcon.png" />
+                     </image>
+                  </ImageView>
+                  <Label layoutX="1039.0" layoutY="34.0" text="powrót">
+                     <font>
+                        <Font size="17.0" />
+                     </font>
+                  </Label>
+                  <Button fx:id="exitButton" layoutX="988.0" layoutY="17.0" mnemonicParsing="false" opacity="0.0" prefHeight="61.0" prefWidth="110.0" text="Button">
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor></Button>
                </children>
             </Pane>
          </top>

@@ -10,6 +10,8 @@ public class PlaylistsMenuController {
     This is a controller class for a playlists menu
      */
 
+    ApplicationController windowsMediator = ApplicationController.getInstance();
+
     @FXML
     TextField titleTextField;
 
@@ -25,8 +27,19 @@ public class PlaylistsMenuController {
     @FXML
     Button confirmButton;
 
+    @FXML
+    Button exitButton;
+
     public void initialize() {
 
+        exitButton.setOnAction( e -> {
+            windowsMediator.mainWindowSetToDefault();
+        });
+
+    }
+
+    public PlaylistsMenuController() {
+        windowsMediator.registerPlaylistsController(this);
     }
 
 }

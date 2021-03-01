@@ -1,11 +1,8 @@
 package JavaFX.controller;
 
-import javafx.beans.Observable;
-import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.scene.Group;
-import javafx.scene.Node;
 import javafx.scene.control.Button;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
@@ -19,6 +16,8 @@ public class TracksListController {
     /*
     This is controller for all functionality in main lsit of tracks and playlists
      */
+
+    ApplicationController windowsMediator;    // controller to communicate between all controllers of different windows
 
     // upper bar buttons
     // ( piosenki )
@@ -112,6 +111,11 @@ public class TracksListController {
         switchColorsButton.setOnAction( e -> {
             colorsSwitchedOn = colorsSwitchedOn == true ? false : true;
         });
+
+        exitButton.setOnAction( e -> {
+            windowsMediator.mainWindowSetToDefault();
+        });
+
     }
 
     public void importTracks() {
@@ -122,6 +126,9 @@ public class TracksListController {
 
     }
 
-
+    public TracksListController() {
+        windowsMediator = ApplicationController.getInstance();
+        windowsMediator.registerTracksListController(this);
+    }
 
 }
