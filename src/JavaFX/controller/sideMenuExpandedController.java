@@ -14,7 +14,7 @@ import newTrackWindowConstants.ImagesPaths;
 
 import java.util.ArrayList;
 
-public class sideMenuExpandedController implements IObservable, IControllable {
+public class sideMenuExpandedController {
 
     // data
     ImagesPaths imagesPaths = new ImagesPaths();
@@ -63,10 +63,6 @@ public class sideMenuExpandedController implements IObservable, IControllable {
 
         logOutButton.setOnAction( e -> {
             phaseSynchronizer.setNotLoggedPhase();  // makes the deal work
-        });
-
-        wrapMenuButton.setOnAction( e -> {
-            notifyObservers();
         });
 
     }
@@ -190,27 +186,5 @@ public class sideMenuExpandedController implements IObservable, IControllable {
         refreshButton.setGraphic(refreshButtonContent);
         themeButton.setGraphic(modeButtonContent);
         wrapMenuButton.setGraphic(wrapMenuContent);
-    }
-
-    @Override
-    public void add(IObserver subscriber) {
-        subscribers.add(subscriber);
-    }
-
-    @Override
-    public void remove(IObserver subscriber) {
-        subscribers.remove(subscriber);
-    }
-
-    @Override
-    public void notifyObservers() {
-        for (IObserver subscriber : subscribers) {
-            subscriber.update();
-        }
-    }
-
-    @Override
-    public void setScreenParent(ScreensContainer superController) {
-
     }
 }

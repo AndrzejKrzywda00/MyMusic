@@ -171,6 +171,7 @@ public class MainWindowController implements IControllable, IObserver {
         this.superController = superController;
     }
 
+    // from IObserver - observer pattern
     @Override
     public void update() {
         // it's connected to taking data from sideMenu
