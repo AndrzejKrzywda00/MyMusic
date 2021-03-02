@@ -7,6 +7,8 @@ import javafx.scene.control.Button;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.ToggleButton;
+import modelsFX.TableElementFX;
+import modelsFX.TableImageFX;
 import modelsFX.TrackFX;
 
 import static javafx.collections.FXCollections.observableArrayList;
@@ -42,33 +44,33 @@ public class TracksListController {
 
     // main table view - for all data
     @FXML
-    TableView mainTable;
+    TableView<TableElementFX> mainTable;
 
     // columns of the main table
     // | miniaturka | tytuł | autor | ocena | data dodania | źródło | czas trwania | link |
     @FXML
-    TableColumn thumbnailColumn;
+    TableColumn<TableElementFX, TableImageFX> thumbnailColumn;
 
     @FXML
-    TableColumn titleColumn;
+    TableColumn<TableElementFX, String> titleColumn;
 
     @FXML
-    TableColumn authorColumn;
+    TableColumn<TableElementFX, String> authorColumn;
 
     @FXML
-    TableColumn rankColumn;
+    TableColumn<TableElementFX, Integer> rankColumn;
 
     @FXML
-    TableColumn dateColumn;
+    TableColumn<TableElementFX, String> dateColumn;
 
     @FXML
-    TableColumn sourceColumn;
+    TableColumn<TableElementFX, String> sourceColumn;
 
     @FXML
-    TableColumn timeColumn;
+    TableColumn<TableElementFX, String> timeColumn;
 
     @FXML
-    TableColumn linkColumn;
+    TableColumn<TableElementFX, String> linkColumn;
 
     @FXML
     Button exitButton;

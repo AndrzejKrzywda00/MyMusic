@@ -20,7 +20,14 @@ public class TableImageFX {
     public TableImageFX loadImage(String URL) {
         Image content = new Image(URL);
         image = new ImageView(content);
+        formatImage();
         return this;
+    }
+
+    private void formatImage() {
+        if (image != null) {
+            // do the stuff
+        }
     }
 
     public ImageView getImage() {

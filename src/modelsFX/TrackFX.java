@@ -1,9 +1,11 @@
 package modelsFX;
 
 import javafx.beans.property.IntegerProperty;
+import javafx.beans.property.SimpleIntegerProperty;
+import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
 
-public class TrackFX {
+public class TrackFX extends TableElementFX {
 
     /*
     This class is a representation of Track class but instead of simple types this class has properties
@@ -11,15 +13,15 @@ public class TrackFX {
     So this is strictly for displaying purposes
      */
 
-    private TableImageFX thumbnail;
-    private StringProperty title;
-    private StringProperty authors;
+    private TableImageFX thumbnail = new TableImageFX();
+    private StringProperty title = new SimpleStringProperty();
+    private StringProperty authors = new SimpleStringProperty();
 
-    private IntegerProperty rating;     // first just number of stars but later an image
-    private StringProperty date;
-    private StringProperty source;
-    private StringProperty length;
-    private StringProperty link;    // clickable
+    private IntegerProperty rating = new SimpleIntegerProperty();     // first just number of stars but later an image
+    private StringProperty date = new SimpleStringProperty();
+    private StringProperty source = new SimpleStringProperty();
+    private StringProperty length = new SimpleStringProperty();
+    private StringProperty link = new SimpleStringProperty();    // clickable
 
     public TrackFX() {
 
@@ -112,6 +114,5 @@ public class TrackFX {
     public void setThumbnail(TableImageFX thumbnail) {
         this.thumbnail = thumbnail;
     }
-
 
 }

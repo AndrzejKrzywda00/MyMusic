@@ -5,11 +5,12 @@ import javafx.beans.property.SimpleIntegerProperty;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
 
-public class PlaylistFX {
+public class PlaylistFX extends TableElementFX {
 
     /*
     This class is a representation of Playlist class but
     has Properties as fields
+    Will be used in TableView manipulation
      */
 
     private TableImageFX thumbnail = new TableImageFX();
@@ -116,7 +117,5 @@ public class PlaylistFX {
     public void setLink(String link) {
         this.link.set(link);
     }
-
-
 
 }
