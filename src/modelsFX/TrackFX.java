@@ -3,7 +3,7 @@ package modelsFX;
 import javafx.beans.property.IntegerProperty;
 import javafx.beans.property.StringProperty;
 
-public class TrackModel {
+public class TrackFX {
 
     /*
     This class is a representation of Track class but instead of simple types this class has properties
@@ -11,7 +11,7 @@ public class TrackModel {
     So this is strictly for displaying purposes
      */
 
-    private TableImage thumbnail;
+    private TableImageFX thumbnail;
     private StringProperty title;
     private StringProperty authors;
 
@@ -21,7 +21,7 @@ public class TrackModel {
     private StringProperty length;
     private StringProperty link;    // clickable
 
-    public TrackModel() {
+    public TrackFX() {
 
     }
 
@@ -109,7 +109,7 @@ public class TrackModel {
         this.link.set(link);
     }
 
-    public void setThumbnail(TableImage thumbnail) {
+    public void setThumbnail(TableImageFX thumbnail) {
         this.thumbnail = thumbnail;
     }
 

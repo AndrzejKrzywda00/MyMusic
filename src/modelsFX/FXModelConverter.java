@@ -4,7 +4,7 @@ import App.Playlist;
 import App.Track;
 import newTrackWindowConstants.ImagesPaths;
 
-public class ModelConverter {
+public class FXModelConverter {
 
     /*
     This class is converter for class to its display model
@@ -13,15 +13,15 @@ public class ModelConverter {
 
     ImagesPaths imagesPaths = new ImagesPaths();
 
-    public ModelConverter() {
+    public FXModelConverter() {
 
     }
 
     // Track -> TrackModel
-    public TrackModel trackToModel(Track track) {
-        TrackModel output = new TrackModel();
+    public TrackFX trackToModel(Track track) {
+        TrackFX output = new TrackFX();
 
-        output.setThumbnail(new TableImage().loadImage(track.getThumbnail()));
+        output.setThumbnail(new TableImageFX().loadImage(track.getThumbnail()));
         output.setTitle(track.getTitle());
         output.setAuthors(track.getAuthor());
         output.setRating(track.getRating().getValue());
@@ -33,8 +33,8 @@ public class ModelConverter {
         return output;
     }
 
-    public PlaylistModel playlistToModel(Playlist playlist) {
-        PlaylistModel output = new PlaylistModel();
+    public PlaylistFX playlistToModel(Playlist playlist) {
+        PlaylistFX output = new PlaylistFX();
 
         // setting up thumbnail - not sure yet how it's going to look
         output.setTitle(playlist.getName());

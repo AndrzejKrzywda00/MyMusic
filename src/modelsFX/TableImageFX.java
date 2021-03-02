@@ -3,7 +3,7 @@ package modelsFX;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 
-public class TableImage {
+public class TableImageFX {
 
     /*
     This is a custom class that encapsulates the ImageView to be used in displaying
@@ -12,12 +12,12 @@ public class TableImage {
 
     private ImageView image;
 
-    public TableImage() {
+    public TableImageFX() {
 
     }
 
     // loading data from file
-    public TableImage loadImage(String URL) {
+    public TableImageFX loadImage(String URL) {
         Image content = new Image(URL);
         image = new ImageView(content);
         return this;

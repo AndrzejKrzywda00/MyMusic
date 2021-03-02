@@ -5,14 +5,14 @@ import javafx.beans.property.SimpleIntegerProperty;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
 
-public class PlaylistModel {
+public class PlaylistFX {
 
     /*
     This class is a representation of Playlist class but
     has Properties as fields
      */
 
-    private TableImage thumbnail = new TableImage();
+    private TableImageFX thumbnail = new TableImageFX();
     private StringProperty name = new SimpleStringProperty();
     private StringProperty author = new SimpleStringProperty();
 
@@ -22,15 +22,14 @@ public class PlaylistModel {
     private StringProperty length = new SimpleStringProperty();
     private StringProperty link = new SimpleStringProperty();
 
-    public PlaylistModel() {
-
+    public PlaylistFX() {
     }
 
-    public TableImage getThumbnail() {
+    public TableImageFX getThumbnail() {
         return thumbnail;
     }
 
-    public void setThumbnail(TableImage thumbnail) {
+    public void setThumbnail(TableImageFX thumbnail) {
         this.thumbnail = thumbnail;
     }
 

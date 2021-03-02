@@ -7,7 +7,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.ToggleButton;
-import modelsFX.TrackModel;
+import modelsFX.TrackFX;
 
 import static javafx.collections.FXCollections.observableArrayList;
 
@@ -84,7 +84,7 @@ public class TracksListController {
     private Group topButtons;
 
     // list to have all tracks
-    ObservableList<TrackModel> tracks = observableArrayList();
+    ObservableList<TrackFX> tracks = observableArrayList();
 
     public void initialize() {
         // show only tracks
@@ -122,7 +122,7 @@ public class TracksListController {
         // calls the right elements to import tracks from database
     }
 
-    public void addTrack(TrackModel track) {
+    public void addTrack(TrackFX track) {
 
     }
 
