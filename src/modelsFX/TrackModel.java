@@ -1,59 +1,52 @@
-package models;
+package modelsFX;
 
 import javafx.beans.property.IntegerProperty;
 import javafx.beans.property.StringProperty;
 
-public class PlaylistModel {
+public class TrackModel {
 
     /*
-    This class is a representation of Playlist class but
-    has Properties as fields
+    This class is a representation of Track class but instead of simple types this class has properties
+    Which are going to be used in managing TableView content
+    So this is strictly for displaying purposes
      */
 
     private TableImage thumbnail;
-    private StringProperty name;
-    private StringProperty author;      // will have complicated generation
+    private StringProperty title;
+    private StringProperty authors;
 
-    private IntegerProperty rating;
+    private IntegerProperty rating;     // first just number of stars but later an image
     private StringProperty date;
     private StringProperty source;
     private StringProperty length;
-    private StringProperty link;
+    private StringProperty link;    // clickable
 
-    public PlaylistModel() {
+    public TrackModel() {
 
-    }
-
-    public TableImage getThumbnail() {
-        return thumbnail;
-    }
-
-    public void setThumbnail(TableImage thumbnail) {
-        this.thumbnail = thumbnail;
     }
 
     public String getTitle() {
-        return name.get();
+        return title.get();
     }
 
     public StringProperty titleProperty() {
-        return name;
+        return title;
     }
 
     public void setTitle(String title) {
-        this.name.set(title);
+        this.title.set(title);
     }
 
-    public String getAuthor() {
-        return author.get();
+    public String getAuthors() {
+        return authors.get();
     }
 
-    public StringProperty authorProperty() {
-        return author;
+    public StringProperty authorsProperty() {
+        return authors;
     }
 
-    public void setAuthor(String author) {
-        this.author.set(author);
+    public void setAuthors(String authors) {
+        this.authors.set(authors);
     }
 
     public int getRating() {
@@ -116,6 +109,9 @@ public class PlaylistModel {
         this.link.set(link);
     }
 
+    public void setThumbnail(TableImage thumbnail) {
+        this.thumbnail = thumbnail;
+    }
 
 
 }

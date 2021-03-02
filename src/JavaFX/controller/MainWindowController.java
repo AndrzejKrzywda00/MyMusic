@@ -45,8 +45,8 @@ public class MainWindowController implements IControllable {
     When user is logged - logging one is invisible
      */
     private ApplicationController windowsMediator;        // class responsible for coummunication between separate controllers
-    private PhaseSynchronizer phaseSynchronizer;        // has two states - user is logged or user is not logged
-    private User user;                                  // this is user set to this instance of application
+    private PhaseSynchronizer phaseSynchronizer;          // has two states - user is logged or user is not logged
+    private User user;                                    // this is user set to this instance of application
 
     // having a parent - screen that contains of this window
     ScreensContainer superController;

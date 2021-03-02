@@ -1,52 +1,61 @@
-package models;
+package modelsFX;
 
 import javafx.beans.property.IntegerProperty;
+import javafx.beans.property.SimpleIntegerProperty;
+import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
 
-public class TrackModel {
+public class PlaylistModel {
 
     /*
-    This class is a representation of Track class but instead of simple types this class has properties
-    Which are going to be used in managing TableView content
-    So this is strictly for displaying purposes
+    This class is a representation of Playlist class but
+    has Properties as fields
      */
 
-    private TableImage thumbnail;
-    private StringProperty title;
-    private StringProperty authors;
+    private TableImage thumbnail = new TableImage();
+    private StringProperty name = new SimpleStringProperty();
+    private StringProperty author = new SimpleStringProperty();
 
-    private IntegerProperty rating;     // first just number of stars but later an image
-    private StringProperty date;
-    private StringProperty source;
-    private StringProperty length;
-    private StringProperty link;    // clickable
+    private IntegerProperty rating = new SimpleIntegerProperty();
+    private StringProperty date = new SimpleStringProperty();
+    private StringProperty source = new SimpleStringProperty();
+    private StringProperty length = new SimpleStringProperty();
+    private StringProperty link = new SimpleStringProperty();
 
-    public TrackModel() {
+    public PlaylistModel() {
 
+    }
+
+    public TableImage getThumbnail() {
+        return thumbnail;
+    }
+
+    public void setThumbnail(TableImage thumbnail) {
+        this.thumbnail = thumbnail;
     }
 
     public String getTitle() {
-        return title.get();
+        return name.get();
     }
 
     public StringProperty titleProperty() {
-        return title;
+        return name;
     }
 
     public void setTitle(String title) {
-        this.title.set(title);
+        this.name.set(title);
     }
 
-    public String getAuthors() {
-        return authors.get();
+    public String getAuthor() {
+        return author.get();
     }
 
-    public StringProperty authorsProperty() {
-        return authors;
+    public StringProperty authorProperty() {
+        return author;
     }
 
-    public void setAuthors(String authors) {
-        this.authors.set(authors);
+    public void setAuthor(String author) {
+        this.author.set(author);
     }
 
     public int getRating() {
@@ -109,9 +118,6 @@ public class TrackModel {
         this.link.set(link);
     }
 
-    public void setThumbnail(TableImage thumbnail) {
-        this.thumbnail = thumbnail;
-    }
 
 
 }

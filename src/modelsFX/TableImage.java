@@ -1,9 +1,7 @@
-package models;
+package modelsFX;
 
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
-
-import java.io.IOException;
 
 public class TableImage {
 

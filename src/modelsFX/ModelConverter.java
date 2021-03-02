@@ -1,4 +1,4 @@
-package models;
+package modelsFX;
 
 import App.Playlist;
 import App.Track;
