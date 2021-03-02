@@ -82,11 +82,8 @@ public class TracksListController {
     private static boolean showPlaylistsOnly = false;
     private static boolean colorsSwitchedOn = false;
 
-    // a group for columns to format them
-    private Group topButtons;
-
     // list to have all tracks
-    ObservableList<TrackFX> tracks = observableArrayList();
+    ObservableList<TableElementFX> elements = observableArrayList();
 
     public void initialize() {
         // show only tracks
@@ -120,12 +117,13 @@ public class TracksListController {
 
     }
 
-    public void importTracks() {
-        // calls the right elements to import tracks from database
+    public void importData() {
+        // is the controller of how many tracks will be taken in which order from db
+        // probably add this to a class
     }
 
-    public void addTrack(TrackFX track) {
-
+    private void displayImportedData() {
+        // displays all data imported from db
     }
 
     public TracksListController() {
