@@ -114,7 +114,6 @@ public class TracksListController {
         exitButton.setOnAction( e -> {
             windowsMediator.mainWindowSetToDefault();
         });
-
     }
 
     public void importData() {
