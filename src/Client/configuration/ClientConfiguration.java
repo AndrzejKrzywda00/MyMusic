@@ -1,2 +1,4 @@
-package Client.configuration;public class ClientConfiguration {
+package Client.configuration;
+
+public class ClientConfiguration {
 }
