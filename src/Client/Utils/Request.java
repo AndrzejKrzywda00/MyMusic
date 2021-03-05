@@ -135,7 +135,27 @@ public class Request {
         return Objects.hash(method, URI, HTTPVersion, headers, body);
     }
 
+    // setting method conetent with enum
+    public void setMethod(Methods method) {
+        this.method = method.name;
+    }
 
+    public void setURI(String URI) {
+        this.URI = URI;
+    }
 
+    public void addHeader(String key, String value) {
+        headers.put(key, value);
+    }
+
+    public void loadHeaders(Map<String, String> headers) {
+        for (Map.Entry<String, String> header : headers.entrySet()) {
+            this.headers.put(header.getKey(), header.getValue());
+        }
+    }
+
+    public void setBody(String body) {
+        this.body = body;
+    }
 
 }
