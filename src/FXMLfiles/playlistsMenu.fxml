@@ -52,7 +52,7 @@
                         </Label>
                      </children>
                   </Pane>
-                  <Button fx:id="confirmButton" layoutX="1080.0" layoutY="132.0" mnemonicParsing="false" prefHeight="46.0" prefWidth="140.0" style="-fx-background-radius: 20; -fx-background-color: rgb(2, 222, 61);" text="Dodaj playlistę">
+                  <Button fx:id="confirmButton" layoutX="1080.0" layoutY="132.0" mnemonicParsing="false" onMouseEntered="#confirmButtonEntered" onMouseExited="#confirmButtonExited" prefHeight="46.0" prefWidth="140.0" style="-fx-background-color: rgb(2, 222, 61);" text="Dodaj playlistę">
                      <cursor>
                         <Cursor fx:constant="HAND" />
                      </cursor>
@@ -60,7 +60,7 @@
                         <Font name="System Bold" size="15.0" />
                      </font>
                   </Button>
-                  <Button fx:id="cancelButton" layoutX="915.0" layoutY="132.0" mnemonicParsing="false" prefHeight="46.0" prefWidth="140.0" style="-fx-background-radius: 20; -fx-background-color: red;" text="Anuluj">
+                  <Button fx:id="cancelButton" layoutX="915.0" layoutY="132.0" mnemonicParsing="false" onMouseEntered="#cancelButtonEntered" onMouseExited="#cancelButtonExited" prefHeight="46.0" prefWidth="140.0" style="-fx-background-color: rgb(237, 27, 12);" text="Anuluj">
                      <cursor>
                         <Cursor fx:constant="HAND" />
                      </cursor>
@@ -133,7 +133,7 @@
                               <Insets left="10.0" right="20.0" />
                            </GridPane.margin>
                            <font>
-                              <Font size="21.0" />
+                              <Font name="System Bold" size="21.0" />
                            </font>
                         </TextField>
                         <TextField fx:id="descriptionTextField" prefHeight="47.0" prefWidth="333.0" style="-fx-background-color: none;" GridPane.columnIndex="1" GridPane.rowIndex="1">

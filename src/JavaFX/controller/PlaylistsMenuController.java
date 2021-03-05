@@ -42,4 +42,24 @@ public class PlaylistsMenuController {
         windowsMediator.registerPlaylistsController(this);
     }
 
+    @FXML
+    public void confirmButtonEntered() {
+        confirmButton.setStyle("-fx-background-color: rgb(20, 245, 80);");
+    }
+
+    @FXML
+    public void confirmButtonExited() {
+        confirmButton.setStyle("-fx-background-color: rgb(2, 222, 61);");
+    }
+
+    @FXML
+    public void cancelButtonEntered() {
+        cancelButton.setStyle("-fx-background-color: rgb(252, 47, 33);");
+    }
+
+    @FXML
+    public void cancelButtonExited() {
+        cancelButton.setStyle("-fx-background-color: rgb(237, 27, 12);");
+    }
+
 }

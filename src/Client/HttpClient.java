@@ -142,5 +142,4 @@ public class HttpClient {
         return waitTime;
     }
 
-
 }
