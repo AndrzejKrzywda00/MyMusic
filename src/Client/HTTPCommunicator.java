@@ -1,12 +1,17 @@
 package Client;
 
-import Client.Utils.IAccessHttpClient;
+import Client.Utils.Request;
+import Client.Utils.Response;
+import Client.Utils.enums.Methods;
+import Client.Utils.interfaces.IAccessHttpClient;
 import JavaFX.controller.AddTrackMenuController;
 import JavaFX.controller.ArchivizeFromNetController;
 import JavaFX.controller.LoginWindowController;
 import JavaFX.controller.TracksListController;
 
-public class HTTPCommunicator implements IAccessHttpClient {
+import java.util.Map;
+
+public class HTTPCommunicator implements IAccessHttpClient, HttpClient.HTTPResponseHandler {
 
     /*
     This class provides with functionality to connect controllers with
@@ -41,13 +46,19 @@ public class HTTPCommunicator implements IAccessHttpClient {
     }
 
     @Override
-    public void buildRequest() {
+    public void buildRequest(Methods method, String URI, Map<String, String> headers, String body) {
+        Request request = new Request();
+        request.setMethod(method);
+        request.setURI(URI);
+        request.loadHeaders(headers);
+        request.setBody(body);
 
+        sendRequest();      // calling send method on HTTPClient
     }
 
     @Override
     public void forwardDataPackage() {
-
+        
     }
 
     @Override
@@ -55,5 +66,9 @@ public class HTTPCommunicator implements IAccessHttpClient {
 
     }
 
+    // procedes to make actions to inform the app
+    @Override
+    public void procedeResponse(Response response) {
 
+    }
 }

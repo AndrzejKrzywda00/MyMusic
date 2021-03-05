@@ -1,4 +1,4 @@
-package Client.Utils;
+package Client.Utils.enums;
 
 public enum Methods {
 

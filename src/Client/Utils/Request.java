@@ -1,5 +1,7 @@
 package Client.Utils;
 
+import Client.Utils.enums.Methods;
+
 import java.nio.charset.StandardCharsets;
 import java.util.HashMap;
 import java.util.Map;
