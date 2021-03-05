@@ -10,8 +10,6 @@ import java.io.InputStreamReader;
 import java.io.OutputStream;
 import java.net.InetAddress;
 import java.net.Socket;
-import java.net.UnknownHostException;
-import java.nio.Buffer;
 import java.nio.charset.StandardCharsets;
 import java.util.HashMap;
 import java.util.Map;
@@ -28,15 +26,15 @@ public class HttpClient {
 
     public HttpClient() {
         ClientConfiguration configuration = new ClientConfiguration();
-        address = configuration.address;
-        port = configuration.port;
+        address = configuration.getAddress();
+        port = configuration.getPort();
     }
 
     /***
      * This interface forces to have method onResponse that takes response as an argument
      */
     public interface HTTPResponseHandler {
-        void onResponse(Response response);
+        void procedeResponse(Response response);
     }
 
     // generates new Thread that calls handling message
@@ -63,10 +61,11 @@ public class HttpClient {
     /***
      * This function sends request to server
      * @param request is a ready request
-     * @param handler is a choosen handler
+     * @param handler is a choosen handler matching the provided response
      * @throws IOException
      */
     private static void handleMessage(Request request, HTTPResponseHandler handler) throws IOException {
+
         // adding default headers
         for (Map.Entry<String, String> header : defaultHeaders.entrySet()) {
             request.headers.put(header.getKey(), header.getValue());
@@ -74,13 +73,13 @@ public class HttpClient {
 
         Socket serverSocket = new Socket(InetAddress.getByName(address), port);
 
-        OutputStream requestStream = serverSocket.getOutputStream();
-        requestStream.write(request.toByteArray());
-        serverSocket.shutdownOutput();
+        OutputStream requestStream = serverSocket.getOutputStream();    // requestStream is the data container to be sent
+        requestStream.write(request.toByteArray());                     // changing type to byte array
+        serverSocket.shutdownOutput();                                  // closing connection
 
         BufferedReader input = new BufferedReader(new InputStreamReader(serverSocket.getInputStream(), StandardCharsets.UTF_8));
 
-        final double waitTime = 10;
+        final double waitTime = importWaitTime(request);    // importing adequate wait time for response based on type of request
         // retries to read data after [d] seconds
         double waitInterval = 0.2;
         // current waittime in seconds
@@ -116,8 +115,32 @@ public class HttpClient {
         }
 
         serverSocket.close();
-        handler.onResponse(response);
-
+        handler.procedeResponse(response);       // processing the response
     }
+
+    /***
+     * Thuis method returns wait time based on how many data are we requesting
+     * @param request is passed request
+     * @return calculated wait time
+     */
+    private static int importWaitTime(Request request) {
+
+        int waitTime = 5;
+        ClientConfiguration configuration = new ClientConfiguration();
+        // wait time is shorter for small messages but bigger for GET messages and other situtations
+        if(request.method.equals("GET")) {
+            waitTime = configuration.getDownloadWaitTime();
+        }
+
+        if(request.method.equals("PUT")) {
+            waitTime = configuration.getUploadWaitTime();
+        }
+
+        if(request.method.equals("DELETE")) {
+            waitTime = configuration.getDeleteWaitTime();
+        }
+        return waitTime;
+    }
+
 
 }
