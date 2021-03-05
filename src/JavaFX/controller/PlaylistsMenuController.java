@@ -36,6 +36,10 @@ public class PlaylistsMenuController {
             windowsMediator.mainWindowSetToDefault();
         });
 
+        confirmButton.setOnAction( e -> {
+            // approve data
+        });
+
     }
 
     public PlaylistsMenuController() {
