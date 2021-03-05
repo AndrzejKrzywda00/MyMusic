@@ -1,7 +1,10 @@
 package Client;
 
+import App.User;
 import Client.Utils.Request;
 import Client.Utils.Response;
+import Client.Utils.enums.Headers;
+import Client.Utils.enums.Methods;
 import Client.configuration.ClientConfiguration;
 import jdk.jshell.spi.ExecutionControl;
 
@@ -21,7 +24,7 @@ public class HttpClient {
     This class manages communication with HttpServer running on public ip address
      */
 
-    public static final Map<String, String> defaultHeaders = new HashMap<String, String>();
+    public static final Map<String, String> defaultHeaders = new HashMap<String, String>();     // are sent all the time, no matter the type of request
     private static String address;
     private static int port;
 
@@ -29,6 +32,9 @@ public class HttpClient {
         ClientConfiguration configuration = new ClientConfiguration();
         address = configuration.getAddress();
         port = configuration.getPort();
+
+        defaultHeaders.put(Headers.userID.name, "");
+        defaultHeaders.put(Headers.login.name, "");
     }
 
     /***
@@ -73,6 +79,8 @@ public class HttpClient {
             request.headers.put(header.getKey(), header.getValue());
         }
 
+        System.out.println(request.toString());
+
         Socket serverSocket = new Socket(InetAddress.getByName(address), port);
 
         OutputStream requestStream = serverSocket.getOutputStream();    // requestStream is the data container to be sent
@@ -108,7 +116,7 @@ public class HttpClient {
             data.append("\n");
         }
 
-        Response response;                      // creating the response object
+        Response response;                                  // creating the response object
         try {
             response = new Response(data.toString());       // filling it with data
         } catch (Exception e) {
@@ -130,15 +138,15 @@ public class HttpClient {
         int waitTime = 5;
         ClientConfiguration configuration = new ClientConfiguration();
         // wait time is shorter for small messages but bigger for GET messages and other situtations
-        if(request.method.equals("GET")) {
+        if(request.method.equals(Methods.GET.name)) {
             waitTime = configuration.getDownloadWaitTime();
         }
 
-        if(request.method.equals("PUT")) {
+        if(request.method.equals(Methods.PUT.name)) {
             waitTime = configuration.getUploadWaitTime();
         }
 
-        if(request.method.equals("DELETE")) {
+        if(request.method.equals(Methods.DELETE.name)) {
             waitTime = configuration.getDeleteWaitTime();
         }
         return waitTime;

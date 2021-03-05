@@ -2,7 +2,10 @@ package JavaFX.controller;
 
 import App.Track;
 import App.Utils.TrackBuilder;
+import Client.HTTPCommunicator;
+import Client.Utils.enums.Methods;
 import Interfaces.IControllable;
+import enums.MessageType;
 import javafx.animation.RotateTransition;
 import javafx.fxml.FXML;
 import javafx.geometry.Insets;
@@ -34,7 +37,11 @@ public class AddTrackMenuController implements IControllable {
     // parent container of this class
     ScreensContainer superContainer;
 
+    // controller to mediate between controllers
     ApplicationController windowsMediator = ApplicationController.getInstance();
+
+    // controller to procede data
+    HTTPCommunicator HTTPConnector = HTTPCommunicator.getInstance();
 
     // important content classes instances
     ImagesPaths imagesContent = new ImagesPaths();
@@ -372,6 +379,8 @@ public class AddTrackMenuController implements IControllable {
 
         windowsMediator.registerAddNewTrackController(this);
 
+        HTTPConnector.registerAddTrackMenuController(this);
+
         // turning on graphical configuration
         // padding, displaying images, setting shape for buttons etc...
         setPlusButtonsConfiguration();
@@ -389,6 +398,7 @@ public class AddTrackMenuController implements IControllable {
         });
 
         confirmButton.setOnAction( e -> {
+
             // create object -> pass it into connection
             TrackBuilder builder = new TrackBuilder();
 
@@ -403,6 +413,9 @@ public class AddTrackMenuController implements IControllable {
 
             Track track = builder.getTrack();
             track.generateSource();
+
+            String URI = "EMPTY-URI";
+            HTTPConnector.buildRequest(Methods.PUT, URI, MessageType.NewTrackMessage, track.serialize());
 
             addedTrackConfirmPane.setOpacity(1);
         });

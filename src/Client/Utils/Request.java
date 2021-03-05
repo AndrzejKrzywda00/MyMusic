@@ -95,14 +95,15 @@ public class Request {
      */
     @Override
     public String toString() {
+
         StringBuilder output = new StringBuilder();
 
-        // request-line
         output.append(method);
         output.append(" ");
         output.append(URI);
         output.append(" ");
         output.append(HTTPVersion);
+        output.append("\r\n");
 
         // headers
         for (Map.Entry<String,String> header : headers.entrySet()) {

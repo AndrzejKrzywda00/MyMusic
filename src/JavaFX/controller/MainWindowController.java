@@ -71,6 +71,9 @@ public class MainWindowController implements IControllable {
         // [ screen1 ], [ screen2 ], [ screen3 ], ...
         // loading all possible screens to this form
         loadScreens();
+
+        user = new User();
+
     }
 
     @FXML

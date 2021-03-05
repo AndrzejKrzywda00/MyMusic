@@ -17,4 +17,8 @@ public class ID {
         return output.toString();
     }
 
+    public String toString() {
+        return content;
+    }
+
 }

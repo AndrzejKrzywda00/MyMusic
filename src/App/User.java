@@ -12,6 +12,7 @@ public class User implements ITextSerializeable {
     private String login;
     private Image avatar;
     private String description;
+    private ID uniqueID;
 
     public String getName() { return this.name; }
 
@@ -21,9 +22,29 @@ public class User implements ITextSerializeable {
 
     public String getDescription() { return this.description; }
 
+    public String getID() {
+        return this.uniqueID.toString();
+    }
+
     public String serialize() {
-        String output = "";
-        return output;
+        StringBuilder output = new StringBuilder();
+
+        output.append(name);
+        output.append(";");
+        output.append(login);
+        output.append(";");
+        output.append(description);
+        output.append(";");
+        output.append(uniqueID.serialize());
+
+        return output.toString();
+    }
+
+    public void importData(String name, String login, String description, ID uniqueID) {
+        this.name = name;
+        this.login = login;
+        this.description = description;
+        this.uniqueID = uniqueID;
     }
 
 }

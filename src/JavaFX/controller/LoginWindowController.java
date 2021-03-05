@@ -3,9 +3,12 @@ package JavaFX.controller;
 //import com.sun.javafx.geom.Rectangle;
 import App.DataContent.LoginContent;
 import App.PhaseSynchronizer;
+import Client.HTTPCommunicator;
+import Client.Utils.enums.Methods;
 import Interfaces.IControllable;
 import LoginWindowConstants.LoginElementsColors;
 import LoginWindowConstants.LoginStrings;
+import enums.MessageType;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.scene.control.PasswordField;
@@ -27,6 +30,12 @@ public class LoginWindowController implements IControllable {
     // container
     ScreensContainer superContainer;
 
+    // singleton Synchronizer for windows
+    PhaseSynchronizer phaseSynchronizer = PhaseSynchronizer.getInstance();
+
+    // connector to HTTP client
+    HTTPCommunicator HTTPConnector = HTTPCommunicator.getInstance();
+
     // to be removed
     private Boolean authorized = true;
 
@@ -41,8 +50,7 @@ public class LoginWindowController implements IControllable {
     // important local variables
     Boolean wantsToBeRemembered = false; // takes the data from button 'rememberMeButton'
 
-    // singleton Synchronizer for windows
-    PhaseSynchronizer phaseSynchronizer = PhaseSynchronizer.getInstance();
+
 
     /* Here controlling all information flow and configuration of logging window */
 
@@ -92,7 +100,8 @@ public class LoginWindowController implements IControllable {
     @FXML
     void initialize() {
 
-        // TODO - wrap this behaviour in one class:
+        HTTPConnector.registerLoginWindowController(this);
+
         // login field will not take more than fixed number of characters
         loginTextField.textProperty().addListener(new ChangeListener<String>() {
             @Override
@@ -134,11 +143,16 @@ public class LoginWindowController implements IControllable {
     @FXML
     void loginButtonClicked() {
 
+        // pack data to class and to be later sent to server
+        loginContent.getAllData(loginTextField.getText(), passwordTextField.getText(), wantsToBeRemembered);
+
+        String URI = "EMPTY-URI";
+        HTTPConnector.buildRequest(Methods.GET, URI, MessageType.LoginMessage, getData());
+
         if (authorized) {
             // always authorized for now
             // update state of application through PhaseSynchronizer
-            phaseSynchronizer.setLoggedPhase();  // we are logged now
-            phaseSynchronizer.notifyObservers(); // notify start() function and trigger update
+            phaseSynchronizer.setLoggedPhase();  // we are logged now and triggering update
         }
         else {
             // type informationa ab. wrong pasword or worng email using new fxml file
@@ -148,9 +162,6 @@ public class LoginWindowController implements IControllable {
             passwordTextRectangle.setStroke(colorProbe.WRONG_DATA_RED);
             passwordTextRectangle.setStrokeWidth(colorProbe.DEFAULT_WIDTH);
         }
-
-        // pack data to class and to be later sent to server
-        loginContent.getAllData(loginTextField.getText(), passwordTextField.getText(), wantsToBeRemembered);
 
         // clearing the text fields (all cases) and removing visibility of tick "remember me"
         passwordTextField.setText(stringContens.EMPTY_STRING);
