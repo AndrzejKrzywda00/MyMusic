@@ -21,21 +21,21 @@
                <Pane id="createPlaylistPane" layoutX="821.0" layoutY="448.0" prefHeight="329.0" prefWidth="258.0">
                   <children>
                      <Rectangle arcHeight="50.0" arcWidth="50.0" fill="WHITE" height="329.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="2.0" width="258.0" />
-                     <Label layoutX="39.0" layoutY="171.0" prefHeight="134.0" prefWidth="192.0" text="Zarządzaj&#10;playlistami" textAlignment="CENTER">
+                     <Label layoutX="57.0" layoutY="171.0" prefHeight="134.0" prefWidth="174.0" text="Pobierz&#10;utwory z&#10;Internetu" textAlignment="CENTER">
                         <font>
                            <Font name="Arial Bold" size="35.0" />
                         </font>
                      </Label>
-                      <ImageView fitHeight="198.0" fitWidth="200.0" layoutX="57.0" layoutY="-4.0" pickOnBounds="true" preserveRatio="true">
-                          <image>
-                              <Image url="@/img/playListSymbol.png" />
-                          </image>
-                      </ImageView>
                      <Button fx:id="createPlaylistButton" layoutX="3.0" layoutY="2.0" mnemonicParsing="false" opacity="0.0" prefHeight="338.0" prefWidth="258.0" text="Button">
                         <cursor>
                            <Cursor fx:constant="HAND" />
                         </cursor>
                      </Button>
+                     <ImageView fitHeight="147.0" fitWidth="154.0" layoutX="58.0" layoutY="24.0" pickOnBounds="true" preserveRatio="true">
+                        <image>
+                           <Image url="@/img/archiveIcon.png" />
+                        </image>
+                     </ImageView>
                   </children>
                </Pane>
                <Pane id="removeTrackPane" layoutX="485.0" layoutY="448.0" prefHeight="329.0" prefWidth="258.0">
@@ -46,16 +46,16 @@
                            <Font name="Arial Bold" size="35.0" />
                         </font>
                      </Label>
-                      <ImageView fitHeight="189.0" fitWidth="258.0" layoutX="31.0" layoutY="19.0" pickOnBounds="true" preserveRatio="true">
-                          <image>
-                              <Image url="@/img/minusSign.png" />
-                          </image>
-                      </ImageView>
                      <Button fx:id="removeTrackButton" layoutY="1.0" mnemonicParsing="false" opacity="0.0" prefHeight="329.0" prefWidth="254.0">
                         <cursor>
                            <Cursor fx:constant="HAND" />
                         </cursor>
                      </Button>
+                     <ImageView fitHeight="177.0" fitWidth="198.0" layoutX="59.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+                        <image>
+                           <Image url="@/img/playListSymbol.png" />
+                        </image>
+                     </ImageView>
                   </children>
                </Pane>
                <Pane id="addTrackPane" layoutX="153.0" layoutY="448.0" prefHeight="330.0" prefWidth="258.0">

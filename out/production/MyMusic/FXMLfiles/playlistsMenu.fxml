@@ -165,13 +165,19 @@
                         </Button>
                      </children>
                   </GridPane>
-                  <TableView layoutX="59.0" layoutY="275.0" prefHeight="320.0" prefWidth="508.0" style="-fx-background-color: rgb(141, 184, 252);">
+                  <TableView layoutX="59.0" layoutY="275.0" prefHeight="320.0" prefWidth="630.0" style="-fx-background-color: rgb(141, 184, 252);">
                     <columns>
-                      <TableColumn prefWidth="75.0" text="C1" />
-                      <TableColumn prefWidth="75.0" text="C2" />
+                      <TableColumn prefWidth="75.0" text="Miniaturka" />
+                      <TableColumn prefWidth="75.0" text="Nazwa" />
+                        <TableColumn prefWidth="75.0" text="Autorzy" />
+                        <TableColumn prefWidth="75.0" text="Ocena" />
+                        <TableColumn prefWidth="75.0" text="Data dodania" />
+                        <TableColumn prefWidth="75.0" text="Column X" />
+                        <TableColumn prefWidth="75.0" text="Column X" />
+                        <TableColumn prefWidth="75.0" text="Column X" />
                     </columns>
                   </TableView>
-                  <TableView layoutX="613.0" layoutY="63.0" prefHeight="527.0" prefWidth="513.0">
+                  <TableView layoutX="731.0" layoutY="63.0" prefHeight="527.0" prefWidth="395.0">
                     <columns>
                       <TableColumn prefWidth="75.0" text="C1" />
                       <TableColumn prefWidth="75.0" text="C2" />
