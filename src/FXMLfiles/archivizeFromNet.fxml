@@ -25,12 +25,12 @@
                <children>
                   <Pane layoutX="17.0" layoutY="-4.0" prefHeight="204.0" prefWidth="170.0">
                      <children>
-                        <ImageView fitHeight="138.0" fitWidth="128.0" layoutX="29.0" layoutY="38.0" pickOnBounds="true" preserveRatio="true">
+                        <ImageView fitHeight="114.0" fitWidth="111.0" layoutX="29.0" layoutY="38.0" pickOnBounds="true" preserveRatio="true">
                            <image>
                               <Image url="@/img/logoMyMusic.png" />
                            </image>
                         </ImageView>
-                        <Label layoutX="48.0" layoutY="169.0" text="MyMusic">
+                        <Label layoutX="37.0" layoutY="162.0" text="MyMusic">
                            <font>
                               <Font name="Gabriola" size="34.0" />
                            </font>
@@ -54,7 +54,7 @@
             <Pane prefHeight="464.0" prefWidth="175.0" BorderPane.alignment="CENTER" />
          </left>
          <center>
-            <Pane fx:id="confirmButton" onMouseEntered="#confirmButtonEntered" onMouseExited="#confirmButtonExited" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: white;" BorderPane.alignment="CENTER">
+            <Pane onMouseEntered="#confirmButtonEntered" onMouseExited="#confirmButtonExited" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: white;" BorderPane.alignment="CENTER">
                <children>
                   <GridPane layoutX="50.0" layoutY="131.0" prefHeight="441.0" prefWidth="696.0">
                     <columnConstraints>
@@ -95,7 +95,6 @@
                               <Font size="26.0" />
                            </font>
                         </Label>
-                        <Label GridPane.rowIndex="5" />
                         <Label text="Dostęp" GridPane.rowIndex="5">
                            <font>
                               <Font size="26.0" />
@@ -105,38 +104,49 @@
                         <Rectangle arcHeight="80.0" arcWidth="45.0" fill="#c4caa9" height="44.0" stroke="BLACK" strokeType="INSIDE" width="260.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
                         <Rectangle arcHeight="80.0" arcWidth="45.0" fill="#c4caa9" height="44.0" stroke="BLACK" strokeType="INSIDE" width="168.0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
                         <Rectangle arcHeight="80.0" arcWidth="45.0" fill="#c4caa9" height="44.0" stroke="BLACK" strokeType="INSIDE" width="88.0" GridPane.columnIndex="1" GridPane.rowIndex="3" />
-                        <Rectangle arcHeight="80.0" arcWidth="80.0" fill="#c4caa9" height="110.0" stroke="BLACK" strokeType="INSIDE" width="514.0" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+                        <Rectangle arcHeight="80.0" arcWidth="80.0" fill="#c4caa9" height="110.0" stroke="BLACK" strokeType="INSIDE" width="514.0" GridPane.columnIndex="1" GridPane.rowIndex="4">
+                           <GridPane.margin>
+                              <Insets />
+                           </GridPane.margin></Rectangle>
                         <Rectangle arcHeight="80.0" arcWidth="45.0" fill="#c4caa9" height="44.0" stroke="BLACK" strokeType="INSIDE" width="169.0" GridPane.columnIndex="1" GridPane.rowIndex="5" />
-                        <TextField prefHeight="45.0" prefWidth="521.0" style="-fx-background-color: none;" GridPane.columnIndex="1">
+                        <TextField fx:id="titleTextField" prefHeight="45.0" prefWidth="521.0" style="-fx-background-color: none;" GridPane.columnIndex="1">
                            <GridPane.margin>
-                              <Insets left="10.0" right="10.0" />
+                              <Insets left="5.0" right="10.0" />
                            </GridPane.margin>
                            <font>
                               <Font size="21.0" />
                            </font>
                         </TextField>
-                        <TextField prefHeight="45.0" prefWidth="521.0" style="-fx-background-color: none;" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                        <TextField fx:id="serviceTextField" prefHeight="45.0" prefWidth="521.0" style="-fx-background-color: none;" GridPane.columnIndex="1" GridPane.rowIndex="1">
                            <font>
                               <Font size="21.0" />
                            </font>
                            <GridPane.margin>
-                              <Insets left="10.0" right="270.0" />
+                              <Insets left="5.0" right="270.0" />
                            </GridPane.margin>
                         </TextField>
-                        <TextField prefHeight="45.0" prefWidth="521.0" style="-fx-background-color: none;" GridPane.columnIndex="1" GridPane.rowIndex="2">
+                        <TextField fx:id="timeTextField" prefHeight="45.0" prefWidth="521.0" style="-fx-background-color: none;" GridPane.columnIndex="1" GridPane.rowIndex="2">
                            <font>
                               <Font size="21.0" />
                            </font>
                            <GridPane.margin>
-                              <Insets right="360.0" />
+                              <Insets left="5.0" right="360.0" />
                            </GridPane.margin>
                         </TextField>
-                        <TextField prefHeight="45.0" prefWidth="521.0" style="-fx-background-color: none;" GridPane.columnIndex="1" GridPane.rowIndex="3">
+                        <TextField fx:id="amountOfTracksTextField" prefHeight="45.0" prefWidth="521.0" style="-fx-background-color: none;" GridPane.columnIndex="1" GridPane.rowIndex="3">
                            <font>
                               <Font size="21.0" />
                            </font>
                            <GridPane.margin>
-                              <Insets right="440.0" />
+                              <Insets left="5.0" right="440.0" />
+                           </GridPane.margin>
+                        </TextField>
+                        <TextField fx:id="accessTextField" prefHeight="45.0" prefWidth="521.0" style="-fx-background-color: none;" GridPane.columnIndex="1" GridPane.rowIndex="5">
+                           <font>
+                              <Font size="21.0" />
+                           </font>
+                           <GridPane.margin>
+                              <Insets left="5.0" right="355.0" />
                            </GridPane.margin>
                         </TextField>
                      </children>
@@ -154,7 +164,7 @@
                      </font>
                   </TextField>
                   <ImageView fitHeight="166.0" fitWidth="231.0" layoutX="780.0" layoutY="22.0" pickOnBounds="true" preserveRatio="true" />
-                  <Button layoutX="831.0" layoutY="512.0" mnemonicParsing="false" prefHeight="52.0" prefWidth="188.0" style="-fx-background-color: rgb(2, 222, 61);" text="Dodaj playlistę">
+                  <Button fx:id="confirmButton" layoutX="780.0" layoutY="514.0" mnemonicParsing="false" onMouseEntered="#confirmButtonEntered" onMouseExited="#confirmButtonExited" prefHeight="52.0" prefWidth="188.0" style="-fx-background-color: rgb(2, 222, 61);" text="Dodaj playlistę">
                      <cursor>
                         <Cursor fx:constant="HAND" />
                      </cursor>

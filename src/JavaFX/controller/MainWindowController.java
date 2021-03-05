@@ -100,7 +100,7 @@ public class MainWindowController implements IControllable {
         });
 
         createPlaylistButton.setOnAction( e -> {
-            setScreen(screensPaths.PlaylistScreen);
+            setScreen(screensPaths.ArchivizePlaylistScreen);
         });
     }
 

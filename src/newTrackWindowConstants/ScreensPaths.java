@@ -10,6 +10,7 @@ public class ScreensPaths{
     public static final String TrackListScreen = "tracksListMenu";
     public static final String SideMenuExpanded = "sideMenuBig";
     public static final String SideMenuHidden = "sideMenuHidden";
+    public static final String ArchivizePlaylistScreen = "archivizationScreen";
 
     public ScreensPaths() {
         screens.put(AddNewTrackScreen, "/FXMLfiles/addTrackMenu.fxml");
@@ -17,6 +18,7 @@ public class ScreensPaths{
         screens.put(TrackListScreen, "/FXMLfiles/tracksListMenu.fxml");
         screens.put(SideMenuExpanded, "/sideMenuExpanded.fxml");
         screens.put(SideMenuHidden, "/FXMLfiles/sideMenuHidden.fxml");
+        screens.put(ArchivizePlaylistScreen, "/FXMLfiles/archivizeFromNet.fxml");
     }
 
 }

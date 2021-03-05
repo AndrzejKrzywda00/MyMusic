@@ -3,6 +3,7 @@ package Client;
 import Client.Utils.Request;
 import Client.Utils.Response;
 import Client.configuration.ClientConfiguration;
+import jdk.jshell.spi.ExecutionControl;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -48,6 +49,7 @@ public class HttpClient {
         }).start();
     }
 
+    // do not call this function at all
     // this packs the data into request and calls send(Request, HTTPResponseHandler)
     public static void send(String URI, String body, HTTPResponseHandler handler) {
         Request request = new Request();
@@ -106,15 +108,15 @@ public class HttpClient {
             data.append("\n");
         }
 
-        Response response;
+        Response response;                      // creating the response object
         try {
-            response = new Response(data.toString());
+            response = new Response(data.toString());       // filling it with data
         } catch (Exception e) {
             System.out.println("Error while parsing a response");
             return;
         }
 
-        serverSocket.close();
+        serverSocket.close();                    // socket is closed
         handler.procedeResponse(response);       // processing the response
     }
 
