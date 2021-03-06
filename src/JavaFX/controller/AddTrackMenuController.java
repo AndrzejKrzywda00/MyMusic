@@ -412,10 +412,10 @@ public class AddTrackMenuController implements IControllable {
                     .setThumbnail(thumbnailLink);
 
             Track track = builder.getTrack();
-            track.generateSource();
+            track.generateSource();     // wrap this !!!
 
             String URI = "EMPTY-URI";
-            HTTPConnector.buildRequest(Methods.PUT, URI, MessageType.NewTrackMessage, track.serialize());
+            HTTPConnector.passRequest(Methods.PUT, URI, MessageType.NewTrackMessage, track.serialize());
 
             addedTrackConfirmPane.setOpacity(1);
         });

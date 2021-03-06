@@ -28,6 +28,7 @@ public class Response {
         binaryBody = new byte[0];
     }
 
+    // TODO -- chceck if Response throws Exceptions in all cases of wrong formatted data
     public Response(String rawHTTP) throws Exception {
         if(rawHTTP.trim().length() == 0) {
             throw new Exception("Empty response");
@@ -99,6 +100,10 @@ public class Response {
 
     public String getHeader(String key) {
         return headers.getOrDefault(key, null);     // default value is set to null
+    }
+
+    public Map<String, String> getHeaders() {
+        return headers;
     }
 
     public void setHeader(String key, String value) {

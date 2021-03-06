@@ -2,6 +2,7 @@ package Client;
 
 import Client.Utils.Request;
 import Client.Utils.Response;
+import Client.Utils.StandardDataPiece;
 import Client.Utils.enums.Headers;
 import Client.Utils.enums.Methods;
 import Client.Utils.interfaces.IAccessHttpClient;
@@ -82,7 +83,7 @@ public class HTTPCommunicator implements IAccessHttpClient, HttpClient.HTTPRespo
     }
 
     @Override
-    public void buildRequest(Methods method, String URI, MessageType type, String body) {
+    public void passRequest(Methods method, String URI, MessageType type, String body) {
 
         Request request = new Request();        // here loading default headers
         request.setMethod(method);
@@ -97,18 +98,19 @@ public class HTTPCommunicator implements IAccessHttpClient, HttpClient.HTTPRespo
     }
 
     @Override
-    public void forwardDataPackage() {
+    public void forwardDataPackage(StandardDataPiece data) {
 
     }
 
     @Override
-    public void forwardAuthorizationData() {
+    public void forwardAuthorizationData(StandardDataPiece data) {
 
     }
 
     // procedes to make actions to inform the app
     @Override
     public void procedeResponse(Response response) {
-
+        // depending on the headers make decision
+        // which function will be called
     }
 }

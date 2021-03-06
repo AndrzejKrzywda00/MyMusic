@@ -147,7 +147,7 @@ public class LoginWindowController implements IControllable {
         loginContent.getAllData(loginTextField.getText(), passwordTextField.getText(), wantsToBeRemembered);
 
         String URI = "EMPTY-URI";
-        HTTPConnector.buildRequest(Methods.GET, URI, MessageType.LoginMessage, getData());
+        HTTPConnector.passRequest(Methods.GET, URI, MessageType.LoginMessage, getData());
 
         if (authorized) {
             // always authorized for now
