@@ -4,16 +4,16 @@ It provides user with clean, easy-to use GUI that allows to archive any music tr
 It especially useful for youtube playlists, and tracks that tend to go private
 
 Here is logging window
-[!alt text](loginWindow.png)
+[!alt text](photos/loginWindow.png)
 
 The main window of application
-[!alt text](mainWindow.png)
+[!alt text](photos/mainWindow.png)
 
 Adding a single track to a list
-[!alt text](addTrackWindow.png)
+[!alt text](photos/addTrackWindow.png)
 
 Adding a whole playlist to a list
-[!alt text](addPlaylistWindow.png)
+[!alt text](photos/addPlaylistWindow.png)
 
 Browsing your saved tracks
-[!alt text](tracksListWindow.png)
+[!alt text](photos/tracksListWindow.png)
