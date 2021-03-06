@@ -1,12 +1,10 @@
 package Client;
 
-import App.User;
 import Client.Utils.Request;
 import Client.Utils.Response;
 import Client.Utils.enums.Headers;
 import Client.Utils.enums.Methods;
 import Client.configuration.ClientConfiguration;
-import jdk.jshell.spi.ExecutionControl;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -15,6 +13,8 @@ import java.io.OutputStream;
 import java.net.InetAddress;
 import java.net.Socket;
 import java.nio.charset.StandardCharsets;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -30,8 +30,8 @@ public class HttpClient {
 
     public HttpClient() {
         ClientConfiguration configuration = new ClientConfiguration();
-        address = configuration.getAddress();
-        port = configuration.getPort();
+        address = configuration.getServerAddress();
+        port = configuration.getServerPort();
 
         defaultHeaders.put(Headers.userID.name, "");
         defaultHeaders.put(Headers.login.name, "");
@@ -74,12 +74,17 @@ public class HttpClient {
      */
     private static void handleMessage(Request request, HTTPResponseHandler handler) throws IOException {
 
+        SimpleDateFormat formatter = new SimpleDateFormat("dd.MM.yyyy HH:mm:ss");    // for ex. 05.03.2021 at 19.06.12
+        Date today = new Date();
+
+        defaultHeaders.put(Headers.Date.name, formatter.format(today));
+
         // adding default headers
         for (Map.Entry<String, String> header : defaultHeaders.entrySet()) {
             request.headers.put(header.getKey(), header.getValue());
         }
 
-        System.out.println(request.toString());
+        System.out.println(request.toString());         // controll view
 
         Socket serverSocket = new Socket(InetAddress.getByName(address), port);
 

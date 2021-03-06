@@ -71,13 +71,9 @@ public class HTTPCommunicator implements IAccessHttpClient, HttpClient.HTTPRespo
 
     private void fillHeaders(MessageType type, String body) {
 
-        SimpleDateFormat formatter = new SimpleDateFormat("dd.MM.yyyy HH:mm:ss");    // for ex. 05.03.2021 at 19.06.12
-        Date today = new Date();
-
         // putting in headers all necessary data
         headers.put(Headers.ContentType.name, type.name);
         headers.put(Headers.ContentLength.name, String.valueOf(body.length()));
-        headers.put(Headers.Date.name, formatter.format(today));
     }
 
     @Override

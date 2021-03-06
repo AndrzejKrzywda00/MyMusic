@@ -13,11 +13,11 @@ public class ClientConfiguration {
 
     public ClientConfiguration(){}
 
-    public static String getAddress() {
+    public static String getServerAddress() {
         return serverAddress;
     }
 
-    public static int getPort() {
+    public static int getServerPort() {
         return serverPort;
     }
 
