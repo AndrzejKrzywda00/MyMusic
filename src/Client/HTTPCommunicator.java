@@ -2,6 +2,7 @@ package Client;
 
 import Client.Utils.Request;
 import Client.Utils.Response;
+import Client.Utils.ResponseInterpreter;
 import Client.Utils.StandardDataPiece;
 import Client.Utils.enums.Headers;
 import Client.Utils.enums.Methods;
@@ -112,5 +113,7 @@ public class HTTPCommunicator implements IAccessHttpClient, HttpClient.HTTPRespo
     public void procedeResponse(Response response) {
         // depending on the headers make decision
         // which function will be called
+        ResponseInterpreter interpreter = new ResponseInterpreter();
+
     }
 }

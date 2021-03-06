@@ -21,7 +21,7 @@ public class ResponseInterpreter {
      * @param response is passed from server side
      * @return true if matches the rules, false if not
      */
-    public boolean validateResponse(Response response) {
+    private boolean validateResponse(Response response) {
 
         if (response.getStatusMessage() == Status.OK_200.message || response.getStatusMessage() == Status.Created_201.message) {
             Map<String, String> headers = response.getHeaders();
