@@ -42,7 +42,10 @@ public class ResponseInterpreter {
     public void interpreteResponse(Response response) {
 
         if (validateResponse(response)) {   // response fulfills the requirements and should be interpreted
+            Map<String, String> headers = response.getHeaders();
+            if(headers.get(Headers.ContentType.name) == null) {
 
+            }
         }
 
     }
