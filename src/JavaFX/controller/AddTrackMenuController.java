@@ -394,7 +394,6 @@ public class AddTrackMenuController implements IControllable {
 
         pasteURLButton.setOnAction( e -> {
             pasteURLToTextField();
-            System.out.println(clipboardContent.getUrl());
         });
 
         confirmButton.setOnAction( e -> {

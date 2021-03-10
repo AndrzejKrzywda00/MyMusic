@@ -100,12 +100,15 @@ public class HTTPCommunicator implements IAccessHttpClient, HttpClient.HTTPRespo
 
     @Override
     public void forwardDataPackage(StandardDataPiece data) {
-
+        // forwarding data package - bi or small
+        // depends on the type of the request
     }
 
     @Override
     public void forwardAuthorizationData(StandardDataPiece data) {
-
+        // forwards not only information about
+        // the fact if the user has been authorized
+        // but also the User class serialized
     }
 
     // procedes to make actions to inform the app

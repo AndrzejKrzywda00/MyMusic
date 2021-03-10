@@ -14,6 +14,7 @@ public interface IMediateControllers {
     void registerPlaylistsController(PlaylistsMenuController controller);
     void registerSideMenuExpandedController(sideMenuExpandedController controller);
     void registerSideMenuHiddenController(sideMenuHiddenController controller);
+    void registerArchivizeFromNetController(ArchivizeFromNetController controller);
 
     void mainWindowSetToDefault();
     void wrapSideMenu();

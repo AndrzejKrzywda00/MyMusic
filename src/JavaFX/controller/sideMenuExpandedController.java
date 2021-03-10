@@ -27,9 +27,6 @@ public class sideMenuExpandedController {
     // instance of windowsMediator
     ApplicationController windowsMediator = ApplicationController.getInstance();
 
-    // observer pattern implemetation list
-    ArrayList<IObserver> subscribers = new ArrayList<>();
-
     // user - it's there - because it's displayed here
     private User user = new User();
 

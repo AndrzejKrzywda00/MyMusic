@@ -41,7 +41,7 @@
                      <children>
                         <Label layoutX="31.0" layoutY="51.0" text="Archiwizuj utwory i playlisty z sieci">
                            <font>
-                              <Font name="Segoe UI Light" size="61.0" />
+                              <Font name="Segoe UI Light" size="54.0" />
                            </font>
                         </Label>
                      </children>
@@ -51,10 +51,27 @@
             </Pane>
          </top>
          <left>
-            <Pane prefHeight="464.0" prefWidth="175.0" BorderPane.alignment="CENTER" />
+            <Pane prefHeight="609.0" prefWidth="209.0" BorderPane.alignment="CENTER">
+               <children>
+                  <ImageView fitHeight="69.0" fitWidth="51.0" layoutX="54.0" layoutY="67.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@/img/openMenuIcon.png" />
+                     </image>
+                  </ImageView>
+                  <Label layoutX="105.0" layoutY="85.0" text="powrót">
+                     <font>
+                        <Font size="17.0" />
+                     </font>
+                  </Label>
+                  <Button fx:id="exitButton" layoutX="59.0" layoutY="67.0" mnemonicParsing="false" opacity="0.0" prefHeight="66.0" prefWidth="106.0" text="Button">
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                  </Button>
+               </children></Pane>
          </left>
          <center>
-            <Pane onMouseEntered="#confirmButtonEntered" onMouseExited="#confirmButtonExited" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: white;" BorderPane.alignment="CENTER">
+            <Pane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: white;" BorderPane.alignment="CENTER">
                <children>
                   <GridPane layoutX="50.0" layoutY="131.0" prefHeight="441.0" prefWidth="696.0">
                     <columnConstraints>
@@ -103,7 +120,7 @@
                         <Rectangle arcHeight="80.0" arcWidth="45.0" fill="#c4caa9" height="44.0" stroke="BLACK" strokeType="INSIDE" width="514.0" GridPane.columnIndex="1" />
                         <Rectangle arcHeight="80.0" arcWidth="45.0" fill="#c4caa9" height="44.0" stroke="BLACK" strokeType="INSIDE" width="260.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
                         <Rectangle arcHeight="80.0" arcWidth="45.0" fill="#c4caa9" height="44.0" stroke="BLACK" strokeType="INSIDE" width="168.0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
-                        <Rectangle arcHeight="80.0" arcWidth="45.0" fill="#c4caa9" height="44.0" stroke="BLACK" strokeType="INSIDE" width="88.0" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                        <Rectangle arcHeight="80.0" arcWidth="45.0" fill="#c4caa9" height="44.0" stroke="BLACK" strokeType="INSIDE" width="118.0" GridPane.columnIndex="1" GridPane.rowIndex="3" />
                         <Rectangle arcHeight="80.0" arcWidth="80.0" fill="#c4caa9" height="110.0" stroke="BLACK" strokeType="INSIDE" width="514.0" GridPane.columnIndex="1" GridPane.rowIndex="4">
                            <GridPane.margin>
                               <Insets />
@@ -133,12 +150,12 @@
                               <Insets left="5.0" right="360.0" />
                            </GridPane.margin>
                         </TextField>
-                        <TextField fx:id="amountOfTracksTextField" prefHeight="45.0" prefWidth="521.0" style="-fx-background-color: none;" GridPane.columnIndex="1" GridPane.rowIndex="3">
+                        <TextField fx:id="amountOfTracksTextField" prefHeight="46.0" prefWidth="105.0" style="-fx-background-color: none;" GridPane.columnIndex="1" GridPane.rowIndex="3">
                            <font>
                               <Font size="21.0" />
                            </font>
                            <GridPane.margin>
-                              <Insets left="5.0" right="440.0" />
+                              <Insets left="5.0" right="411.0" />
                            </GridPane.margin>
                         </TextField>
                         <TextField fx:id="accessTextField" prefHeight="45.0" prefWidth="521.0" style="-fx-background-color: none;" GridPane.columnIndex="1" GridPane.rowIndex="5">
@@ -163,8 +180,7 @@
                         <Font size="21.0" />
                      </font>
                   </TextField>
-                  <ImageView fitHeight="166.0" fitWidth="231.0" layoutX="780.0" layoutY="22.0" pickOnBounds="true" preserveRatio="true" />
-                  <Button fx:id="confirmButton" layoutX="780.0" layoutY="514.0" mnemonicParsing="false" onMouseEntered="#confirmButtonEntered" onMouseExited="#confirmButtonExited" prefHeight="52.0" prefWidth="188.0" style="-fx-background-color: rgb(2, 222, 61);" text="Dodaj playlistę">
+                  <Button fx:id="confirmButton" layoutX="808.0" layoutY="528.0" mnemonicParsing="false" onMouseEntered="#confirmButtonEntered" onMouseExited="#confirmButtonExited" prefHeight="52.0" prefWidth="175.0" style="-fx-background-color: white; -fx-border-color: black;" text="Dodaj playlistę">
                      <cursor>
                         <Cursor fx:constant="HAND" />
                      </cursor>
@@ -172,6 +188,17 @@
                         <Font name="System Bold" size="14.0" />
                      </font>
                   </Button>
+                  <Button fx:id="loadPlaylistButton" layoutX="757.0" layoutY="33.0" mnemonicParsing="false" onMouseEntered="#loadPlaylistButtonEntered" onMouseExited="#loadPlaylistButtonExited" prefHeight="42.0" prefWidth="118.0" text="Załaduj playlistę">
+                     <font>
+                        <Font name="System Bold" size="12.0" />
+                     </font>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                  </Button>
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="174.0" layoutX="676.0" layoutY="209.0" stroke="BLACK" strokeType="INSIDE" width="280.0" />
+                  <Label layoutX="912.0" layoutY="185.0" text="Podgląd" />
+                  <ImageView fitHeight="150.0" fitWidth="231.0" layoutX="699.0" layoutY="221.0" pickOnBounds="true" preserveRatio="true" />
                </children></Pane>
          </center>
          <right>

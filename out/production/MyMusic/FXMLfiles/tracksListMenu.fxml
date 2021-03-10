@@ -121,17 +121,17 @@
          <left>
             <Pane prefHeight="582.0" prefWidth="200.0" style="-fx-background-color: rgb(232, 232, 230);" BorderPane.alignment="CENTER">
                <children>
-                  <ImageView fitHeight="80.0" fitWidth="59.0" layoutX="71.0" layoutY="89.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fitHeight="80.0" fitWidth="74.0" layoutX="35.0" layoutY="129.0" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@/img/openMenuIcon.png" />
                      </image>
                   </ImageView>
-                  <Label layoutX="79.0" layoutY="162.0" text="powrót">
+                  <Label layoutX="89.0" layoutY="153.0" prefHeight="31.0" prefWidth="53.0" text="powrót">
                      <font>
                         <Font size="16.0" />
                      </font>
                   </Label>
-                  <Button fx:id="exitButton" layoutX="74.0" layoutY="88.0" mnemonicParsing="false" opacity="0.0" prefHeight="96.0" prefWidth="58.0" text="Button">
+                  <Button fx:id="exitButton" layoutX="36.0" layoutY="128.0" mnemonicParsing="false" opacity="0.0" prefHeight="82.0" prefWidth="113.0" text="Button">
                      <cursor>
                         <Cursor fx:constant="HAND" />
                      </cursor></Button>

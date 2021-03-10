@@ -19,6 +19,7 @@ public class ApplicationController implements IMediateControllers {
     private PlaylistsMenuController playlistC;
     private sideMenuExpandedController sideExC;     // stands for Expanded Controller
     private sideMenuHiddenController sideHidC;      // stands for Hidden Controller
+    private ArchivizeFromNetController archC;
 
     @Override
     public void registerMainWindowController(MainWindowController controller) {
@@ -48,6 +49,11 @@ public class ApplicationController implements IMediateControllers {
     @Override
     public void registerSideMenuHiddenController(sideMenuHiddenController controller) {
         this.sideHidC = controller;
+    }
+
+    @Override
+    public void registerArchivizeFromNetController(ArchivizeFromNetController controller) {
+        this.archC = controller;
     }
 
     @Override
