@@ -46,7 +46,6 @@ public class MainWindowController implements IControllable {
      */
     private ApplicationController windowsMediator;        // class responsible for coummunication between separate controllers
     private PhaseSynchronizer phaseSynchronizer;          // has two states - user is logged or user is not logged
-    private User user;                                    // this is user set to this instance of application
 
     // having a parent - screen that contains of this window
     ScreensContainer superController;
@@ -71,9 +70,6 @@ public class MainWindowController implements IControllable {
         // [ screen1 ], [ screen2 ], [ screen3 ], ...
         // loading all possible screens to this form
         loadScreens();
-
-        user = new User();
-
     }
 
     @FXML

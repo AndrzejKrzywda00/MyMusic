@@ -48,6 +48,7 @@ public class ResponseInterpreter {
 
             if(headers.get(Headers.ContentType.name) == MessageType.LoginMessage.name) {
                 // this means we have logging information inside
+                // data is retrieved do create User class instance
             }
 
             if(headers.get(Headers.ContentType.name) == MessageType.NewPlaylistMessage.name) {

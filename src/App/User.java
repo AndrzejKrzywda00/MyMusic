@@ -8,11 +8,11 @@ public class User implements ITextSerializeable {
     // This class holds all information related to user of the app
     // All this data is obtained from server after successfull logging
 
-    private String name;
-    private String login;
-    private Image avatar;
-    private String description;
-    private ID uniqueID;
+    private String name;            // just the choosen name, will be displayed on the side exapanded menu
+    private String login;           // the login, choosen during registration, also displayed
+    private Image avatar;           // avatar, also displayed
+    private String description;     // rather short one
+    private ID uniqueID;            // added via server
 
     public String getName() { return this.name; }
 
@@ -40,10 +40,11 @@ public class User implements ITextSerializeable {
         return output.toString();
     }
 
-    public void importData(String name, String login, String description, ID uniqueID) {
+    public void importData(String name, String login, Image avatar, String description, ID uniqueID) {
         this.name = name;
         this.login = login;
         this.description = description;
+        this.avatar = avatar;
         this.uniqueID = uniqueID;
     }
 

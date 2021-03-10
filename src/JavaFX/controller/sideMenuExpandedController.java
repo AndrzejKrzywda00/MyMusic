@@ -1,6 +1,8 @@
 package JavaFX.controller;
 
+import App.ID;
 import App.PhaseSynchronizer;
+import App.User;
 import Interfaces.IControllable;
 import Interfaces.IObservable;
 import Interfaces.IObserver;
@@ -27,6 +29,9 @@ public class sideMenuExpandedController {
 
     // observer pattern implemetation list
     ArrayList<IObserver> subscribers = new ArrayList<>();
+
+    // user - it's there - because it's displayed here
+    private User user = new User();
 
     /*
     This class is the controller of actions of side menu
