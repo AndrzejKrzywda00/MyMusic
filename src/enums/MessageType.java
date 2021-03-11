@@ -2,10 +2,15 @@ package enums;
 
 public enum MessageType {
 
+    /*
+    This enum works as container for possible field values for "Content-Type" header
+     */
+
     LoginMessage("login message"),
     NewTrackMessage("new track"),
     NewPlaylistMessage("new playlist"),
-    TracksDataMessage("tracks data");
+    TracksDataMessage("tracks data"),
+    ArchivePlaylistMessage("archive playlist");
 
     public String name;
 

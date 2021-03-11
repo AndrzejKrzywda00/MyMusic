@@ -46,16 +46,16 @@
                            <Font name="Arial Bold" size="35.0" />
                         </font>
                      </Label>
-                     <Button fx:id="removeTrackButton" layoutY="1.0" mnemonicParsing="false" opacity="0.0" prefHeight="329.0" prefWidth="254.0">
-                        <cursor>
-                           <Cursor fx:constant="HAND" />
-                        </cursor>
-                     </Button>
                      <ImageView fitHeight="177.0" fitWidth="198.0" layoutX="59.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
                         <image>
                            <Image url="@/img/playListSymbol.png" />
                         </image>
                      </ImageView>
+                     <Button fx:id="removeTrackButton" layoutY="1.0" mnemonicParsing="false" opacity="0.0" prefHeight="329.0" prefWidth="254.0">
+                        <cursor>
+                           <Cursor fx:constant="HAND" />
+                        </cursor>
+                     </Button>
                   </children>
                </Pane>
                <Pane id="addTrackPane" layoutX="153.0" layoutY="448.0" prefHeight="330.0" prefWidth="258.0">
